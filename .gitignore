@@ -7,6 +7,9 @@
 
 # testing
 /coverage
+/src/__snapshots__
+/__snapshots__
+src/components/nav/__snapshots__/
 
 # production
 /build

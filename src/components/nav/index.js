@@ -1,30 +1,17 @@
 import React from "react";
+import "./navbar.css"
 
 const NavBar = () => {
   return (
-    <div>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+    <div className="navBarWrapper">
+      <nav className="navbar container" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item" href="https://cards-maker.netlify.com">
+          <a className="navbar-item title is-4 " href="https://cards-maker.netlify.com">
             <h1>Cards Maker</h1>
           </a>
         </div>
 
         <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-start">
-            {/* <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link" href="#df">More</a>
-
-              <div className="navbar-dropdown">
-                <a className="navbar-item" href="#df">About</a>
-                <a className="navbar-item" href="#df">Jobs</a>
-                <a className="navbar-item" href="#df">Contact</a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item" href="#df">Report an issue</a>
-              </div>
-            </div> */}
-          </div>
-
           <div className="navbar-end">
             <a className="navbar-item" href="#df">
               Pricing

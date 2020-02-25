@@ -9,7 +9,7 @@ import SEO from './components/SEO';
 function App() {
   return (
     <div>
-      <div className="container">
+      <div>
       <SEO title="Cards Maker" />
         <NavBar />
           <Button color="primary">My Bulma button</Button>
