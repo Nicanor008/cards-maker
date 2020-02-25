@@ -3,67 +3,38 @@ import React from "react";
 const NavBar = () => {
   return (
     <div>
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-  <div className="navbar-brand">
-    <a className="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-    </a>
-
-    <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" className="navbar-menu">
-    <div className="navbar-start">
-      <a className="navbar-item">
-        Home
-      </a>
-
-      <a className="navbar-item">
-        Documentation
-      </a>
-
-      <div className="navbar-item has-dropdown is-hoverable">
-        <a className="navbar-link">
-          More
-        </a>
-
-        <div className="navbar-dropdown">
-          <a className="navbar-item">
-            About
-          </a>
-          <a className="navbar-item">
-            Jobs
-          </a>
-          <a className="navbar-item">
-            Contact
-          </a>
-          <hr className="navbar-divider" />
-          <a className="navbar-item">
-            Report an issue
+      <nav className="navbar" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="https://cards-maker.netlify.com">
+            <h1>Cards Maker</h1>
           </a>
         </div>
-      </div>
-    </div>
 
-    <div className="navbar-end">
-      <div className="navbar-item">
-        <div className="buttons">
-          <a className="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a className="button is-light">
-            Log in
-          </a>
+        <div id="navbarBasicExample" className="navbar-menu">
+          <div className="navbar-start">
+            {/* <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link" href="#df">More</a>
+
+              <div className="navbar-dropdown">
+                <a className="navbar-item" href="#df">About</a>
+                <a className="navbar-item" href="#df">Jobs</a>
+                <a className="navbar-item" href="#df">Contact</a>
+                <hr className="navbar-divider" />
+                <a className="navbar-item" href="#df">Report an issue</a>
+              </div>
+            </div> */}
+          </div>
+
+          <div className="navbar-end">
+            <a className="navbar-item" href="#df">
+              Pricing
+            </a>
+            <a className="navbar-item" href="#df">
+              Login
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  
-</nav>
+      </nav>
     </div>
   );
 };
