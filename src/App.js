@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Button } from 'react-bulma-components';
 import NavBar from './components/nav';
 import SEO from './components/SEO';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <div>
       <SEO title="Cards Maker" />
         <NavBar />
-          <Button color="primary">My Bulma button</Button>
+        <HomePage />
       </div>
     </div>
   );
