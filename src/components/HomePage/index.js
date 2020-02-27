@@ -1,15 +1,32 @@
-import React from 'react';
+import React from "react";
 import "./homePage.css";
 
-import LoveIcons from "../../images/LoveIcons.png";
-import LoveIcon from "../../images/2LoveIcons.png";
+import LoveIcon from "../../images/Love2Icons.svg";
 
 const HomePage = () => {
-    return (
-        <figure className="bodyWrapper">
-            <img src={LoveIcon} alt="Love Icons" className="image is-5by4 responsive" />
-        </figure>
-    )
-}
+  return (
+    <>
+      {/* image */}
+      <figure className="bodyWrapper">
+        <center>
+          <img
+            src={LoveIcon}
+            alt="Love Icons"
+            className="image love2Icons responsive"
+          />
+        </center>
+      </figure>
+
+      {/* about cardsmaker description */}
+      <div className="container">
+        <div class="columns is-mobile is-centered">
+          <div class="column is-primary"><p class="bd-notification is-primary">First column</p></div>
+          <div class="column"><p class="bd-notification is-primary">First column</p></div>
+          <div class="column"><p class="bd-notification is-primary">First column</p></div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default HomePage;
