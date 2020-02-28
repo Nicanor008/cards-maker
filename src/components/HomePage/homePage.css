@@ -1,6 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Kalam&display=swap");
+
 .bodyWrapper {
-    background-color: rgb(250, 140, 195);
+  background-color: rgb(250, 140, 195);
 }
 .love2Icons {
-    padding: 6% 0;
+  padding: 6% 0;
+}
+.columnDescriptionWrapper {
+  padding: 4% 0;
+}
+.rowHeader {
+  font-family: "Kalam";
+  font-weight: bold;
+  font-size: xx-large;
+}
+.rowTextContent {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 27px;
+}
+.rowDescriptionText {
+  padding-top: 10%;
+  margin-left: 10%;
+}
+@media only screen and (max-width: 768px) {
+  .rowDescriptionText {
+    padding-top: 4%;
+    margin-left: 4%;
+  }
+}
+@media only screen and (max-width: 468px) {
+  .rowDescriptionText {
+    padding-top: 2%;
+    margin-left: 1%;
+  }
 }
