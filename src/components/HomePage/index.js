@@ -3,10 +3,12 @@ import "./homePage.css";
 
 import LoveIcon from "../../images/Love2Icons.svg";
 import Wedding from "../../images/Wedding.svg";
+import SEO from "../SEO";
 
 const HomePage = () => {
   return (
     <>
+      <SEO title="Cards Maker" />
       {/* image */}
       <div className="bodyWrapper love2Icons">
         <center>
