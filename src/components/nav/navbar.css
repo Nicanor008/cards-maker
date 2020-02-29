@@ -1,3 +1,12 @@
 .navBarWrapper, .navbar {
-    background-color: #FC82BF;
+    background-color: rgb(248, 103, 175);
+}
+.footerContent, .contentWrapper {
+    padding: 0 6%;
+}
+.textColor {
+    color: white;
+}
+.textDarkColor {
+    color: black;
 }
