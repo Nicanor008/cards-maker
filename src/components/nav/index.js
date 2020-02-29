@@ -1,24 +1,23 @@
 import React from "react";
 import "./navbar.css"
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <div className="navBarWrapper">
       <nav className="navbar container contentWrapper" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item title is-4 " href="https://cards-maker.netlify.com">
-            <h1 className="textColor">Cards Maker</h1>
-          </a>
+          <Link to="/" className="navbar-item title is-4">
+          <h1 className="textColor">Cards Maker</h1>
+          </Link>
         </div>
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-end">
-            <a className="navbar-item textDarkColor" href="#df">
-              Pricing
-            </a>
-            <a className="navbar-item textDarkColor" href="#df">
+            <Link to="/create" className="navbar-item textDarkColor">Create</Link>
+            {/* <a className="navbar-item textDarkColor" href="#df">
               Login
-            </a>
+            </a> */}
           </div>
         </div>
       </nav>

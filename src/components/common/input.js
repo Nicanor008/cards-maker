@@ -1,6 +1,6 @@
 import React from "react";
 
-export const InputComponent = (props) => {
+export const InputComponent = props => {
   return (
     <div className="field">
       <label className="label">{props.labelName}</label>
@@ -26,13 +26,27 @@ export const InputComponent = (props) => {
   );
 };
 
+// text area panel
 export const TextAreaInputComponent = () => {
-    return (
-        <div className="field">
-  <label className="label">Message</label>
-  <div className="control">
-    <textarea className="textarea" placeholder="Textarea"></textarea>
-  </div>
-</div>
-    )
-}
+  return (
+    <div className="field">
+      <label className="label">Message</label>
+      <div className="control">
+        <textarea className="textarea" placeholder="Textarea"></textarea>
+      </div>
+    </div>
+  );
+};
+
+// checkbox
+export const CheckBoxComponent = () => {
+  return (
+    <div class="field">
+      <div class="control">
+        <label class="checkbox">
+          <input type="checkbox" />{" "} Add Background Color
+        </label>
+      </div>
+    </div>
+  );
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import { InputComponent, TextAreaInputComponent } from "../common/input";
+import { InputComponent, TextAreaInputComponent, CheckBoxComponent } from "../common/input";
 
 const CreateCards = () => {
   return (
@@ -7,11 +7,15 @@ const CreateCards = () => {
       <div className="columns">
         <div className="column">
           <InputComponent
-            labelName="Activity"
+            labelName="Activity Name"
             placeholderText="e.g. Wedding or Birthday"
             leftInputIcon="fa fa-calendar"
           />
           <TextAreaInputComponent />
+          <CheckBoxComponent />
+
+
+  <button class="button is-danger is-outlined is-fullwidth is-focused">Danger</button>
         </div>
         <div className="column">
           <center>Input Result Window</center>
