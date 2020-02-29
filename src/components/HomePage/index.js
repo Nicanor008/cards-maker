@@ -4,6 +4,7 @@ import "./homePage.css";
 import LoveIcon from "../../images/Love2Icons.svg";
 import Wedding from "../../images/Wedding.svg";
 import SEO from "../SEO";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -67,7 +68,8 @@ const HomePage = () => {
               ever since the 1500s, when
               <br />
               <br />
-              <button className="button is-danger">Create Cards</button>
+              <Link to="/create">
+              <button className="button is-danger">Create Cards</button></Link>
             </p>
           </div>
         </div>
