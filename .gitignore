@@ -14,6 +14,9 @@ src/components/nav/__snapshots__/
 # production
 /build
 
+# builds - dev
+dist/
+
 # misc
 .DS_Store
 .env.local
@@ -24,3 +27,6 @@ src/components/nav/__snapshots__/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# cache
+.cache/

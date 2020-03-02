@@ -15,9 +15,9 @@ const NavBar = () => {
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-end">
             <Link to="/create" className="navbar-item textDarkColor">Create</Link>
-            {/* <a className="navbar-item textDarkColor" href="#df">
+            <a className="navbar-item textDarkColor" href="#df">
               Login
-            </a> */}
+            </a>
           </div>
         </div>
       </nav>
