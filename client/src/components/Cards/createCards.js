@@ -1,7 +1,15 @@
 import React from "react";
+import { Editor } from '@tinymce/tinymce-react';
+import CKEditor from 'ckeditor4-react';
 import { InputComponent, TextAreaInputComponent, CheckBoxComponent } from "../common/input";
 
-const CreateCards = () => {
+function CreateCards() {
+
+  const handleEditorChange = (e) => {
+    const { handleEditorChange } = this.props;
+    handleEditorChange(e.target.getContent());
+  };
+
   return (
     <div className="container columnDescriptionWrapper">
       <div className="columns">
@@ -12,6 +20,18 @@ const CreateCards = () => {
             leftInputIcon="fa fa-calendar"
           />
           <TextAreaInputComponent />
+          <Editor
+        initialValue={''}
+        init={{
+          plugins: 'link lists image',
+          toolbar:
+            'fontsizeselect bold italic underline alignleft aligncenter alignright alignjustify bullist numlist outdent indent image',
+        }}
+        onChange={handleEditorChange}
+      />
+      {/* <CKEditor
+                    data="<p>Hello from CKEditor 4!</p>"
+                /> */}
           <CheckBoxComponent />
 
 
