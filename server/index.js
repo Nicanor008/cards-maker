@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const chalk = require("chalk");
 const mongoose = require("mongoose");
 const users = require("./routes/api/users");
+const cards = require("./routes/api/cards");
 import emailVerify from "./routes/endpoints/users";
 
 const app = express();
@@ -46,6 +47,7 @@ mongoose.connection.on("error", err => {
 
 app.use("/api/v1/users", users);
 app.use("/verify-email", emailVerify);
+app.use("/api/v1/cards", cards);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () =>
