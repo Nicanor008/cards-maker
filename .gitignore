@@ -17,6 +17,8 @@ src/components/nav/__snapshots__/
 # builds - dev
 dist/
 
+.env
+
 # misc
 .DS_Store
 .env.local

@@ -7,7 +7,7 @@ export const sendMail = async data => {
     service: "gmail",
     auth: {
       user: "shomancodes@gmail.com",
-      pass: process.env.PASSWORD
+      pass: process.env.email_password
     }
   });
 
@@ -22,7 +22,7 @@ export const sendMail = async data => {
     subject: data.subject,
     text: data.text,
     generateTextFromHTML: true,
-    html: `<div><h4>Thank you${data.Username} and welcome to the Shoman Mentorship Progmram where we help you levelup  your Skills</h4></div>
+    html: `<div><h4>Thank you${data.Username}<br /> and welcome to the Shoman Mentorship Progmram where we help you levelup  your Skills</h4></div>
     <div><h5>To get started click on the button below to have your eamil verified 😊😊😊.</h5></div>
    <div> <a href=${link}><button>Verify</button></a></div>`
   };
