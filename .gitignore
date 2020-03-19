@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/client/coverage
 /src/__snapshots__
 /__snapshots__
 src/components/nav/__snapshots__/
@@ -16,6 +17,7 @@ src/components/nav/__snapshots__/
 
 # builds - dev
 dist/
+dist-client/
 
 .env
 
@@ -32,3 +34,5 @@ yarn-error.log*
 
 # cache
 .cache/
+
+yarn-error.log

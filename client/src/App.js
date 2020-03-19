@@ -1,17 +1,18 @@
 import React from "react";
+import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
 import { Route, Switch } from "react-router";
 
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import NavBar from "./components/nav";
-import "./App.css";
+import { store } from './store';
 import HomePage from "./components/HomePage";
 import Footer from "./components/nav/footer";
-import CreateCards from "./components/Cards/createCards";
+import CreateCards from "./containers/Cards/createCards";
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <BrowserRouter>
         <NavBar />
         <Switch>
@@ -20,7 +21,7 @@ function App() {
         </Switch>
         <Footer />
       </BrowserRouter>
-    </div>
+    </Provider>
   );
 }
 

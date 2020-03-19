@@ -30,26 +30,11 @@ mongoose
   .then(() => console.log(chalk.greenBright("connection to the database successful")))
   .catch(err => console.log(err));
 
-  const connectWithRetry = () => {
-    console.log('MongoDB connection with retry')
-    return mongoose.connect(DB, {
-        keepAlive: 1,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        autoIndex: false
-      })
-  }
-
-mongoose.connection.on("error", err => {
-  console.log(`MongoDB connection error: ${err}`);
-  setTimeout(connectWithRetry, 5000);
-});
-
 app.use("/api/v1/users", users);
 app.use("/verify-email", emailVerify);
 app.use("/api/v1/cards", cards);
 
-const port = process.env.PORT || 4000;
+const port = 4000;
 app.listen(port, () =>
   console.log(chalk.magenta(`server running on port ${port}`))
 );

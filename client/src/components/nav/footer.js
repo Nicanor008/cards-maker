@@ -6,8 +6,6 @@ const Footer = () => {
     <div className="navBarWrapper">
       <nav
         className="navbar container"
-        role="navigation"
-        aria-label="main navigation"
       >
         <div className="navbar-brand footerContent">
           <a

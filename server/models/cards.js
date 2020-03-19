@@ -11,20 +11,20 @@ const CardsSchema = new Schema({
     required: true
   },
   backgroundColor: {
-    type: String,
-    required: true
+    type: String
   },
   textColor: {
-    type: String,
-    default: false
+    type: String
   },
   textStyle: {
-    type: String,
+    type: String
+  },
+  borderPresent: {
+    type: Boolean,
     default: false
   },
   borderStyle: {
-    type: String,
-    default: false
+    type: String
   },
   date: {
     type: Date,

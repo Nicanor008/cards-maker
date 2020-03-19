@@ -15,8 +15,8 @@ const HomePage = () => {
         <center>
           <figure className="is-centered">
             <img
-              src={LoveIcon}
               alt="Love Icons"
+              src={LoveIcon}
               className="LoveIcons image"
               width="800"
             />
@@ -58,7 +58,7 @@ const HomePage = () => {
         <div className="container columns is-mobile ">
           <div className="column">
             <figure className="image is-3by1">
-              <img src={Wedding} alt="Wedding people" />
+              <img alt="Wedding people"src={Wedding} />
             </figure>
           </div>
           <div className="column">
