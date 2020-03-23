@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { ChromePicker } from 'react-color'
+import { Link } from 'react-router-dom'
 import {
     InputComponent,
     TextAreaInputComponent,
@@ -169,6 +170,12 @@ class CreateCards extends Component {
                                         </button>
                                         <button className="button is-success is-pulled-right previewButtons">
                                             View
+                                        </button>
+                                        <Link to="/template">
+                                            Choose Templates
+                                        </Link>
+                                        <button className="button is-success is-pulled-right previewButtons">
+                                            Choose Templates
                                         </button>
                                     </>
                                 )}

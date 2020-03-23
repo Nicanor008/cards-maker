@@ -9,6 +9,7 @@ import { store } from './store';
 import HomePage from "./components/HomePage";
 import Footer from "./components/nav/footer";
 import CreateCards from "./containers/Cards/createCards";
+import CardTemplate from "./components/templates";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/create" component={CreateCards} />
+          <Route exact path="/template" component={CardTemplate} />
         </Switch>
         <Footer />
       </BrowserRouter>
