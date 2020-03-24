@@ -1,8 +1,9 @@
 import { all, fork } from 'redux-saga/effects'
-import { watchAddCard } from './cards'
+import { watchAddCard, watchFetchAllCards } from './cards'
 
 export default function* root() {
     yield all([
-          fork(watchAddCard)
+          fork(watchAddCard),
+          fork(watchFetchAllCards)
     ])
 }

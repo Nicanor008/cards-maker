@@ -2,7 +2,7 @@ import { put, call, takeEvery } from 'redux-saga/effects';
 import toastr from 'toastr';
 import * as actions from '../actions/cards';
 import { api } from '../api/api'
-import { CARDS } from '../constants';
+import { CARDS, FETCH_CARDS } from '../constants';
 
 toastr.options = {
   positionClass: 'toast-top-right',
@@ -23,22 +23,24 @@ export function* createCard(action) {
   }
 }
 
-// export function* getStateMaps(action) {
-//   try {
-//     const response = yield call(getLGAs, action.payload);
-//     const { data } = response;
-//     yield put(actions.getLGAMapSuccess(data));
-//   } catch (error) {
-//     yield put(actions.getLGAMapFailure({}));
-//     const errorMessage = error.response
-//       ? error.response.data.message
-//       : 'Error in retrieving LGA Maps';
-//     toastr.warning(errorMessage);
-//   }
-// }
+export function* fetchAllCards(action) {
+  try {
+    const response = yield call(api.cards.list, action.payload);
+    const { data } = response;
+    yield put(actions.CardsSuccessRequest(data));
+  } catch (error) {
+    yield put(actions.FetchCardsFailureRequest({}));
+    const errorMessage = error.response
+      ? error.response.data.message
+      : 'Error in retrieving All Cards';
+    toastr.warning(errorMessage);
+  }
+}
 
 /** WATCHERS */
 export function* watchAddCard() {
   yield takeEvery(CARDS, createCard);
 }
-
+export function* watchFetchAllCards() {
+  yield takeEvery(FETCH_CARDS, fetchAllCards)
+}

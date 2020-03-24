@@ -107,7 +107,7 @@ class CreateCards extends Component {
                                         onClick={this.handleClick}
                                         className="button is-primary"
                                     >
-                                        Pick Color
+                                        Pick BG Color
                                     </button>
                                     {this.state.displayColorPicker ? (
                                         <div style={popover}>
@@ -161,24 +161,23 @@ class CreateCards extends Component {
                                     </div>
                                 </center>
                                 {message && (
-                                    <>
-                                        <button className="button is-info is-pulled-right previewButtons">
-                                            Share
-                                        </button>
-                                        <button className="button is-primary is-pulled-right previewButtons">
-                                            Download
-                                        </button>
-                                        <button className="button is-success is-pulled-right previewButtons">
-                                            View
-                                        </button>
-                                        <Link to="/template">
-                                            Choose Templates
-                                        </Link>
-                                        <button className="button is-success is-pulled-right previewButtons">
-                                            Choose Templates
-                                        </button>
-                                    </>
-                                )}
+                                        <>
+                                            <button className="button is-info is-pulled-right previewButtons">
+                                                Share
+                                            </button>
+                                            <button className="button is-primary is-pulled-right previewButtons">
+                                                Download
+                                            </button>
+                                            <button className="button is-success is-pulled-right previewButtons">
+                                                View
+                                            </button>
+                                            <Link
+                                                to="/template"
+                                                className="button is-success is-pulled-right previewButtons"
+                                            >
+                                                Choose Templates
+                                            </Link>
+                                        </>)}
                             </div>
                         )}
                     </div>

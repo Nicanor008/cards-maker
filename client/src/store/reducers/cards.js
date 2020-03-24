@@ -1,5 +1,7 @@
 import {
-    CARDS, CARDS_SUCCESS, CARDS_FAILURE
+    CARDS, CARDS_SUCCESS, CARDS_FAILURE, FETCH_CARDS,
+    FETCH_CARDS_SUCCESS,
+    FETCH_CARDS_FAILURE,
 } from '../constants'
 
 /**
@@ -37,3 +39,29 @@ const cardsReducer = (state = initialState, { type, payload }) => {
 }
 
 export default cardsReducer
+
+
+export const fetchCardsReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case FETCH_CARDS:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case FETCH_CARDS_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case FETCH_CARDS_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
+}
