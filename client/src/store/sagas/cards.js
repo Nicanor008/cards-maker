@@ -12,7 +12,9 @@ toastr.options = {
 
 export function* createCard(action) {
   try {
+    console.log(">>>>>>>.........cards b4.....", api.cards.create)
     const response = yield call(api.cards.create, action.payload);
+    console.log(">>>>>>>.........cards b4.....")
     yield put(actions.CardsSuccessRequest(response.data));
     toastr.success(response.data.message);
   } catch (e) {

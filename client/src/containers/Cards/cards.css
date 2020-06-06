@@ -1,10 +1,3 @@
-.previewWrapper {
-    border:4px dotted pink;
-    margin:20px;
-    border-radius:3px;
-}
-
-
 .bg-tile {
     background-image: linear-gradient(-45deg, transparent 75%, #f4f7fb 75%),
       linear-gradient(45deg, transparent 75%, #f4f7fb 75%),

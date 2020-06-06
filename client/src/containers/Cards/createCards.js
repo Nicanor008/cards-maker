@@ -2,40 +2,59 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { ChromePicker } from 'react-color'
-import { Link } from 'react-router-dom'
 import {
-    InputComponent,
     TextAreaInputComponent,
+    DropdownBorderComponent,
+    DropdownBorderWidth,
     CheckBoxComponent,
 } from '../../components/common/input'
 import * as Actions from '../../store/actions/cards'
 import './cards.css'
-
-import TodoList from '../../images/todoList.svg'
+import Picker from 'vanilla-picker'
+import ReactQuill from 'react-quill'
+import { PreviewCards } from '../../components/cards/previewCards'
+import TagsInput from 'react-tagsinput'
+import 'react-tagsinput/react-tagsinput.css'
 
 class CreateCards extends Component {
     state = {
-        name: '',
+        tags: [],
+        tag: '',
+        name: "",
         message: '',
-        borderPresent: false,
-        textColor: '',
-        textStyle: '',
-        borderStyle: '',
-        borderPresent: '',
-        displayColorPicker: false,
+        border: 'groove',
+        borderWidth: '1px',
+        borderColor: 'pink',
+        backgroundColor: '',
+        useTemplate: false,
+        isPublic: false,
     }
 
-    onInputChange = e => {
-        if (e.target.name === 'borderPresent' && e.target.value === 'on') {
-            this.setState({
-                borderPresent: !this.state.borderPresent,
-            })
-        } else {
-            this.setState({
-                [e.target.name]: e.target.value,
-            })
+    onCheckBoxChange = () => {
+        this.setState({
+            isPublic: !this.state.isPublic,
+        })
+    }
+
+    onInputChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
+    }
+
+    onEnterTags = (e) => {
+        const { tags } = this.state
+        if (e.target.name === 'tag' && e.charCode === 13) {
+            tags.push(e.target.value)
         }
+    }
+
+    onTitleNameChange = (html) => {
+        this.setState({ name: html })
+    }
+
+    onTextAreaChange = (html) => {
+        this.setState({ message: html })
     }
 
     onSubmitCard = () => {
@@ -43,143 +62,165 @@ class CreateCards extends Component {
         let {
             name,
             message,
-            borderPresent,
-            textColor,
-            textStyle,
-            borderStyle,
+            backgroundColor,
+            border,
+            useTemplate,
+            borderWidth,
+            borderColor,
+            isPublic,
+            tags,
         } = this.state
         const data = {
             name,
             message,
-            borderPresent,
-            textColor,
-            textStyle,
-            borderStyle,
+            backgroundColor,
+            border: `${borderWidth} ${border} ${borderColor}`,
+            useTemplate,
+            isPublic,
+            tags,
         }
         return AddNewCard(data)
     }
 
-    onChange = color => {
-        console.log(color)
+    ColorPicker = (e) => {
+        const PreviewWrapper = document.getElementById('preview')
+        if (e.target.name === 'borderColor') {
+            const popupCustom = new Picker({
+                parent: PreviewWrapper,
+                popup: 'left',
+                color: 'rgb(248, 103, 175)',
+                editorFormat: 'rgba',
+                onChange: (color) => {
+                    this.setState({ borderColor: color.hex })
+                    PreviewWrapper.style.borderColor = color.rgbaString
+                },
+            })
+            return popupCustom.openHandler()
+        } else {
+            const popupCustom = new Picker({
+                parent: PreviewWrapper,
+                popup: 'left',
+                color: 'rgb(248, 103, 175)',
+                editorFormat: 'rgba',
+                onChange: (color) => {
+                    this.setState({ backgroundColor: color.hex })
+                    PreviewWrapper.style.backgroundColor = color.rgbaString
+                    PreviewWrapper.style.borderBlockEndColor = color.rgbaString
+                },
+            })
+            return popupCustom.openHandler()
+        }
     }
 
-    handleClick = () => {
-        this.setState({ displayColorPicker: !this.state.displayColorPicker })
-    }
-
-    handleClose = () => {
-        this.setState({ displayColorPicker: false })
+    handleChangeTags = (tags, e) => {
+        this.setState({ tags })
     }
 
     render() {
         const { cards } = this.props
-        const { name, message, borderPresent } = this.state
-        const popover = {
-            position: 'absolute',
-            zIndex: '2',
-        }
-        const cover = {
-            position: 'fixed',
-            top: '0px',
-            right: '0px',
-            bottom: '0px',
-            left: '0px',
-        }
+        const { name, message, border, borderWidth, borderColor, tags } = this.state
         return (
             <div className="container columnDescriptionWrapper">
                 <div className="columns">
                     <div className="column">
-                        <InputComponent
-                            labelName="Activity Name"
-                            placeholderText="e.g. Wedding or Birthday"
-                            leftInputIcon="fa fa-calendar"
-                            onchange={this.onInputChange}
-                            error={cards.name === ''}
-                        />
+                        {/* title input */}
                         <TextAreaInputComponent
-                            onchange={this.onInputChange}
-                            error={cards.message === ''}
+                            onchange={this.onTitleNameChange}
+                            error={cards.name === ''}
+                            value={name}
+                            labelName="Event Card Title"
+                            placeholder="Event Card Title"
                         />
-                        <div className="columns">
+
+                        {/* message input */}
+                        <label className="label">Message</label>
+                        <ReactQuill
+                            onChange={this.onTextAreaChange}
+                            error={cards.message === ''}
+                            value={message}
+                            placeholder="Event Message. Make it as juicy as possible"
+                            theme="snow"
+                        />
+
+                        {/* border properties */}
+                        <div
+                            className="columns"
+                            style={{ paddingTop: '0.5rem' }}
+                        >
                             <div className="column">
-                                <>
-                                    <button
-                                        onClick={this.handleClick}
-                                        className="button is-primary"
-                                    >
-                                        Pick BG Color
-                                    </button>
-                                    {this.state.displayColorPicker ? (
-                                        <div style={popover}>
-                                            <div
-                                                style={cover}
-                                                onClick={this.handleClose}
-                                            />
-                                            <ChromePicker />
-                                        </div>
-                                    ) : null}
-                                </>
+                                <DropdownBorderWidth
+                                    onSelectChange={this.onInputChange}
+                                    borderWidth={borderWidth}
+                                />
                             </div>
                             <div className="column">
+                                <DropdownBorderComponent
+                                    onSelectChange={this.onInputChange}
+                                    border={border}
+                                />
+                            </div>
+                            <div className="column">
+                                <label className="label">Border Color</label>
+                                <button
+                                    onClick={this.ColorPicker}
+                                    className="button is-pink"
+                                    name="borderColor"
+                                    style={{
+                                        backgroundColor: `${borderColor}`,
+                                    }}
+                                >
+                                    {borderColor}
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* background color */}
+                        <div className="columns">
+                            <div className="column">
+                                <button
+                                    onClick={this.ColorPicker}
+                                    className="button is-primary"
+                                >
+                                    Card Background Color
+                                </button>
+                            </div>
+                            <div
+                                className="column"
+                                style={{ paddingTop: '1.3rem' }}
+                            >
+                                {/* post publicly */}
                                 <CheckBoxComponent
-                                    onchange={this.onInputChange}
+                                    onchange={this.onCheckBoxChange}
+                                    checkboxName="Public"
+                                    name="isPublic"
                                 />
                             </div>
                         </div>
 
+                        <TagsInput
+                            value={tags}
+                            onChange={this.handleChangeTags}
+                            placeholder="Card Tags"
+                        />
+                        <br />
                         <button
-                            className={`button is-danger is-outlined is-fullwidth is-focused ${cards.loading &&
-                                `is-loading`}`}
+                            className={`button is-danger is-outlined is-fullwidth is-focused ${
+                                cards.loading && `is-loading`
+                            }`}
                             onClick={() => this.onSubmitCard()}
                         >
                             Create Card
                         </button>
                     </div>
+                    {/* preview the created card */}
                     <div className="column">
-                        {name === '' ? (
-                            <center>
-                                <img
-                                    alt="Arrange Data"
-                                    src={TodoList}
-                                    width="400"
-                                />
-                            </center>
-                        ) : (
-                            <div>
-                                <center>
-                                    <h1 className="title">Preview Card</h1>
-                                    <div
-                                        className={
-                                            borderPresent && `previewWrapper`
-                                        }
-                                    >
-                                        <br />
-                                        <h1>{name}</h1>
-                                        <br />
-                                        <p>{message}</p>
-                                        <br />
-                                    </div>
-                                </center>
-                                {message && (
-                                        <>
-                                            <button className="button is-info is-pulled-right previewButtons">
-                                                Share
-                                            </button>
-                                            <button className="button is-primary is-pulled-right previewButtons">
-                                                Download
-                                            </button>
-                                            <button className="button is-success is-pulled-right previewButtons">
-                                                View
-                                            </button>
-                                            <Link
-                                                to="/template"
-                                                className="button is-success is-pulled-right previewButtons"
-                                            >
-                                                Choose Templates
-                                            </Link>
-                                        </>)}
-                            </div>
-                        )}
+                        <PreviewCards
+                            name={name}
+                            message={message}
+                            border={border}
+                            borderWidth={borderWidth}
+                            borderColor={borderColor}
+                        />
                     </div>
                 </div>
             </div>
@@ -187,7 +228,7 @@ class CreateCards extends Component {
     }
 }
 
-const mapStateToProps = state => ({ cards: state.cardsReducer })
+const mapStateToProps = (state) => ({ cards: state.cardsReducer })
 
 const mapDispatchToProps = {
     AddNewCard: Actions.CardsRequest,
