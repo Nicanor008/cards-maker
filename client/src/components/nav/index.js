@@ -1,28 +1,50 @@
-import React from "react";
-import "./navbar.css"
-import { Link } from "react-router-dom";
+import React from 'react'
+import './navbar.css'
+import { Link, NavLink } from 'react-router-dom'
+// import NavLink from './navLink'
 
 const NavBar = () => {
-  return (
-    <div className="navBarWrapper">
-      <nav className="navbar container contentWrapper" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-item title is-4">
-          <h1 className="textColor">Cards Maker</h1>
-          </Link>
-        </div>
+    return (
+        <div className="navBarWrapper">
+            <nav
+                className="navbar container contentWrapper"
+                role="navigation"
+                aria-label="main navigation"
+            >
+                <div className="navbar-brand">
+                    <Link to="/" className="navbar-item title is-3  NavBarBrand">
+                        <span className="textColor">Cards Maker</span>
+                    </Link>
+                </div>
 
-        <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-end">
-            <Link to="/create" className="navbar-item textDarkColor">Create</Link>
-            <a className="navbar-item textDarkColor" href="#df">
-              Login
-            </a>
-          </div>
+                <div id="navbarBasicExample" className="navbar-menu">
+                    <div className="navbar-end">
+                        <NavLink
+                            to="/create"
+                            activeClassName="selected"
+                            className="navbar-item textDarkColor"
+                        >
+                            Create
+                        </NavLink>
+                        <NavLink
+                            to="/me"
+                            activeClassName="selected"
+                            className="navbar-item textDarkColor"
+                        >
+                            me
+                        </NavLink>
+                        <NavLink
+                            to="/login"
+                            activeClassName="selected"
+                            className="navbar-item textDarkColor"
+                        >
+                            Login
+                        </NavLink>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </nav>
-    </div>
-  );
-};
+    )
+}
 
-export default NavBar;
+export default NavBar

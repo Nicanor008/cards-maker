@@ -43,7 +43,6 @@ export const TextAreaInputComponent = (props) => {
                     value={props.value}
                     onChange={props.onchange}
                     placeholder={props.placeholder}
-                    bounds={'.app'}
                 />
             </div>
         </div>

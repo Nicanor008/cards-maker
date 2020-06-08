@@ -7,6 +7,12 @@
 .textColor {
     color: white;
 }
+.NavBarBrand {
+    padding: 0 auto;
+}
 .textDarkColor {
     color: black;
+}
+.navbar-end > .selected {
+    background-color: white;
 }

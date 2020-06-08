@@ -20,7 +20,7 @@ class CreateCards extends Component {
     state = {
         tags: [],
         tag: '',
-        name: "",
+        name: '',
         message: '',
         border: 'groove',
         borderWidth: '1px',
@@ -28,6 +28,7 @@ class CreateCards extends Component {
         backgroundColor: '',
         useTemplate: false,
         isPublic: false,
+        test: []
     }
 
     onCheckBoxChange = () => {
@@ -118,7 +119,8 @@ class CreateCards extends Component {
 
     render() {
         const { cards } = this.props
-        const { name, message, border, borderWidth, borderColor, tags } = this.state
+        const { name, message, border, borderWidth, borderColor, tags, test } = this.state
+        // console.log("??>>>>>>>>>>>", test)
         return (
             <div className="container columnDescriptionWrapper">
                 <div className="columns">
