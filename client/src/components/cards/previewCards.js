@@ -1,12 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import TodoListPicture from '../../images/todoList.svg'
-// const test = <p>me test</p>
+import Modal from '../modal'
+import DecoratedLine from '../../images/DecoratedLine.svg'
+
+function SetInnerHTML(value, paddingvalue) {
+    return (
+        <div
+            dangerouslySetInnerHTML={{
+                __html: value,
+            }}
+            style={{ padding: paddingvalue }}
+        />
+    )
+}
 
 export const PreviewCards = (props) => {
     return (
         <div>
-            {/* {n.replace(/^"(.*)"$/, '$1')} */}
             <center>
                 <h1 className="title">Preview Card</h1>
                 <div
@@ -28,9 +39,9 @@ export const PreviewCards = (props) => {
                         </center>
                     ) : (
                         <>
-                        <div dangerouslySetInnerHTML={{__html: props.name }} style={{ padding:'0.5rem' }}/>
-                            <br />
-                        <div dangerouslySetInnerHTML={{__html: props.message }} style={{ padding:'0.5rem' }}/>
+                            {SetInnerHTML(props.name, '0.5rem')}
+                            <img src={DecoratedLine} alt="Horizontal line" />
+                            {SetInnerHTML(props.message, '0.5rem')}
                         </>
                     )}
                     <br />
@@ -45,15 +56,30 @@ export const PreviewCards = (props) => {
                     <button className="button is-primary is-pulled-right previewButtons">
                         Download
                     </button>
-                    <button className="button is-success is-pulled-right previewButtons">
+                    <button
+                        className="button is-success is-pulled-right previewButtons"
+                        onClick={props.onViewModal}
+                    >
                         View
                     </button>
-                    <Link
+                    {/* <Link
                         to="/template"
                         className="button is-success is-pulled-right previewButtons"
                     >
                         Choose Templates
-                    </Link>
+                    </Link> */}
+
+                    {/* modal */}
+                    <Modal
+                        show={props.modalOpen}
+                        handleClose={props.onCloseModal}
+                    >
+                        <center>
+                            {SetInnerHTML(props.name)}
+                            <img src={DecoratedLine} alt="Horizontal line" />
+                            {SetInnerHTML(props.message)}
+                        </center>
+                    </Modal>
                 </>
             )}
         </div>

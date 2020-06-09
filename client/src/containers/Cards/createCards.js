@@ -15,6 +15,7 @@ import ReactQuill from 'react-quill'
 import { PreviewCards } from '../../components/cards/previewCards'
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
+import Modal from '../../components/modal'
 
 class CreateCards extends Component {
     state = {
@@ -28,7 +29,8 @@ class CreateCards extends Component {
         backgroundColor: '',
         useTemplate: false,
         isPublic: false,
-        test: []
+        test: [],
+        modalOpen: false,
     }
 
     onCheckBoxChange = () => {
@@ -117,9 +119,26 @@ class CreateCards extends Component {
         this.setState({ tags })
     }
 
+    showModal = () => {
+        console.log("??>>>>>>>>>>>...got here........>>>>>>")
+        this.setState({ modalOpen: true })
+    }
+
+    hideModal = () => {
+        this.setState({ modalOpen: false })
+    }
+
     render() {
         const { cards } = this.props
-        const { name, message, border, borderWidth, borderColor, tags, test } = this.state
+        const {
+            name,
+            message,
+            border,
+            borderWidth,
+            borderColor,
+            tags,
+            test,
+        } = this.state
         // console.log("??>>>>>>>>>>>", test)
         return (
             <div className="container columnDescriptionWrapper">
@@ -216,12 +235,22 @@ class CreateCards extends Component {
                     </div>
                     {/* preview the created card */}
                     <div className="column">
+                        <Modal
+                            show={this.state.modalOpen}
+                            handleClose={this.hideModal}
+                        >
+                            <p>Modal</p>
+                            <p>Data</p>
+                        </Modal>
                         <PreviewCards
                             name={name}
                             message={message}
                             border={border}
                             borderWidth={borderWidth}
                             borderColor={borderColor}
+                            onViewModal={this.showModal}
+                            modalOpen={this.state.modalOpen}
+                            onCloseModal={this.hideModal}
                         />
                     </div>
                 </div>

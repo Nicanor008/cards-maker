@@ -12,9 +12,9 @@ const Footer = () => {
             className="navbar-item title is-6"
             href="https://cards-maker.netlify.com"
           >
-            <h1 style={{ color: "white", fontWeight: "bold" }}>
+            <p style={{ color: "white", fontWeight: "bold" }}>
               &copy; 2020 - Cards Maker
-            </h1>
+            </p>
           </a>
         </div>
       </nav>

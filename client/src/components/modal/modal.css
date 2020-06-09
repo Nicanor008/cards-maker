@@ -1,0 +1,43 @@
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 35; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(36, 0, 28, 0.5); /* Black w/ opacity */
+}
+.modal-main {
+    border-radius: 3px;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+}
+.display-block {
+    display: block;
+}
+.display-none {
+    display: none;
+}
+.closeModalBtn {
+    float: right;
+    cursor: pointer;
+}
+@media only screen and (max-width: 787px) {
+    .modal-main {
+        width: 70%;
+        padding: 1.1rem;
+        border-radius: 2px;
+    }
+}
+@media only screen and (max-width: 487px) {
+    .modal-main {
+        width: 80%;
+        padding: 0.8rem;
+        border-radius: 2px;
+    }
+}
