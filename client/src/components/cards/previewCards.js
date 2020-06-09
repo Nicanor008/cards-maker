@@ -74,11 +74,24 @@ export const PreviewCards = (props) => {
                         show={props.modalOpen}
                         handleClose={props.onCloseModal}
                     >
-                        <center>
-                            {SetInnerHTML(props.name)}
-                            <img src={DecoratedLine} alt="Horizontal line" />
-                            {SetInnerHTML(props.message)}
-                        </center>
+                        <div
+                            style={{
+                                border: `${props.borderWidth} ${props.border} ${props.borderColor}`,
+                                margin: '1rem',
+                                borderRadius: '2px',
+                                padding: '2rem',
+                                backgroundColor: `${props.backgroundColor}`
+                            }}
+                        >
+                            <center>
+                                {SetInnerHTML(props.name)}
+                                <img
+                                    src={DecoratedLine}
+                                    alt="Horizontal line"
+                                />
+                                {SetInnerHTML(props.message)}
+                            </center>
+                        </div>
                     </Modal>
                 </>
             )}

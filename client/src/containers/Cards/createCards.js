@@ -65,7 +65,7 @@ class CreateCards extends Component {
 
     onSubmitCard = () => {
         const { AddNewCard } = this.props
-        
+
         let {
             name,
             message,
@@ -140,7 +140,7 @@ class CreateCards extends Component {
             borderWidth,
             borderColor,
             tags,
-            test,
+            backgroundColor,
         } = this.state
         return (
             <div className="container columnDescriptionWrapper">
@@ -253,6 +253,7 @@ class CreateCards extends Component {
                             onViewModal={this.showModal}
                             modalOpen={this.state.modalOpen}
                             onCloseModal={this.hideModal}
+                            backgroundColor={backgroundColor}
                         />
                     </div>
                 </div>
