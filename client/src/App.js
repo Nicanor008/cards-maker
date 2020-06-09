@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage";
 import Footer from "./components/nav/footer";
 import CreateCards from "./containers/Cards/createCards";
 import CardTemplate from "./components/templates";
+import login from "./containers/Auth/login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/create" component={CreateCards} />
           <Route exact path="/template" component={CardTemplate} />
+          <Route exact path="/login" component={login} />
         </Switch>
         <Footer />
       </BrowserRouter>

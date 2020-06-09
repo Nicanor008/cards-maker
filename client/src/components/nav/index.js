@@ -1,7 +1,7 @@
 import React from 'react'
 import './navbar.css'
 import { Link, NavLink } from 'react-router-dom'
-// import NavLink from './navLink'
+import { getToken } from '../../utils/getToken'
 
 const NavBar = () => {
     return (
@@ -12,7 +12,10 @@ const NavBar = () => {
                 aria-label="main navigation"
             >
                 <div className="navbar-brand">
-                    <Link to="/" className="navbar-item title is-3  NavBarBrand">
+                    <Link
+                        to="/"
+                        className="navbar-item title is-3  NavBarBrand"
+                    >
                         <span className="textColor">Cards Maker</span>
                     </Link>
                 </div>
@@ -33,13 +36,22 @@ const NavBar = () => {
                         >
                             me
                         </NavLink>
-                        <NavLink
-                            to="/login"
-                            activeClassName="selected"
-                            className="navbar-item textDarkColor"
-                        >
-                            Login
-                        </NavLink>
+                        {localStorage.getItem('token') !== null ? (
+                            <NavLink
+                                to="/"
+                                className="navbar-item textDarkColor"
+                            >
+                                Logout
+                            </NavLink>
+                        ) : (
+                            <NavLink
+                                to="/login"
+                                activeClassName="selected"
+                                className="navbar-item textDarkColor"
+                            >
+                                Login
+                            </NavLink>
+                        )}
                     </div>
                 </div>
             </nav>

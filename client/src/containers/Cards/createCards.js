@@ -16,6 +16,9 @@ import { PreviewCards } from '../../components/cards/previewCards'
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
 import Modal from '../../components/modal'
+import { getToken } from '../../utils/getToken'
+// import getToken from '../../utils/getToken'
+// import { getToken } from '../../utils/getToken'
 
 class CreateCards extends Component {
     state = {
@@ -62,6 +65,7 @@ class CreateCards extends Component {
 
     onSubmitCard = () => {
         const { AddNewCard } = this.props
+        
         let {
             name,
             message,
@@ -120,7 +124,6 @@ class CreateCards extends Component {
     }
 
     showModal = () => {
-        console.log("??>>>>>>>>>>>...got here........>>>>>>")
         this.setState({ modalOpen: true })
     }
 
@@ -139,7 +142,6 @@ class CreateCards extends Component {
             tags,
             test,
         } = this.state
-        // console.log("??>>>>>>>>>>>", test)
         return (
             <div className="container columnDescriptionWrapper">
                 <div className="columns">

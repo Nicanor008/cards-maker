@@ -16,7 +16,7 @@ export const InputComponent = (props) => {
                     className={`input ${
                         props.error ? `is-danger` : ``
                     }`}
-                    type="text"
+                    type={props.textInputType ? props.textInputType : `text`}
                     placeholder={props.placeholderText}
                     onChange={props.onchange}
                     name={props.inputName}

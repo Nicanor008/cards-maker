@@ -8,4 +8,7 @@ export const api = {
         list: () => server.get('/cards'),
         // delete: id => server.delete(`${'api/v1/cards'}/${id}`),
     },
+    login: {
+        create: (data) => server.post('/auth/login', data)
+    }
 }
