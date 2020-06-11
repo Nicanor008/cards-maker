@@ -1,7 +1,9 @@
-.navBarWrapper, .navbar {
+.navBarWrapper,
+.navbar {
     background-color: rgb(248, 103, 175);
 }
-.footerContent, .contentWrapper {
+.footerContent,
+.contentWrapper {
     padding: 0 6%;
 }
 .textColor {
@@ -15,4 +17,14 @@
 }
 .navbar-end > .selected {
     background-color: white;
+}
+.logoutBtn {
+    background: none;
+    border: 0;
+    color: black;
+    font-size: medium;
+    cursor: pointer;
+}
+.logoutBtn:visited, .logoutBtn:active {
+    border: 0;
 }

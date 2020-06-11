@@ -3,6 +3,13 @@ import './navbar.css'
 import { Link, NavLink } from 'react-router-dom'
 import { getToken } from '../../utils/getToken'
 
+// logout onClick Handler
+function logoutClickHandler(e) {
+    e.preventDefault()
+    localStorage.removeItem('token')
+    return window.location.replace('/')
+}
+
 const NavBar = () => {
     return (
         <div className="navBarWrapper">
@@ -37,12 +44,12 @@ const NavBar = () => {
                             me
                         </NavLink>
                         {localStorage.getItem('token') !== null ? (
-                            <NavLink
-                                to="/"
-                                className="navbar-item textDarkColor"
+                            <button
+                                className="navbar-item logoutBtn"
+                                onClick={logoutClickHandler}
                             >
                                 Logout
-                            </NavLink>
+                            </button>
                         ) : (
                             <NavLink
                                 to="/login"
