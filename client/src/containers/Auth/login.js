@@ -17,7 +17,7 @@ class Login extends Component {
         const { login } = this.props
         if (login && login.message === 'Login successful') {
             setTimeout(() => {
-                window.location.assign('/create')
+                window.location.assign('/dashboard')
             }, 1000)
         }
     }

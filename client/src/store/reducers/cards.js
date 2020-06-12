@@ -1,7 +1,13 @@
 import {
-    CARDS, CARDS_SUCCESS, CARDS_FAILURE, FETCH_CARDS,
+    CARDS,
+    CARDS_SUCCESS,
+    CARDS_FAILURE,
+    FETCH_CARDS,
     FETCH_CARDS_SUCCESS,
     FETCH_CARDS_FAILURE,
+    FETCH_USER_CARDS,
+    FETCH_USER_CARDS_SUCCESS,
+    FETCH_USER_CARDS_FAILURE,
 } from '../constants'
 
 /**
@@ -11,6 +17,37 @@ import {
  */
 export const initialState = {
     loading: false,
+}
+
+const baseReducer = (
+    state = initialState,
+    { type, payload },
+    request,
+    success,
+    error
+) => {
+    switch (type) {
+        case request:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case success:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case error:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
 }
 
 const cardsReducer = (state = initialState, { type, payload }) => {
@@ -40,22 +77,25 @@ const cardsReducer = (state = initialState, { type, payload }) => {
 
 export default cardsReducer
 
+export const fetchAllCards = () => {
+    return baseReducer(FETCH_CARDS, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE)
+}
 
-export const fetchCardsReducer = (state = initialState, { type, payload }) => {
+export const userCards = (state = initialState, { type, payload }) => {
     switch (type) {
-        case FETCH_CARDS:
+        case FETCH_USER_CARDS:
             return {
                 ...state,
                 ...payload,
                 loading: true,
             }
-        case FETCH_CARDS_SUCCESS:
+        case FETCH_USER_CARDS_SUCCESS:
             return {
                 ...state,
                 ...payload,
                 loading: false,
             }
-        case FETCH_CARDS_FAILURE:
+        case FETCH_USER_CARDS_FAILURE:
             return {
                 ...state,
                 ...payload,

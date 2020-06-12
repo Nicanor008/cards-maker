@@ -3,17 +3,7 @@ import { Link } from 'react-router-dom'
 import TodoListPicture from '../../images/todoList.svg'
 import Modal from '../modal'
 import DecoratedLine from '../../images/DecoratedLine.svg'
-
-function SetInnerHTML(value, paddingvalue) {
-    return (
-        <div
-            dangerouslySetInnerHTML={{
-                __html: value,
-            }}
-            style={{ padding: paddingvalue }}
-        />
-    )
-}
+import SetInnerHTML from '../../utils/setInnerHTML'
 
 export const PreviewCards = (props) => {
     return (

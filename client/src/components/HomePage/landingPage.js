@@ -2,11 +2,10 @@ import React from "react";
 import "./homePage.css";
 
 import LoveIcon from "../../images/Love2Icons.svg";
-import Wedding from "../../images/Wedding.svg";
 import SEO from "../SEO";
-import { Link } from "react-router-dom";
+import { CreateCardsDescription } from "./createCardsDescription";
 
-const HomePage = () => {
+const LandingPage = () => {
   return (
     <>
       <SEO title="Cards Maker" />
@@ -55,27 +54,12 @@ const HomePage = () => {
 
         <br /><br />
 
-        <div className="container columns is-mobile ">
-          <div className="column">
-            <figure className="image is-3by1">
-              <img alt="Wedding people"src={Wedding} />
-            </figure>
-          </div>
-          <div className="column">
-            <p className="rowTextContent rowDescriptionText">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when
-              <br />
-              <br />
-              <Link to="/create">
-              <button className="button is-danger">Create Cards</button></Link>
-            </p>
-          </div>
-        </div>
+        <CreateCardsDescription description="Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when" />
       </div>
     </>
   );
 };
 
-export default HomePage;
+export default LandingPage;

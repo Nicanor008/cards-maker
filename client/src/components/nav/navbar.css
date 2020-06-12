@@ -28,3 +28,6 @@
 .logoutBtn:visited, .logoutBtn:active {
     border: 0;
 }
+.logoutBtn:hover {
+    background-color: white;
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 import './navbar.css'
 import { Link, NavLink } from 'react-router-dom'
-import { getToken } from '../../utils/getToken'
 
 // logout onClick Handler
 function logoutClickHandler(e) {
@@ -29,6 +28,15 @@ const NavBar = () => {
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-end">
+                        {localStorage.getItem('token') && (
+                            <NavLink
+                                to="/dashboard"
+                                activeClassName="selected"
+                                className="navbar-item textDarkColor"
+                            >
+                                Dashboard
+                            </NavLink>
+                        )}
                         <NavLink
                             to="/create"
                             activeClassName="selected"

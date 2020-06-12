@@ -1,0 +1,36 @@
+.homePageWrapper {
+    padding: 3rem 6%;
+}
+.singleCardWrapper {
+    width: 300px;
+    min-width: 300px;
+    margin: 1rem;
+    border: 0.5px solid rgb(226, 226, 226);
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+.dateDisplay {
+    color: rgb(196, 163, 169);
+}
+.cardTags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cardShareIcon {
+    float: right;
+    color: rgb(248, 103, 175);
+}
+.singleCardTagItem {
+    color: #ffffff;
+    margin: 0.23rem;
+    background-color: rgb(248, 103, 175);
+    border-radius: 2px;
+    padding: 0.35rem;
+}
+@media only screen and (max-width: 287px) {
+    .singleCardWrapper {
+        min-width: 150;
+        margin: 0.35rem;
+    }
+}

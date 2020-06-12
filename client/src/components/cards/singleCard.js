@@ -1,0 +1,30 @@
+import React from 'react'
+import SetInnerHTML from '../../utils/setInnerHTML'
+
+export const SingleCard = (props) => {
+    return (
+        <div className="singleCardWrapper">
+            <div className="card-content">
+                <div className="media">
+                    <div className="media-content">
+                        <div>
+                            {SetInnerHTML(props.name)}
+                            {props.message !== null && <i className="fas fa-share-alt cardShareIcon"></i>}
+                        </div>
+                        <p className="subtitle is-6 dateDisplay">@date</p>
+                    </div>
+                </div>
+                <div className="content">
+                    <br />
+                    {SetInnerHTML(props.message.substr(3, 90))}
+                    <hr />
+                    <div className="cardTags">
+                            {props.tags.map((tag) => (
+                                <span className="singleCardTagItem" key={Math.random()}>{tag}</span>
+                            ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

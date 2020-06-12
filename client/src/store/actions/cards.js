@@ -5,8 +5,12 @@ import {
     FETCH_CARDS,
     FETCH_CARDS_SUCCESS,
     FETCH_CARDS_FAILURE,
+    FETCH_USER_CARDS,
+    FETCH_USER_CARDS_SUCCESS,
+    FETCH_USER_CARDS_FAILURE,
   } from '../constants';
   
+  // create cards
   export const CardsRequest = data => ({
     type: CARDS,
     payload: data
@@ -38,3 +42,18 @@ import {
     data,
   });
   
+  // GET USER CARDS
+  export const FetchUserCardsRequest = data => ({
+    type: FETCH_USER_CARDS,
+    payload: data
+  });
+  
+  export const FetchUserCardsSuccessRequest = (data) => ({
+    type: FETCH_USER_CARDS_SUCCESS,
+    payload: data,
+  });
+
+  export const FetchUserCardsFailureRequest = (data) => ({
+    type: FETCH_USER_CARDS_FAILURE,
+    data,
+  });
