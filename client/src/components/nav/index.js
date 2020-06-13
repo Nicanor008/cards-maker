@@ -28,6 +28,13 @@ const NavBar = () => {
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-end">
+                        <NavLink
+                            to="/events"
+                            activeClassName="selected"
+                            className="navbar-item textDarkColor"
+                        >
+                            Events
+                        </NavLink>
                         {localStorage.getItem('token') && (
                             <NavLink
                                 to="/dashboard"
@@ -43,13 +50,6 @@ const NavBar = () => {
                             className="navbar-item textDarkColor"
                         >
                             Create
-                        </NavLink>
-                        <NavLink
-                            to="/me"
-                            activeClassName="selected"
-                            className="navbar-item textDarkColor"
-                        >
-                            me
                         </NavLink>
                         {localStorage.getItem('token') !== null ? (
                             <button

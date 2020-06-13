@@ -1,11 +1,12 @@
-import { combineReducers } from 'redux';
-import cardsReducer, { userCards } from './cards';
+import { combineReducers } from 'redux'
+import cardsReducer, { userCards, fetchAllCards } from './cards'
 import loginReducer from './auth'
 
 const rootReducer = combineReducers({
-  cardsReducer,
-  userCards,
-  loginReducer
-});
+    cardsReducer,
+    userCards,
+    loginReducer,
+    fetchAllCards,
+})
 
-export default rootReducer;
+export default rootReducer

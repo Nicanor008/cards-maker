@@ -19,37 +19,6 @@ export const initialState = {
     loading: false,
 }
 
-const baseReducer = (
-    state = initialState,
-    { type, payload },
-    request,
-    success,
-    error
-) => {
-    switch (type) {
-        case request:
-            return {
-                ...state,
-                ...payload,
-                loading: true,
-            }
-        case success:
-            return {
-                ...state,
-                ...payload,
-                loading: false,
-            }
-        case error:
-            return {
-                ...state,
-                ...payload,
-                loading: false,
-            }
-        default:
-            return state
-    }
-}
-
 const cardsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case CARDS:
@@ -77,8 +46,29 @@ const cardsReducer = (state = initialState, { type, payload }) => {
 
 export default cardsReducer
 
-export const fetchAllCards = () => {
-    return baseReducer(FETCH_CARDS, FETCH_CARDS_SUCCESS, FETCH_CARDS_FAILURE)
+export const fetchAllCards = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case FETCH_CARDS:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case FETCH_CARDS_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case FETCH_CARDS_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
 }
 
 export const userCards = (state = initialState, { type, payload }) => {

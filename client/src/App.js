@@ -14,6 +14,7 @@ import WrappedRoute from './components/common/routes/wrappedRoute'
 import NotFound from './components/common/error/404'
 import LandingPage from './components/HomePage/landingPage'
 import HomePage from './containers/Cards/home'
+import Cards from './containers/Cards/cards'
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     <Route exact path="/create" component={CreateCards} />
                     <Route exact path="/template" component={CardTemplate} />
                     <Route exact path="/login" component={login} />
+                    <Route exact path="/events" component={Cards} />
                     <WrappedRoute
                         path="/dashboard"
                         component={HomePage}

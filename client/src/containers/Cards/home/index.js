@@ -6,6 +6,7 @@ import './home.css'
 import { Loader } from '../../../components/common/loader'
 import SEO from '../../../components/SEO'
 import { CreateCardsDescription } from '../../../components/HomePage/createCardsDescription'
+import Cards from '../cards'
 
 class HomePage extends Component {
     componentDidMount() {
@@ -16,6 +17,7 @@ class HomePage extends Component {
     render() {
         const { cards } = this.props
         const { loading, data } = cards
+        console.log(">>>>>>>>>>>>>>>.", data)
         return (
             <>
                 <SEO title="Dashboard" />
@@ -35,6 +37,8 @@ class HomePage extends Component {
                                         name={card.name}
                                         message={card.message}
                                         tags={card.tags}
+                                        border={card.border}
+                                        backgroundColor={card.backgroundColor}
                                     />
                                 ))
                             ) : (
@@ -46,6 +50,7 @@ class HomePage extends Component {
 
 
                                     {/* other peoples card/all cards in DB  */}
+                                    <Cards />
                                 </>
                             )}
                         </div>

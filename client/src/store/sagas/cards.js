@@ -12,9 +12,7 @@ toastr.options = {
 
 export function* createCard(action) {
   try {
-    console.log(">>>>>>>.........cards b4.....", api.cards.create)
     const response = yield call(api.cards.create, action.payload);
-    console.log(">>>>>>>.........cards b4.....")
     yield put(actions.CardsSuccessRequest(response.data));
     toastr.success(response.data.message);
   } catch (e) {
@@ -28,15 +26,22 @@ export function* createCard(action) {
 // fetch single user cards
 export function* fetchAllUserCards(action) {
   try {
-    const response = yield call(api.cards.list, action.payload);
+    const response = yield call(api.cards.userCards, action.payload);
     const { data } = response;
     yield put(actions.FetchUserCardsSuccessRequest(data));
   } catch (error) {
     yield put(actions.FetchUserCardsFailureRequest({}));
-    const errorMessage = error.response
-      ? error.response.data.message
-      : 'Error in retrieving Cards';
-    toastr.warning(errorMessage);
+  }
+}
+
+// fetch all cards
+export function* fetchAllCards(action) {
+  try {
+    const response = yield call(api.cards.list, action.payload);
+    const { data } = response;
+    yield put(actions.FetchCardsSuccessRequest(data));
+  } catch (error) {
+    yield put(actions.FetchCardsFailureRequest({}));
   }
 }
 
@@ -46,4 +51,7 @@ export function* watchAddCard() {
 }
 export function* watchFetchAllUserCards() {
   yield takeEvery(FETCH_USER_CARDS, fetchAllUserCards)
+}
+export function* watchFetchAllCards() {
+  yield takeEvery(FETCH_CARDS, fetchAllCards)
 }
