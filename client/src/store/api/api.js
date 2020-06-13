@@ -7,6 +7,8 @@ export const api = {
         // retrieve: id => server.get(`${'api/v1/cards'}/${id}/`),
         list: () => server.get('/cards'),
         userCards: () => server.get('/cards/user/all'),
+        searchByName: (name) => server.get(`/cards/search/${name}`),
+        searchByTag: (tag) => server.get(`/cards/tags/${tag}`),
         // delete: id => server.delete(`${'api/v1/cards'}/${id}`),
     },
     login: {

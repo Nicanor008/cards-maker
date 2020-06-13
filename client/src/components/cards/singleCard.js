@@ -1,5 +1,6 @@
 import React from 'react'
 import SetInnerHTML from '../../utils/setInnerHTML'
+import HR from '../../images/DecoratedLine.svg'
 
 export const SingleCard = (props) => {
     return (
@@ -26,7 +27,7 @@ export const SingleCard = (props) => {
                 <div className="content">
                     <br />
                     {SetInnerHTML(props.message.substr(3, 90))}
-                    <hr />
+                    <img src={HR} alt="hr" />
                     <div className="cardTags">
                         {props.tags.map((tag) => (
                             <span

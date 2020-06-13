@@ -23,7 +23,8 @@ class Cards extends Component {
                         <div className="searchWrapper">
                             <SearchCards />
                         </div>
-                        <div className="cardsWrapper">
+                        <hr className="horizontalLine"/>
+                        {/* <div className="cardsWrapper">
                             {data !== undefined &&
                                 data.map((card) => (
                                     <SingleCard
@@ -35,7 +36,7 @@ class Cards extends Component {
                                         backgroundColor={card.backgroundColor}
                                     />
                                 ))}
-                        </div>
+                        </div> */}
                     </div>
                 )}
             </div>

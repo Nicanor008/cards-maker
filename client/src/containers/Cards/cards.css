@@ -24,6 +24,27 @@ h6 {
     justify-content: space-between;
     padding: 1rem 6%;
 }
+.searchParameters {
+    display: flex;
+}
+.searchParameters div {
+    padding-right: 0.2rem;
+    margin-top: 0.04rem;
+}
+.searchParameters p {
+    padding-right: 0.6rem;
+}
+.horizontalLine {
+    margin: 0 7%;
+    border: 1px solid pink;
+}
+.searchInput {
+    border: 0.004rem solid rgb(241, 205, 211);
+    color: grey;
+}
+.searchInputCursor {
+    cursor: pointer;
+}
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {
         margin-left: 0;
