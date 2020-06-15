@@ -26,7 +26,7 @@ function App() {
                     <Route exact path="/create" component={CreateCards} />
                     <Route exact path="/template" component={CardTemplate} />
                     <Route exact path="/login" component={login} />
-                    <Route exact path="/events" component={Cards} />
+                    <Route exact path="/events" component={Cards} amount={4}/>
                     <WrappedRoute
                         path="/dashboard"
                         component={HomePage}

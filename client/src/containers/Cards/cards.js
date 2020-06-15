@@ -4,17 +4,21 @@ import {
     FetchCardsRequest,
     FetchSingleCardRequest,
 } from '../../store/actions/cards'
+import * as Actions from '../../store/actions/searchCards'
 import { Loader } from '../../components/common/loader'
-import { SingleCard } from '../../components/cards/singleCard'
+import SearchSingleCard, { SingleCard } from '../../components/cards/singleCard'
 import './cards.css'
-import SearchCards from './searchCards'
+// import SearchCards from './searchCards'
 import Modal from '../../components/modal'
 import SetInnerHTML from '../../utils/setInnerHTML'
 import DecoratedLine from '../../images/DecoratedLine.svg'
+import SearchCard from '../../components/cards/searchCard'
 
 class Cards extends Component {
     state = {
         modalOpen: false,
+        searchParameter: '',
+        displaySearch: false,
     }
     componentDidMount() {
         const { FetchAllCards } = this.props
@@ -35,19 +39,55 @@ class Cards extends Component {
         return FetchSingleCard(id)
     }
 
+    onChangeHandler = (e) => {
+        const selectedName = e.target.name
+        if (e.target.value === '') {
+            this.setState({ displaySearch: false })
+        } else {
+            this.setState({ displaySearch: true })
+        }
+        this.setState({
+            [selectedName]: e.target.value,
+        })
+
+        // search cards
+        const { searchParameter } = this.state
+        const { searchByNameAction, searchByTagAction } = this.props
+        setTimeout(() => {
+            searchByTagAction(searchParameter)
+            return searchByNameAction(searchParameter)
+        }, 1000)
+    }
+
+    onSubmitSearch = (e) => {
+        if (e.which === 13) {
+            const { searchParameter, tagCheckBox } = this.state
+            const { searchByNameAction, searchByTagAction } = this.props
+            this.setState({ displaySearch: true })
+            searchByTagAction(searchParameter)
+            return searchByNameAction(searchParameter)
+        }
+    }
+
     render() {
         const { loading, data } = this.props.cards
-        const { singleCard } = this.props
+        const { singleCard, searchByName, searchByTag } = this.props
         return (
             <div>
                 {loading ? (
                     <Loader />
                 ) : (
                     <div className="allCardsWrapper">
-                        <div className="searchWrapper">
-                            <SearchCards />
-                        </div>
-                        <hr className="horizontalLine" />
+                        {/* <SearchCards /> */}
+                        <SearchCard
+                            onChangeHandler={this.onChangeHandler}
+                            onSubmitSearch={this.onSubmitSearch}
+                            displaySearch={this.state.displaySearch}
+                            data={searchByName || searchByTag}
+                            modalOpen={this.state.modalOpen}
+                            onClickSingleCard={this.onClickSingleCard}
+                        />
+                        
                         <div className="cardsWrapper">
                             {data !== undefined &&
                                 data.map((card) => (
@@ -104,11 +144,15 @@ class Cards extends Component {
 const mapStateToProps = (state) => ({
     cards: state.fetchAllCards,
     singleCard: state.singleCard,
+    searchByName: state.searchByName,
+    searchByTag: state.searchByTag,
 })
 
 const mapDispatchToProps = {
     FetchAllCards: FetchCardsRequest,
     FetchSingleCard: FetchSingleCardRequest,
+    searchByNameAction: Actions.SearchCardsByNameRequest,
+    searchByTagAction: Actions.SearchCardsByTagRequest,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cards)

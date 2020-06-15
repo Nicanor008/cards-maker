@@ -82,7 +82,7 @@ class SearchCards extends Component {
             {/* search results */}
             <div style={{backgroundColor:'wheat', width:'200%'}}>
                 should get here
-                    {/* {console.log(">>>>>>>>>>......", searchByName)} */}
+                    {console.log(">>>>>>>>>>....searching..", searchByName.data)}
                     {searchByName.data !== undefined &&
                         searchByName.data.map((card) => {
                             <>

@@ -9,7 +9,7 @@ export const SingleCard = (props) => {
             style={{
                 border: props.border,
                 backgroundColor: props.backgroundColor,
-                cursor:'pointer'
+                cursor: 'pointer',
             }}
             onClick={() => props.onClickSingleCard(props.id)}
         >
@@ -30,7 +30,7 @@ export const SingleCard = (props) => {
                     {SetInnerHTML(props.message.substr(0, 90))}
                     <img src={HR} alt="hr" />
                     <div className="cardTags">
-                        {props.tags.map((tag) => (
+                        {props.tags !== undefined && props.tags.map((tag) => (
                             <span
                                 className="singleCardTagItem"
                                 key={Math.random()}

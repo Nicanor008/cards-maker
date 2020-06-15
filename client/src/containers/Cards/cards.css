@@ -20,9 +20,9 @@ h6 {
     flex-wrap: wrap;
 }
 .searchWrapper {
-    display: flex;
+    display: block;
     justify-content: space-between;
-    padding: 1rem 6%;
+    padding: 1rem 1%;
 }
 .searchParameters {
     display: flex;
