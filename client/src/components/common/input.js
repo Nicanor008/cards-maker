@@ -4,8 +4,8 @@ import 'react-quill/dist/quill.snow.css'
 
 export const InputComponent = (props) => {
     return (
-        <div className="field">
-            <label className="label">
+        <div className={`field ${props.class}`}>
+            <label className={`label`}>
                 {props.labelName}
                 {props.error && (
                     <span className="errorLabel">::Required field</span>
@@ -21,6 +21,7 @@ export const InputComponent = (props) => {
                     onChange={props.onchange}
                     name={props.inputName}
                     onKeyPress={props.onkeypress}
+                    size="20"
                 />
             </div>
         </div>
