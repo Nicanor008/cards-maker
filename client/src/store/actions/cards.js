@@ -8,6 +8,9 @@ import {
     FETCH_USER_CARDS,
     FETCH_USER_CARDS_SUCCESS,
     FETCH_USER_CARDS_FAILURE,
+    FETCH_SINGLE_CARD,
+    FETCH_SINGLE_CARD_SUCCESS,
+    FETCH_SINGLE_CARD_FAILURE,
   } from '../constants';
   
   // create cards
@@ -55,5 +58,21 @@ import {
 
   export const FetchUserCardsFailureRequest = (data) => ({
     type: FETCH_USER_CARDS_FAILURE,
+    data,
+  });
+
+  // GET SINGLE EVENT CARD
+  export const FetchSingleCardRequest = data => ({
+    type: FETCH_SINGLE_CARD,
+    payload: data
+  });
+  
+  export const FetchSingleCardSuccess = (data) => ({
+    type: FETCH_SINGLE_CARD_SUCCESS,
+    payload: data,
+  });
+
+  export const FetchSingleCardFailure = (data) => ({
+    type: FETCH_SINGLE_CARD_FAILURE,
     data,
   });

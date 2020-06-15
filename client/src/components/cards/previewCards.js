@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import TodoListPicture from '../../images/todoList.svg'
 import Modal from '../modal'
 import DecoratedLine from '../../images/DecoratedLine.svg'

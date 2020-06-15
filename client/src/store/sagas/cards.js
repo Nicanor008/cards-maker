@@ -2,7 +2,7 @@ import { put, call, takeEvery } from 'redux-saga/effects';
 import toastr from 'toastr';
 import * as actions from '../actions/cards';
 import { api } from '../api/api'
-import { CARDS, FETCH_CARDS, FETCH_USER_CARDS } from '../constants';
+import { CARDS, FETCH_CARDS, FETCH_USER_CARDS, FETCH_SINGLE_CARD } from '../constants';
 
 toastr.options = {
   positionClass: 'toast-top-right',
@@ -45,6 +45,17 @@ export function* fetchAllCards(action) {
   }
 }
 
+// get a single card
+export function* fetchSingleCard(action) {
+  try {
+    const response = yield call(api.cards.singleCard, action.payload);
+    const { data } = response;
+    yield put(actions.FetchSingleCardSuccess(data));
+  } catch (error) {
+    yield put(actions.FetchSingleCardFailure({}));
+  }
+}
+
 /** WATCHERS */
 export function* watchAddCard() {
   yield takeEvery(CARDS, createCard);
@@ -54,4 +65,7 @@ export function* watchFetchAllUserCards() {
 }
 export function* watchFetchAllCards() {
   yield takeEvery(FETCH_CARDS, fetchAllCards)
+}
+export function* watchFetchSingleCard() {
+  yield takeEvery(FETCH_SINGLE_CARD, fetchSingleCard)
 }

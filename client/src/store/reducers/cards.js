@@ -8,6 +8,9 @@ import {
     FETCH_USER_CARDS,
     FETCH_USER_CARDS_SUCCESS,
     FETCH_USER_CARDS_FAILURE,
+    FETCH_SINGLE_CARD,
+    FETCH_SINGLE_CARD_SUCCESS,
+    FETCH_SINGLE_CARD_FAILURE,
 } from '../constants'
 
 /**
@@ -86,6 +89,32 @@ export const userCards = (state = initialState, { type, payload }) => {
                 loading: false,
             }
         case FETCH_USER_CARDS_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
+}
+
+// fetch single cards
+export const singleCard = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case FETCH_SINGLE_CARD:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case FETCH_SINGLE_CARD_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case FETCH_SINGLE_CARD_FAILURE:
             return {
                 ...state,
                 ...payload,

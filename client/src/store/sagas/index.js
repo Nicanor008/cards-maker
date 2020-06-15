@@ -3,6 +3,7 @@ import {
     watchAddCard,
     watchFetchAllUserCards,
     watchFetchAllCards,
+    watchFetchSingleCard
 } from './cards'
 import { watchAddLoginUser } from './auth'
 import { watchSearchByName, watchSearchByTag } from './searchCards'
@@ -15,5 +16,6 @@ export default function* root() {
         fork(watchFetchAllCards),
         fork(watchSearchByName),
         fork(watchSearchByTag),
+        fork(watchFetchSingleCard),
     ])
 }

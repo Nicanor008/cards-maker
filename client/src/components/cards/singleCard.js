@@ -9,13 +9,14 @@ export const SingleCard = (props) => {
             style={{
                 border: props.border,
                 backgroundColor: props.backgroundColor,
+                cursor:'pointer'
             }}
+            onClick={() => props.onClickSingleCard(props.id)}
         >
-        {/* {console.log(props.backgroundColor, ">>>>>>....border.......", props.border)} */}
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
-                        <div>
+                        <div onClick={props.onViewModal}>
                             {SetInnerHTML(props.name)}
                             {props.message !== null && (
                                 <i className="fas fa-share-alt cardShareIcon"></i>
@@ -26,7 +27,7 @@ export const SingleCard = (props) => {
                 </div>
                 <div className="content">
                     <br />
-                    {SetInnerHTML(props.message.substr(3, 90))}
+                    {SetInnerHTML(props.message.substr(0, 90))}
                     <img src={HR} alt="hr" />
                     <div className="cardTags">
                         {props.tags.map((tag) => (

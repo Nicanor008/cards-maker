@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import cardsReducer, { userCards, fetchAllCards } from './cards'
+import cardsReducer, { userCards, fetchAllCards, singleCard } from './cards'
 import { searchByName, searchByTag } from './searchCards'
 import loginReducer from './auth'
 
@@ -10,6 +10,7 @@ const rootReducer = combineReducers({
     fetchAllCards,
     searchByName,
     searchByTag,
+    singleCard,
 })
 
 export default rootReducer

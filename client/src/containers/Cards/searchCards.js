@@ -94,11 +94,6 @@ class SearchCards extends Component {
                                 message={card.message}
                             /></>
                         })}
-
-                        <br />
-                        <br />
-                        <br />
-                        the bootome part
                 </div>
             </div>
         )
