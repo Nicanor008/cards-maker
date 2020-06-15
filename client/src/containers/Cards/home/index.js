@@ -7,17 +7,37 @@ import { Loader } from '../../../components/common/loader'
 import SEO from '../../../components/SEO'
 import { CreateCardsDescription } from '../../../components/HomePage/createCardsDescription'
 import Cards from '../cards'
+import Modal from '../../../components/modal'
+import SetInnerHTML from '../../../utils/setInnerHTML'
+import DecoratedLine from '../../../images/DecoratedLine.svg'
 
 class HomePage extends Component {
+    state = {
+        modalOpen: false,
+    }
+
     componentDidMount() {
         const { fetchUserCards } = this.props
         return fetchUserCards()
     }
 
+    showModal = () => {
+        this.setState({ modalOpen: true })
+    }
+
+    hideModal = () => {
+        this.setState({ modalOpen: false })
+    }
+
+    onClickSingleCard = (id) => {
+        const { FetchSingleCard } = this.props
+        this.setState({ modalOpen: true })
+        return FetchSingleCard(id)
+    }
+
     render() {
-        const { cards } = this.props
+        const { cards, singleCard } = this.props
         const { loading, data } = cards
-        console.log(">>>>>>>>>>>>>>>.", data)
         return (
             <>
                 <SEO title="Dashboard" />
@@ -34,26 +54,58 @@ class HomePage extends Component {
                                 data.map((card) => (
                                     <SingleCard
                                         key={card._id}
+                                        id={card._id}
                                         name={card.name}
                                         message={card.message}
                                         tags={card.tags}
                                         border={card.border}
                                         backgroundColor={card.backgroundColor}
+                                        onClickSingleCard={
+                                            this.onClickSingleCard
+                                        }
+                                        modalOpen={this.state.modalOpen}
                                     />
                                 ))
                             ) : (
                                 <>
-                                    <CreateCardsDescription 
+                                    <CreateCardsDescription
                                         description="You Don't have any events Cards yet. You can proceed to view other cards 
-                                                    or search a particular events" 
-                                                    />
-
+                                                    or search a particular events"
+                                    />
 
                                     {/* other peoples card/all cards in DB  */}
                                     <Cards />
                                 </>
                             )}
                         </div>
+
+                        {/* on click single card */}
+                        {singleCard.data !== undefined && (
+                            <Modal
+                                show={this.state.modalOpen}
+                                handleClose={this.hideModal}
+                                loading={singleCard.loading}
+                            >
+                                <div
+                                    style={{
+                                        border: `${singleCard.data.borderWidth} ${singleCard.data.border} ${singleCard.data.borderColor}`,
+                                        margin: '1rem',
+                                        borderRadius: '2px',
+                                        padding: '2rem',
+                                        backgroundColor: `${singleCard.data.backgroundColor}`,
+                                    }}
+                                >
+                                    <center>
+                                        {SetInnerHTML(singleCard.data.name)}
+                                        <img
+                                            src={DecoratedLine}
+                                            alt="Horizontal line"
+                                        />
+                                        {SetInnerHTML(singleCard.data.message)}
+                                    </center>
+                                </div>
+                            </Modal>
+                        )}
                     </div>
                 )}
             </>
@@ -61,10 +113,14 @@ class HomePage extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({ cards: state.userCards })
+const mapStateToProps = (state) => ({
+    cards: state.userCards,
+    singleCard: state.singleCard,
+})
 
 const mapDispatchToProps = {
     fetchUserCards: Actions.FetchUserCardsRequest,
+    FetchSingleCard: Actions.FetchSingleCardRequest,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

@@ -61,7 +61,7 @@ class Cards extends Component {
 
     onSubmitSearch = (e) => {
         if (e.which === 13) {
-            const { searchParameter, tagCheckBox } = this.state
+            const { searchParameter } = this.state
             const { searchByNameAction, searchByTagAction } = this.props
             this.setState({ displaySearch: true })
             searchByTagAction(searchParameter)
