@@ -8,6 +8,9 @@ import {
     FORGOT_PASSWORD,
     FORGOT_PASSWORD_SUCCESS,
     FORGOT_PASSWORD_FAILURE,
+    RESET_PASSWORD,
+    RESET_PASSWORD_SUCCESS,
+    RESET_PASSWORD_FAILURE,
 } from '../constants'
 
 /**
@@ -88,6 +91,32 @@ export const forgotPassword = (state = initialState, { type, payload }) => {
                 loading: false,
             }
         case FORGOT_PASSWORD_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
+}
+
+// reset password
+export const resetPassword = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case RESET_PASSWORD:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case RESET_PASSWORD_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case RESET_PASSWORD_FAILURE:
             return {
                 ...state,
                 ...payload,
