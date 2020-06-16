@@ -1,5 +1,10 @@
 import {
-    LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE
+    LOGIN,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
+    SIGNUP,
+    SIGNUP_SUCCESS,
+    SIGNUP_FAILURE,
 } from '../constants'
 
 /**
@@ -37,3 +42,30 @@ const loginReducer = (state = initialState, { type, payload }) => {
 }
 
 export default loginReducer
+
+
+// signup reducer
+export const signup = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case SIGNUP:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case SIGNUP_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case SIGNUP_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
+}

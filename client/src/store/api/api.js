@@ -12,7 +12,8 @@ export const api = {
         searchByTag: (tag) => server.get(`/cards/tags/${tag}`),
         // delete: id => server.delete(`${'api/v1/cards'}/${id}`),
     },
-    login: {
-        create: (data) => server.post('/auth/login', data)
+    auth: {
+        login: (data) => server.post('/auth/login', data),
+        signup: (data) => server.post('/auth/register', data)
     }
 }

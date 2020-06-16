@@ -61,10 +61,9 @@ const NavBar = () => {
                         ) : (
                             <NavLink
                                 to="/login"
-                                activeClassName="selected"
                                 className="navbar-item textDarkColor"
                             >
-                                Login
+                                Join
                             </NavLink>
                         )}
                     </div>

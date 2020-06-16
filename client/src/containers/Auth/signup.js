@@ -8,19 +8,11 @@ import { NavLink } from 'react-router-dom'
 import './Auth.css'
 import Wedding from '../../images/Wedding.svg'
 
-class Login extends Component {
+class SignupPage extends Component {
     state = {
         email: '',
         password: '',
-    }
-
-    componentDidUpdate() {
-        const { login } = this.props
-        if (login && login.message === 'Login successful') {
-            setTimeout(() => {
-                window.location.assign('/dashboard')
-            }, 1000)
-        }
+        name: '',
     }
 
     onInputChange = (e) => {
@@ -29,17 +21,18 @@ class Login extends Component {
         })
     }
 
-    onClickLogin = () => {
-        const { loginUser } = this.props
+    onClickSignup = () => {
+        const { signupUser } = this.props
         const data = {
+            name: this.state.name,
             email: this.state.email,
             password: this.state.password,
         }
-        return loginUser(data)
+        return signupUser(data)
     }
 
     render() {
-        const { login } = this.props
+        const { signup } = this.props
         return (
             <div className="authWrapper">
                 <div className="container columnDescriptionWrapper">
@@ -50,9 +43,16 @@ class Login extends Component {
                         </div>
 
                         {/* login inputs */}
-                        <div
-                            className="column"
-                        >
+                        <div className="column">
+                            <InputComponent
+                                labelName="Name"
+                                placeholderText="John Doe"
+                                inputName="name"
+                                textInputType="text"
+                                onchange={this.onInputChange}
+                                error={this.state.name === ''}
+                                class="authInput"
+                            />
                             <InputComponent
                                 labelName="Email"
                                 placeholderText="johndoe@example.com"
@@ -74,24 +74,24 @@ class Login extends Component {
 
                             {/* forgot password & sign up account */}
                             <div className="AdditionalLoginLinks authInput">
-                                <NavLink to="/forgot-password" className="authLink">
-                                    Forgot Password
+                                <NavLink to="/terms-and-conditions" className="authLink">
+                                    Agree to the terms and Conditions
                                 </NavLink>
-                                <NavLink to="/signup" className="authLink">
-                                    Create Account
+                                <NavLink to="/login" className="authLink">
+                                    Got Account, Login
                                 </NavLink>
                             </div>
 
                             {/* submit button */}
                             <button
                                 className={`button is-info authInput ${
-                                    login.loading && `is-loading`
+                                    signup.loading && `is-loading`
                                 }`}
                                 type="button"
                                 style={{ marginTop: '0.5rem' }}
-                                onClick={this.onClickLogin}
+                                onClick={this.onClickSignup}
                             >
-                                Login
+                                Create Account
                             </button>
                         </div>
                     </div>
@@ -101,10 +101,10 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({ login: state.loginReducer })
+const mapStateToProps = (state) => ({ signup: state.signup })
 
 const mapDispatchToProps = {
-    loginUser: Actions.LoginRequest,
+    signupUser: Actions.signupRequest,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(SignupPage)

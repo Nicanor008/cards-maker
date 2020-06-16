@@ -2,7 +2,7 @@ import { put, call, takeEvery } from 'redux-saga/effects';
 import toastr from 'toastr';
 import * as actions from '../actions/auth';
 import { api } from '../api/api'
-import { LOGIN } from '../constants';
+import { LOGIN, SIGNUP } from '../constants';
 
 toastr.options = {
   positionClass: 'toast-top-right',
@@ -12,7 +12,7 @@ toastr.options = {
 
 export function* LoginUser(action) {
   try {
-    const response = yield call(api.login.create, action.payload);
+    const response = yield call(api.auth.login, action.payload);
     yield put(actions.LoginSuccessRequest(response.data));
     toastr.success(response.data.message);
     const token = response.data.token;
@@ -25,7 +25,24 @@ export function* LoginUser(action) {
   }
 }
 
+// signup
+export function* signupUser(action) {
+  try {
+    const response = yield call(api.auth.signup, action.payload);
+    yield put(actions.signupSuccessRequest(response.data));
+    toastr.success(response.data.messages);
+  } catch (e) {
+    let newError;
+    yield put(actions.signupFailureRequest(e));
+    newError = e.response.data.message;
+    return toastr.warning(newError);
+  }
+}
+
 /** WATCHERS */
 export function* watchAddLoginUser() {
   yield takeEvery(LOGIN, LoginUser);
+}
+export function* watchAddSignupUser() {
+  yield takeEvery(SIGNUP, signupUser);
 }
