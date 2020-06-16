@@ -18,7 +18,7 @@ const SearchCard = (props) => {
                     onKeyPress={props.onSubmitSearch}
                     onClick={props.onSubmitSearch}
                 >
-                    <i className="fas fa-search searchInputCursor"></i>
+                    <i className="fas fa-search searchInputCursor" aria-hidden="true"></i>
                 </span>
             </div>
 

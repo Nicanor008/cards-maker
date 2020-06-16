@@ -19,7 +19,10 @@ export const SingleCard = (props) => {
                         <div onClick={props.onViewModal}>
                             {SetInnerHTML(props.name)}
                             {props.message !== null && (
-                                <i className="fas fa-share-alt cardShareIcon"></i>
+                                <i
+                                    className="fas fa-share-alt cardShareIcon"
+                                    aria-hidden="true"
+                                ></i>
                             )}
                         </div>
                         <p className="subtitle is-6 dateDisplay">@date</p>
@@ -30,14 +33,15 @@ export const SingleCard = (props) => {
                     {SetInnerHTML(props.message.substr(0, 90))}
                     <img src={HR} alt="hr" />
                     <div className="cardTags">
-                        {props.tags !== undefined && props.tags.map((tag) => (
-                            <span
-                                className="singleCardTagItem"
-                                key={Math.random()}
-                            >
-                                {tag}
-                            </span>
-                        ))}
+                        {props.tags !== undefined &&
+                            props.tags.map((tag) => (
+                                <span
+                                    className="singleCardTagItem"
+                                    key={Math.random()}
+                                >
+                                    {tag}
+                                </span>
+                            ))}
                     </div>
                 </div>
             </div>

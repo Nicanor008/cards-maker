@@ -73,7 +73,7 @@ class SearchCards extends Component {
                         onKeyPress={this.onSubmitSearch}
                         onClick={this.onSubmitSearch}
                     >
-                        <i className="fas fa-search searchInputCursor"></i>
+                        <i className="fas fa-search searchInputCursor"  aria-hidden="true"></i>
                     </span>
                 </div>
 

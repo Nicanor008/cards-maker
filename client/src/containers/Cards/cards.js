@@ -116,7 +116,7 @@ class Cards extends Component {
                             >
                                 <div
                                     style={{
-                                        border: `${singleCard.data.borderWidth} ${singleCard.data.border} ${singleCard.data.borderColor}`,
+                                        border: `${singleCard.data.border}`,
                                         margin: '1rem',
                                         borderRadius: '2px',
                                         padding: '2rem',

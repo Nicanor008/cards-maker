@@ -85,10 +85,11 @@ class HomePage extends Component {
                                 show={this.state.modalOpen}
                                 handleClose={this.hideModal}
                                 loading={singleCard.loading}
+                                isAuth={true}
                             >
                                 <div
                                     style={{
-                                        border: `${singleCard.data.borderWidth} ${singleCard.data.border} ${singleCard.data.borderColor}`,
+                                        border: `${singleCard.data.border}`,
                                         margin: '1rem',
                                         borderRadius: '2px',
                                         padding: '2rem',

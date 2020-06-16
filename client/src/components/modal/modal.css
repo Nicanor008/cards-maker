@@ -26,6 +26,20 @@
 .closeModalBtn {
     float: right;
     cursor: pointer;
+    /* text-align: right; */
+    /* flex: 1; */
+}
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem
+}
+.ModifyIcons button {
+    margin-left: 0.5rem;
+    border: 0.0001rem solid rgb(248, 103, 175);
+}
+.viewCardIcons {
+    color: rgb(248, 103, 175);
 }
 @media only screen and (max-width: 787px) {
     .modal-main {
