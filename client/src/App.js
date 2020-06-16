@@ -11,6 +11,7 @@ import CreateCards from './containers/Cards/createCards'
 import CardTemplate from './components/templates'
 import login from './containers/Auth/login'
 import SignupPage from './containers/Auth/signup'
+import ForgotPassword from './containers/Auth/forgotPassword'
 import WrappedRoute from './components/common/routes/wrappedRoute'
 import NotFound from './components/common/error/404'
 import LandingPage from './components/HomePage/landingPage'
@@ -28,7 +29,8 @@ function App() {
                     <Route exact path="/template" component={CardTemplate} />
                     <Route exact path="/login" component={login} />
                     <Route exact path="/signup" component={SignupPage} />
-                    <Route exact path="/events" component={Cards} amount={4}/>
+                    <Route exact path="/forgot-password" component={ForgotPassword} />
+                    <Route exact path="/events" component={Cards} />
                     <WrappedRoute
                         path="/dashboard"
                         component={HomePage}

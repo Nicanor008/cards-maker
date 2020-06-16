@@ -5,6 +5,9 @@ import {
     SIGNUP,
     SIGNUP_SUCCESS,
     SIGNUP_FAILURE,
+    FORGOT_PASSWORD,
+    FORGOT_PASSWORD_SUCCESS,
+    FORGOT_PASSWORD_FAILURE,
 } from '../constants'
 
 /**
@@ -43,7 +46,6 @@ const loginReducer = (state = initialState, { type, payload }) => {
 
 export default loginReducer
 
-
 // signup reducer
 export const signup = (state = initialState, { type, payload }) => {
     switch (type) {
@@ -60,6 +62,32 @@ export const signup = (state = initialState, { type, payload }) => {
                 loading: false,
             }
         case SIGNUP_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
+}
+
+// forgot password
+export const forgotPassword = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case FORGOT_PASSWORD:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case FORGOT_PASSWORD_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case FORGOT_PASSWORD_FAILURE:
             return {
                 ...state,
                 ...payload,

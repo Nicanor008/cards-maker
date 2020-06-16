@@ -4,7 +4,10 @@ import {
     LOGIN_FAILURE,
     SIGNUP,
     SIGNUP_SUCCESS,
-    SIGNUP_FAILURE
+    SIGNUP_FAILURE,
+    FORGOT_PASSWORD,
+    FORGOT_PASSWORD_SUCCESS,
+    FORGOT_PASSWORD_FAILURE
 } from '../constants'
 
 export const LoginRequest = (data) => ({
@@ -36,5 +39,19 @@ export const signupSuccessRequest = (data) => ({
 
 export const signupFailureRequest = (data) => ({
     type: SIGNUP_FAILURE,
+    data,
+})
+
+
+export const forgotPasswordRequest = (data) => ({
+    type: FORGOT_PASSWORD,
+    payload: data,
+})
+export const forgotPasswordSuccessRequest = (data) => ({
+    type: FORGOT_PASSWORD_SUCCESS,
+    payload: data,
+})
+export const forgotPasswordFailureRequest = (data) => ({
+    type: FORGOT_PASSWORD_FAILURE,
     data,
 })

@@ -14,6 +14,7 @@ export const api = {
     },
     auth: {
         login: (data) => server.post('/auth/login', data),
-        signup: (data) => server.post('/auth/register', data)
+        signup: (data) => server.post('/auth/register', data),
+        forgotPassword: (email) => server.post(`/auth/password/${email}`)
     }
 }
