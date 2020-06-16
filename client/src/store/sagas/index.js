@@ -4,6 +4,7 @@ import {
     watchFetchAllUserCards,
     watchFetchAllCards,
     watchFetchSingleCard,
+    watchDeleteCard,
 } from './cards'
 import {
     watchAddLoginUser,
@@ -26,6 +27,7 @@ export default function* root() {
         fork(watchAddSignupUser),
         fork(watchForgotPassword),
         fork(watchResetPassword),
-        fork(watchVerifyAccount)
+        fork(watchVerifyAccount),
+        fork(watchDeleteCard),
     ])
 }

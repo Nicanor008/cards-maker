@@ -21,6 +21,18 @@ class HomePage extends Component {
         return fetchUserCards()
     }
 
+    componentDidUpdate() {
+        const { deleteCard } = this.props
+        if (
+            deleteCard.loading === false &&
+            deleteCard.message === 'Event Card has been Deleted Successfully'
+        ) {
+            setTimeout(() => {
+                return (location.href = '/dashboard')
+            }, 1200)
+        }
+    }
+
     showModal = () => {
         this.setState({ modalOpen: true })
     }
@@ -36,7 +48,7 @@ class HomePage extends Component {
     }
 
     render() {
-        const { cards, singleCard } = this.props
+        const { cards, singleCard, DeleteCardAction, deleteCard } = this.props
         const { loading, data } = cards
         return (
             <>
@@ -86,6 +98,8 @@ class HomePage extends Component {
                                 handleClose={this.hideModal}
                                 loading={singleCard.loading}
                                 isAuth={true}
+                                onClickDelete={DeleteCardAction}
+                                id={singleCard.data._id}
                             >
                                 <div
                                     style={{
@@ -117,11 +131,13 @@ class HomePage extends Component {
 const mapStateToProps = (state) => ({
     cards: state.userCards,
     singleCard: state.singleCard,
+    deleteCard: state.deleteCard,
 })
 
 const mapDispatchToProps = {
     fetchUserCards: Actions.FetchUserCardsRequest,
     FetchSingleCard: Actions.FetchSingleCardRequest,
+    DeleteCardAction: Actions.DeleteCardRequest,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

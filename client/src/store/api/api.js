@@ -10,7 +10,7 @@ export const api = {
         singleCard: (id) => server.get(`/cards/${id}`),
         searchByName: (name) => server.get(`/cards/search/${name}`),
         searchByTag: (tag) => server.get(`/cards/tags/${tag}`),
-        // delete: id => server.delete(`${'api/v1/cards'}/${id}`),
+        deleteCard: (id) => server.delete(`/cards/${id}`),
     },
     auth: {
         login: (data) => server.post('/auth/login', data),

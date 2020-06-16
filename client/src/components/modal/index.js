@@ -3,7 +3,7 @@ import './modal.css'
 import CloseIcon from '../../images/closeIcon.svg'
 import { Loader } from '../common/loader'
 
-const Modal = ({ handleClose, show, children, loading, isAuth }) => {
+const Modal = ({ handleClose, show, children, loading, isAuth, onClickDelete, id }) => {
     return (
         <div className={show ? 'modal display-block' : 'modal display-none'}>
             {loading ? (
@@ -13,18 +13,18 @@ const Modal = ({ handleClose, show, children, loading, isAuth }) => {
                     <div className="modalHeader">
                         {isAuth ? (
                             <div className="ModifyIcons">
-                                <button class="button">
-                                    <span class="icon">
+                                <button className="button">
+                                    <span className="icon">
                                         <i
-                                            class="fa fa-pencil viewCardIcons"
+                                            className="fa fa-pencil viewCardIcons"
                                             aria-hidden="true"
                                         ></i>
                                     </span>
                                     <span>Edit</span>
                                 </button>
 
-                                <button class="button">
-                                    <span class="icon">
+                                <button className="button" onClick={() => onClickDelete(id)}>
+                                    <span className="icon">
                                         <i
                                             className="fa fa-trash viewCardIcons"
                                             aria-hidden="true"
