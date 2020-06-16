@@ -10,6 +10,7 @@ import {
     watchAddSignupUser,
     watchForgotPassword,
     watchResetPassword,
+    watchVerifyAccount
 } from './auth'
 import { watchSearchByName, watchSearchByTag } from './searchCards'
 
@@ -25,5 +26,6 @@ export default function* root() {
         fork(watchAddSignupUser),
         fork(watchForgotPassword),
         fork(watchResetPassword),
+        fork(watchVerifyAccount)
     ])
 }

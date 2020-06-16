@@ -11,6 +11,9 @@ import {
     RESET_PASSWORD,
     RESET_PASSWORD_SUCCESS,
     RESET_PASSWORD_FAILURE,
+    VERIFY_ACCOUNT,
+    VERIFY_ACCOUNT_SUCCESS,
+    VERIFY_ACCOUNT_FAILURE,
 } from '../constants'
 
 /**
@@ -117,6 +120,33 @@ export const resetPassword = (state = initialState, { type, payload }) => {
                 loading: false,
             }
         case RESET_PASSWORD_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
+}
+
+
+// verify account
+export const verifyAccount = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case VERIFY_ACCOUNT:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case VERIFY_ACCOUNT_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case VERIFY_ACCOUNT_FAILURE:
             return {
                 ...state,
                 ...payload,

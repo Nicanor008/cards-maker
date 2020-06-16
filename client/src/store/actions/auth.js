@@ -10,7 +10,10 @@ import {
     FORGOT_PASSWORD_FAILURE,
     RESET_PASSWORD,
     RESET_PASSWORD_SUCCESS,
-    RESET_PASSWORD_FAILURE
+    RESET_PASSWORD_FAILURE,
+    VERIFY_ACCOUNT,
+    VERIFY_ACCOUNT_SUCCESS,
+    VERIFY_ACCOUNT_FAILURE
 } from '../constants'
 
 export const LoginRequest = (data) => ({
@@ -74,4 +77,18 @@ export const ResetPasswordFailure = (data, email) => ({
     type: RESET_PASSWORD_FAILURE,
     data,
     email
+})
+
+// verify account / Activate account
+export const VerifyAccountRequest = (data) => ({
+    type: VERIFY_ACCOUNT,
+    payload: data
+})
+export const VerifyAccountSuccess = (data) => ({
+    type: VERIFY_ACCOUNT_SUCCESS,
+    payload: data
+})
+export const VerifyAccountFailure = (data) => ({
+    type: VERIFY_ACCOUNT_FAILURE,
+    data
 })

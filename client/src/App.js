@@ -18,6 +18,7 @@ import NotFound from './components/common/error/404'
 import LandingPage from './components/HomePage/landingPage'
 import HomePage from './containers/Cards/home'
 import Cards from './containers/Cards/cards'
+import VerifyAccount from './containers/Auth/verifyAccount'
 
 function App() {
     return (
@@ -32,6 +33,7 @@ function App() {
                     <Route exact path="/signup" component={SignupPage} />
                     <Route exact path="/forgot-password" component={ForgotPassword} />
                     <Route exact path="/reset-password/:email" component={ResetPassword} />
+                    <Route exact path="/verify-account/:email" component={VerifyAccount} />
                     <Route exact path="/events" component={Cards} />
                     <WrappedRoute
                         path="/dashboard"

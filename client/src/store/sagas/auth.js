@@ -2,7 +2,7 @@ import { put, call, takeEvery } from 'redux-saga/effects'
 import toastr from 'toastr'
 import * as actions from '../actions/auth'
 import { api } from '../api/api'
-import { LOGIN, SIGNUP, FORGOT_PASSWORD, RESET_PASSWORD } from '../constants'
+import { LOGIN, SIGNUP, FORGOT_PASSWORD, RESET_PASSWORD, VERIFY_ACCOUNT } from '../constants'
 
 toastr.options = {
     positionClass: 'toast-top-right',
@@ -67,6 +67,20 @@ export function* resetPassword(action) {
     }
 }
 
+// verify/Activate account
+export function* verifyAccount(action) {
+    try {
+        const response = yield call(api.auth.verifyAccount, action.payload)
+        yield put(actions.VerifyAccountSuccess(response.data))
+        toastr.success(response.data.message)
+    } catch (e) {
+        let newError
+        yield put(actions.VerifyAccountFailure(e))
+        newError = e.response.data.message
+        return toastr.warning(newError)
+    }
+}
+
 /** WATCHERS */
 export function* watchAddLoginUser() {
     yield takeEvery(LOGIN, LoginUser)
@@ -79,4 +93,7 @@ export function* watchForgotPassword() {
 }
 export function* watchResetPassword() {
     yield takeEvery(RESET_PASSWORD, resetPassword)
+}
+export function* watchVerifyAccount() {
+    yield takeEvery(VERIFY_ACCOUNT, verifyAccount)
 }

@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux'
 import cardsReducer, { userCards, fetchAllCards, singleCard } from './cards'
 import { searchByName, searchByTag } from './searchCards'
-import loginReducer, { signup, forgotPassword, resetPassword } from './auth'
+import loginReducer, {
+    signup,
+    forgotPassword,
+    resetPassword,
+    verifyAccount,
+} from './auth'
 
 const rootReducer = combineReducers({
     cardsReducer,
@@ -14,6 +19,7 @@ const rootReducer = combineReducers({
     signup,
     forgotPassword,
     resetPassword,
+    verifyAccount,
 })
 
 export default rootReducer
