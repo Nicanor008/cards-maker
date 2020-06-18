@@ -58,7 +58,7 @@ export function* resetPassword(action) {
     try {
         const response = yield call(api.auth.resetPassword, action.payload, action.email)
         yield put(actions.ResetPasswordSuccess(response.data))
-        toastr.success(response.data.message)
+        toastr.success(response.message)
     } catch (e) {
         let newError
         yield put(actions.ResetPasswordFailure(e))

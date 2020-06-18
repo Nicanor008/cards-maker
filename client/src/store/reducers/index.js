@@ -3,7 +3,8 @@ import cardsReducer, {
     userCards,
     fetchAllCards,
     singleCard,
-    deleteCard,
+    updateCard,
+    deleteCard
 } from './cards'
 import { searchByName, searchByTag } from './searchCards'
 import loginReducer, {
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
     forgotPassword,
     resetPassword,
     verifyAccount,
+    updateCard,
     deleteCard,
 })
 

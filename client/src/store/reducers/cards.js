@@ -14,6 +14,9 @@ import {
     DELETE_CARD,
     DELETE_CARD_SUCCESS,
     DELETE_CARD_FAILURE,
+    UPDATE_CARD,
+    UPDATE_CARD_SUCCESS,
+    UPDATE_CARD_FAILURE,
 } from '../constants'
 
 /**
@@ -118,6 +121,32 @@ export const singleCard = (state = initialState, { type, payload }) => {
                 loading: false,
             }
         case FETCH_SINGLE_CARD_FAILURE:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        default:
+            return state
+    }
+}
+
+// update event card
+export const updateCard = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case UPDATE_CARD:
+            return {
+                ...state,
+                ...payload,
+                loading: true,
+            }
+        case UPDATE_CARD_SUCCESS:
+            return {
+                ...state,
+                ...payload,
+                loading: false,
+            }
+        case UPDATE_CARD_FAILURE:
             return {
                 ...state,
                 ...payload,

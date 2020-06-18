@@ -2,8 +2,17 @@ import React from 'react'
 import './modal.css'
 import CloseIcon from '../../images/closeIcon.svg'
 import { Loader } from '../common/loader'
+import { Link } from 'react-router-dom'
 
-const Modal = ({ handleClose, show, children, loading, isAuth, onClickDelete, id }) => {
+const Modal = ({
+    handleClose,
+    show,
+    children,
+    loading,
+    isAuth,
+    onClickDelete,
+    id,
+}) => {
     return (
         <div className={show ? 'modal display-block' : 'modal display-none'}>
             {loading ? (
@@ -13,7 +22,7 @@ const Modal = ({ handleClose, show, children, loading, isAuth, onClickDelete, id
                     <div className="modalHeader">
                         {isAuth ? (
                             <div className="ModifyIcons">
-                                <button className="button">
+                                <Link to={`/update-card/${id}`} className="button">
                                     <span className="icon">
                                         <i
                                             className="fa fa-pencil viewCardIcons"
@@ -21,9 +30,12 @@ const Modal = ({ handleClose, show, children, loading, isAuth, onClickDelete, id
                                         ></i>
                                     </span>
                                     <span>Edit</span>
-                                </button>
+                                    </Link>
 
-                                <button className="button" onClick={() => onClickDelete(id)}>
+                                <button
+                                    className="button"
+                                    onClick={() => onClickDelete(id)}
+                                >
                                     <span className="icon">
                                         <i
                                             className="fa fa-trash viewCardIcons"
@@ -33,8 +45,11 @@ const Modal = ({ handleClose, show, children, loading, isAuth, onClickDelete, id
                                     <span>Delete</span>
                                 </button>
                             </div>
-                        ): <p><b>View Event Card</b></p>
-                        }
+                        ) : (
+                            <p>
+                                <b>View Event Card</b>
+                            </p>
+                        )}
                         <img
                             src={CloseIcon}
                             alt="Close Icon"

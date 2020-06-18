@@ -17,6 +17,7 @@ import WrappedRoute from './components/common/routes/wrappedRoute'
 import NotFound from './components/common/error/404'
 import LandingPage from './components/HomePage/landingPage'
 import HomePage from './containers/Cards/home'
+import UpdateCardPage from './containers/Cards/home/updateCard'
 import Cards from './containers/Cards/cards'
 import VerifyAccount from './containers/Auth/verifyAccount'
 
@@ -35,9 +36,16 @@ function App() {
                     <Route exact path="/reset-password/:email" component={ResetPassword} />
                     <Route exact path="/verify-account/:email" component={VerifyAccount} />
                     <Route exact path="/events" component={Cards} />
+                    {/* <Route exact path="/update-card/:id" component={UpdateCardPage} /> */}
                     <WrappedRoute
                         path="/dashboard"
                         component={HomePage}
+                        requiresAuth
+                        useAppFrame
+                    />
+                    <WrappedRoute
+                        path="/update-card/:id"
+                        component={UpdateCardPage}
                         requiresAuth
                         useAppFrame
                     />

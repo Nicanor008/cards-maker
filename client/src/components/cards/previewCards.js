@@ -14,6 +14,7 @@ export const PreviewCards = (props) => {
                         border: `${props.borderWidth} ${props.border} ${props.borderColor}`,
                         margin: '1rem',
                         borderRadius: '2px',
+                        backgroundColor: `${props.backgroundColor}`
                     }}
                     id="preview"
                 >

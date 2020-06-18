@@ -147,6 +147,7 @@ class CreateCards extends Component {
                 <div className="columns">
                     <div className="column">
                         {/* title input */}
+                        <h6 className="title">Create Event Card</h6>
                         <TextAreaInputComponent
                             onchange={this.onTitleNameChange}
                             error={cards.name === ''}

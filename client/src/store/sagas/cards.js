@@ -8,6 +8,7 @@ import {
     FETCH_USER_CARDS,
     FETCH_SINGLE_CARD,
     DELETE_CARD,
+    UPDATE_CARD,
 } from '../constants'
 
 toastr.options = {
@@ -62,6 +63,19 @@ export function* fetchSingleCard(action) {
     }
 }
 
+// update event card
+export function* updateCard(action) {
+    try {
+        console.log(">>>>>>>>>>..........", action)
+        const response = yield call(api.cards.update, action.payload, action.id)
+        const { data } = response
+        yield put(actions.UpdateCardSuccess(data))
+        toastr.success(response.data.message)
+    } catch (error) {
+        yield put(actions.UpdateCardFailure(error))
+    }
+}
+
 // delete card item
 export function* deleteCard(action) {
     try {
@@ -89,4 +103,7 @@ export function* watchFetchSingleCard() {
 }
 export function* watchDeleteCard() {
     yield takeEvery(DELETE_CARD, deleteCard)
+}
+export function* watchUpdateCard() {
+    yield takeEvery(UPDATE_CARD, updateCard)
 }

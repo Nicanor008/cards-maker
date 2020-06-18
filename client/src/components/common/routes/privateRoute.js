@@ -13,8 +13,7 @@ export class PrivateRoute extends Component {
     }
 
     render() {
-        const { component } = this.props
-        return <Route component={component} />
+        return <Route {...this.props} />
     }
 }
 

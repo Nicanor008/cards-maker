@@ -3,12 +3,21 @@ import { Route } from 'react-router-dom';
 import { PrivateRoute } from './privateRoute';
 
 export class WrappedRoute extends Component {
+    componentDidMount() {
+        const token = localStorage.getItem('token')
+        const { requiresAuth } = this.props
+        if (token === null || !requiresAuth) {
+            return (location.href = '/')
+            // this.props.history.push('/')
+        }
+    }
+    
     render() {
         const { component, useAppFrame } = this.props;
         if (useAppFrame) {
             return (
                 <React.Fragment>
-                    <PrivateRoute {...this.props}>{component}</PrivateRoute>
+                    <PrivateRoute {...this.props} />
                 </React.Fragment>
             );
         } else {

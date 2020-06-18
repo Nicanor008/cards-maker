@@ -14,6 +14,9 @@ import {
     DELETE_CARD,
     DELETE_CARD_SUCCESS,
     DELETE_CARD_FAILURE,
+    UPDATE_CARD,
+    UPDATE_CARD_SUCCESS,
+    UPDATE_CARD_FAILURE,
 } from '../constants'
 
 // create cards
@@ -70,6 +73,23 @@ export const FetchSingleCardSuccess = (data) => ({
 export const FetchSingleCardFailure = (data) => ({
     type: FETCH_SINGLE_CARD_FAILURE,
     data,
+})
+
+// update card
+export const UpdateCardRequest = (data, id) => ({
+    type: UPDATE_CARD,
+    payload: data,
+    id
+})
+export const UpdateCardSuccess = (data, id) => ({
+    type: UPDATE_CARD_SUCCESS,
+    payload: data,
+    id
+})
+export const UpdateCardFailure = (data, id) => ({
+    type: UPDATE_CARD_FAILURE,
+    data,
+    id
 })
 
 // delete event card

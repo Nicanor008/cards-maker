@@ -10,6 +10,7 @@ import Cards from '../cards'
 import Modal from '../../../components/modal'
 import SetInnerHTML from '../../../utils/setInnerHTML'
 import DecoratedLine from '../../../images/DecoratedLine.svg'
+import { withRouter } from 'react-router'
 
 class HomePage extends Component {
     state = {
@@ -48,7 +49,7 @@ class HomePage extends Component {
     }
 
     render() {
-        const { cards, singleCard, DeleteCardAction, deleteCard } = this.props
+        const { cards, singleCard, DeleteCardAction } = this.props
         const { loading, data } = cards
         return (
             <>
@@ -99,6 +100,7 @@ class HomePage extends Component {
                                 loading={singleCard.loading}
                                 isAuth={true}
                                 onClickDelete={DeleteCardAction}
+                                card={singleCard.data}
                                 id={singleCard.data._id}
                             >
                                 <div
