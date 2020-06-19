@@ -18,14 +18,18 @@ const SearchCard = (props) => {
                     onKeyPress={props.onSubmitSearch}
                     onClick={props.onSubmitSearch}
                 >
-                    <i className="fas fa-search searchInputCursor" aria-hidden="true"></i>
+                    <i
+                        className="fas fa-search searchInputCursor"
+                        aria-hidden="true"
+                    ></i>
                 </span>
             </div>
-
+            <br />
             <div
                 style={{
-                    backgroundColor: 'wheat',
+                    backgroundColor: 'rgb(248, 103, 175)',
                     flexWrap: 'wrap',
+                    borderRadius: '2px',
                     display: `${props.displaySearch ? 'flex' : 'none'}`,
                 }}
             >

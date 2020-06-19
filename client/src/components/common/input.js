@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
+import { headerModules, formats } from '../../utils/textAreaFormats'
 
 export const InputComponent = (props) => {
     return (
@@ -13,9 +14,7 @@ export const InputComponent = (props) => {
             </label>
             <div className="control">
                 <input
-                    className={`input ${
-                        props.error ? `is-danger` : ``
-                    }`}
+                    className={`input ${props.error ? `is-danger` : ``}`}
                     type={props.textInputType ? props.textInputType : `text`}
                     placeholder={props.placeholderText}
                     onChange={props.onchange}
@@ -44,6 +43,8 @@ export const TextAreaInputComponent = (props) => {
                     value={props.value}
                     onChange={props.onchange}
                     placeholder={props.placeholder}
+                    modules={headerModules}
+                    formats={formats}
                 />
             </div>
         </div>

@@ -22,7 +22,7 @@ h6 {
 .searchWrapper {
     display: block;
     justify-content: space-between;
-    padding: 1rem 1%;
+    padding: 1rem 7rem 1rem 1rem;
 }
 .searchParameters {
     display: flex;
@@ -48,6 +48,11 @@ h6 {
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {
         margin-left: 0;
+    }
+    .searchWrapper {
+        display: block;
+        justify-content: space-between;
+        padding: 1rem 1rem;
     }
 }
 .bg-tile {

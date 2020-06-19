@@ -1,6 +1,7 @@
 import React from 'react'
 import './navbar.css'
 import { Link, NavLink } from 'react-router-dom'
+import Logo from '../../images/logo.svg'
 
 // logout onClick Handler
 function logoutClickHandler(e) {
@@ -20,8 +21,10 @@ const NavBar = () => {
                 <div className="navbar-brand">
                     <Link
                         to="/"
-                        className="navbar-item title is-3  NavBarBrand"
+                        className="title is-3  NavBarBrand"
+                        style={{ display: 'flex' }}
                     >
+                    <img src={Logo} alt="logo" style={{maxHeight: '70px'}} />
                         <span className="textColor">Cards Maker</span>
                     </Link>
                 </div>

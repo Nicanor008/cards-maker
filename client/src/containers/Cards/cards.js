@@ -6,9 +6,8 @@ import {
 } from '../../store/actions/cards'
 import * as Actions from '../../store/actions/searchCards'
 import { Loader } from '../../components/common/loader'
-import SearchSingleCard, { SingleCard } from '../../components/cards/singleCard'
+import { SingleCard } from '../../components/cards/singleCard'
 import './cards.css'
-// import SearchCards from './searchCards'
 import Modal from '../../components/modal'
 import SetInnerHTML from '../../utils/setInnerHTML'
 import DecoratedLine from '../../images/DecoratedLine.svg'
@@ -87,7 +86,7 @@ class Cards extends Component {
                             modalOpen={this.state.modalOpen}
                             onClickSingleCard={this.onClickSingleCard}
                         />
-                        
+
                         <div className="cardsWrapper">
                             {data !== undefined &&
                                 data.map((card) => (
@@ -106,6 +105,15 @@ class Cards extends Component {
                                     />
                                 ))}
                         </div>
+
+                        {data === undefined && (
+                            <div>
+                                <center>
+                                    <h2>No Events Available at the moment</h2>
+                                </center>
+                                <br />
+                            </div>
+                        )}
 
                         {/* on click single card */}
                         {singleCard.data !== undefined && (

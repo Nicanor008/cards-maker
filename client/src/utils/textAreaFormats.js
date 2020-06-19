@@ -7,22 +7,32 @@ export const formats = [
     'blockquote',
     'list',
     'bullet',
-    'indent',
     'link',
     'image',
+    'code',
+    'font',
+    'align',
 ]
 
 export const modules = {
     toolbar: [
-        [{ header: [1, 2, false] }],
+        [{ header: [false, 1, 2, 3, 4, 5, 6] }],
+        [{ font: [] }],
         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-        [
-            { list: 'ordered' },
-            { list: 'bullet' },
-            { indent: '-1' },
-            { indent: '+1' },
-        ],
+        [{ color: [] }],
+        [{ align: [] }],
+        [{ list: 'ordered' }, { list: 'bullet' }],
         ['link', 'image'],
+        ['clean'],
+    ],
+}
+
+export const headerModules = {
+    toolbar: [
+        [{ header: [1, 2, 3, 4, 5, 6] }],
+        [{ font: [] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        ['link'],
         ['clean'],
     ],
 }

@@ -7,48 +7,42 @@ import SetInnerHTML from '../../utils/setInnerHTML'
 export const PreviewCards = (props) => {
     return (
         <div>
-            <center>
-                <h1 className="title">Preview Card</h1>
-                <div
-                    style={{
-                        border: `${props.borderWidth} ${props.border} ${props.borderColor}`,
-                        margin: '1rem',
-                        borderRadius: '2px',
-                        backgroundColor: `${props.backgroundColor}`
-                    }}
-                    id="preview"
-                >
-                    <br />
-                    {props.name === '' ? (
-                        <center>
-                            <img
-                                alt="Arrange Data"
-                                src={TodoListPicture}
-                                width="400"
-                            />
-                        </center>
-                    ) : (
-                        <>
-                            {SetInnerHTML(props.name, '0.5rem')}
-                            <img src={DecoratedLine} alt="Horizontal line" />
-                            {SetInnerHTML(props.message, '0.5rem')}
-                        </>
-                    )}
-                    <br />
-                </div>
-            </center>
+            <h1 className="title">Preview Card</h1>
+            <div
+                style={{
+                    border: `${props.borderWidth} ${props.border} ${props.borderColor}`,
+                    margin: '1rem',
+                    borderRadius: '2px',
+                    backgroundColor: `${props.backgroundColor}`,
+                    padding: '1rem'
+                }}
+                id="preview"
+            >
+                <br />
+                {props.name === '' ? (
+                    <img alt="Arrange Data" src={TodoListPicture} width="400" />
+                ) : (
+                    <>
+                        {SetInnerHTML(props.name, '0.5rem')}
+                        <img src={DecoratedLine} alt="Horizontal line" className="is-5by3" />
+                        {SetInnerHTML(props.message, '0.5rem')}
+                    </>
+                )}
+                <br />
+            </div>
 
             {props.message && (
                 <>
-                    <button className="button is-info is-pulled-right previewButtons">
+                    {/* <button className="button is-info is-pulled-right previewButtons">
                         Share
                     </button>
                     <button className="button is-primary is-pulled-right previewButtons">
                         Download
-                    </button>
+                    </button> */}
                     <button
                         className="button is-success is-pulled-right previewButtons"
                         onClick={props.onViewModal}
+                        style={{ marginRight: '1rem' }}
                     >
                         View
                     </button>
@@ -70,17 +64,12 @@ export const PreviewCards = (props) => {
                                 margin: '1rem',
                                 borderRadius: '2px',
                                 padding: '2rem',
-                                backgroundColor: `${props.backgroundColor}`
+                                backgroundColor: `${props.backgroundColor}`,
                             }}
                         >
-                            <center>
-                                {SetInnerHTML(props.name)}
-                                <img
-                                    src={DecoratedLine}
-                                    alt="Horizontal line"
-                                />
-                                {SetInnerHTML(props.message)}
-                            </center>
+                            {SetInnerHTML(props.name)}
+                            <img src={DecoratedLine} alt="Horizontal line" />
+                            {SetInnerHTML(props.message)}
                         </div>
                     </Modal>
                 </>

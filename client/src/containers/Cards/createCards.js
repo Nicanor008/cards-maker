@@ -15,15 +15,11 @@ import ReactQuill from 'react-quill'
 import { PreviewCards } from '../../components/cards/previewCards'
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
-import Modal from '../../components/modal'
-import { getToken } from '../../utils/getToken'
-// import getToken from '../../utils/getToken'
-// import { getToken } from '../../utils/getToken'
+import { formats, modules } from '../../utils/textAreaFormats'
 
 class CreateCards extends Component {
     state = {
         tags: [],
-        tag: '',
         name: '',
         message: '',
         border: 'groove',
@@ -32,7 +28,6 @@ class CreateCards extends Component {
         backgroundColor: '',
         useTemplate: false,
         isPublic: false,
-        test: [],
         modalOpen: false,
     }
 
@@ -164,6 +159,8 @@ class CreateCards extends Component {
                             value={message}
                             placeholder="Event Message. Make it as juicy as possible"
                             theme="snow"
+                            modules={modules}
+                            formats={formats}
                         />
 
                         {/* border properties */}
@@ -238,13 +235,6 @@ class CreateCards extends Component {
                     </div>
                     {/* preview the created card */}
                     <div className="column">
-                        <Modal
-                            show={this.state.modalOpen}
-                            handleClose={this.hideModal}
-                        >
-                            <p>Modal</p>
-                            <p>Data</p>
-                        </Modal>
                         <PreviewCards
                             name={name}
                             message={message}

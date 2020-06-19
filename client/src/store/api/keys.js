@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const serverUrl = () => {
     //   return process.env.SERVER_API_URL;
-    return 'http://127.0.0.1:4001'
+    return 'https://cards-maker-api.herokuapp.com'
 }
 
 const server = axios.create({

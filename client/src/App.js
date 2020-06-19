@@ -20,6 +20,7 @@ import HomePage from './containers/Cards/home'
 import UpdateCardPage from './containers/Cards/home/updateCard'
 import Cards from './containers/Cards/cards'
 import VerifyAccount from './containers/Auth/verifyAccount'
+import TermsAndConditions from './components/policies/termsAndConditions'
 
 function App() {
     return (
@@ -36,7 +37,7 @@ function App() {
                     <Route exact path="/reset-password/:email" component={ResetPassword} />
                     <Route exact path="/verify-account/:email" component={VerifyAccount} />
                     <Route exact path="/events" component={Cards} />
-                    {/* <Route exact path="/update-card/:id" component={UpdateCardPage} /> */}
+                    <Route exact path="/terms-and-conditions" component={TermsAndConditions} />
                     <WrappedRoute
                         path="/dashboard"
                         component={HomePage}
