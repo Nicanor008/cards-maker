@@ -7,13 +7,9 @@ import { SEARCH_BY_NAME, SEARCH_BY_TAG } from '../constants'
 export function* searchByName(action) {
     try {
         const response = yield call(api.cards.searchByName, action.payload)
-        yield put(actions.SearchCardsByNameSuccess(response.data))
-        toastr.success(response.data.message)
+        return yield put(actions.SearchCardsByNameSuccess(response.data))
     } catch (e) {
-        let newError
-        yield put(actions.SearchCardsByNameFailure(e))
-        newError = e.response.data.message
-        toastr.warning(newError)
+        return yield put(actions.SearchCardsByNameFailure(e))
     }
 }
 

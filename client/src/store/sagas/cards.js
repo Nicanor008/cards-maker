@@ -66,7 +66,6 @@ export function* fetchSingleCard(action) {
 // update event card
 export function* updateCard(action) {
     try {
-        console.log(">>>>>>>>>>..........", action)
         const response = yield call(api.cards.update, action.payload, action.id)
         const { data } = response
         yield put(actions.UpdateCardSuccess(data))

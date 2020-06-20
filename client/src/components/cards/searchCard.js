@@ -33,7 +33,7 @@ const SearchCard = (props) => {
                     display: `${props.displaySearch ? 'flex' : 'none'}`,
                 }}
             >
-                {props.data.data !== undefined &&
+                {props.data.data !== undefined ? (
                     props.data.data.map((card) => (
                         <SingleCard
                             key={card._id}
@@ -46,7 +46,18 @@ const SearchCard = (props) => {
                             onClickSingleCard={props.onClickSingleCard}
                             modalOpen={props.modalOpen}
                         />
-                    ))}
+                    ))
+                ) : (
+                    <div style={{ padding: '3rem' }}>
+                    <center>
+
+                    <p className="subtitle">
+                            No Event Card with title{' '}
+                            <strong>{props.searchParameter}</strong>
+                    </p>
+                    </center>
+                    </div>
+                )}
             </div>
         </div>
     )

@@ -51,26 +51,24 @@ class Cards extends Component {
 
         // search cards
         const { searchParameter } = this.state
-        const { searchByNameAction, searchByTagAction } = this.props
+        const { searchByNameAction } = this.props
         setTimeout(() => {
-            searchByTagAction(searchParameter)
             return searchByNameAction(searchParameter)
-        }, 1000)
+        }, 5000)
     }
 
     onSubmitSearch = (e) => {
         if (e.which === 13) {
             const { searchParameter } = this.state
-            const { searchByNameAction, searchByTagAction } = this.props
+            const { searchByNameAction } = this.props
             this.setState({ displaySearch: true })
-            searchByTagAction(searchParameter)
             return searchByNameAction(searchParameter)
         }
     }
 
     render() {
         const { loading, data } = this.props.cards
-        const { singleCard, searchByName, searchByTag } = this.props
+        const { singleCard, searchByName } = this.props
         return (
             <div>
                 {loading ? (
@@ -82,9 +80,10 @@ class Cards extends Component {
                             onChangeHandler={this.onChangeHandler}
                             onSubmitSearch={this.onSubmitSearch}
                             displaySearch={this.state.displaySearch}
-                            data={searchByName || searchByTag}
+                            data={searchByName}
                             modalOpen={this.state.modalOpen}
                             onClickSingleCard={this.onClickSingleCard}
+                            searchParameter={this.state.searchParameter}
                         />
 
                         <div className="cardsWrapper">
@@ -153,14 +152,12 @@ const mapStateToProps = (state) => ({
     cards: state.fetchAllCards,
     singleCard: state.singleCard,
     searchByName: state.searchByName,
-    searchByTag: state.searchByTag,
 })
 
 const mapDispatchToProps = {
     FetchAllCards: FetchCardsRequest,
     FetchSingleCard: FetchSingleCardRequest,
     searchByNameAction: Actions.SearchCardsByNameRequest,
-    searchByTagAction: Actions.SearchCardsByTagRequest,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cards)

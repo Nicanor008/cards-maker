@@ -1,8 +1,11 @@
 import axios from 'axios'
+import Dotenv from 'dotenv'
+
+Dotenv.config()
 
 const serverUrl = () => {
     //   return process.env.SERVER_API_URL;
-    return 'https://cards-maker-api.herokuapp.com'
+    return 'http://localhost:4001'
 }
 
 const server = axios.create({
