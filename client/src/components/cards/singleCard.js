@@ -5,7 +5,7 @@ import HR from '../../images/DecoratedLine.svg'
 export const SingleCard = (props) => {
     return (
         <div
-            className="singleCardWrapper"
+            className={props.isFeatured ? `isFeaturedSingleCard` : `singleCardWrapper`}
             style={{
                 border: props.border,
                 backgroundColor: props.backgroundColor,

@@ -45,6 +45,33 @@ h6 {
 .searchInputCursor {
     cursor: pointer;
 }
+.allFeaturedEventsWrapper {
+    margin: 0 8%;
+}
+.featuredEventsWrapper {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    direction: ltr;
+    flex-flow: row nowrap;
+}
+body ::-webkit-scrollbar {
+    width: 0px;  
+    height: 0px;
+    background: transparent; 
+}
+.isFeaturedSingleCard {
+    float: left;
+    width: 300px;
+    min-width: 300px;
+    margin: 1rem;
+    border: 0.5px solid rgb(226, 226, 226);
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+.singleFeaturedIcons {
+    padding: 0.2rem;
+}
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {
         margin-left: 0;
@@ -53,6 +80,9 @@ h6 {
         display: block;
         justify-content: space-between;
         padding: 1rem 1rem;
+    }
+    .allFeaturedEventsWrapper {
+        margin: 0;
     }
 }
 .bg-tile {

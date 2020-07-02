@@ -12,12 +12,14 @@ import Modal from '../../components/modal'
 import SetInnerHTML from '../../utils/setInnerHTML'
 import DecoratedLine from '../../images/DecoratedLine.svg'
 import SearchCard from '../../components/cards/searchCard'
+import Dot from '../../images/dot.svg'
 
 class Cards extends Component {
     state = {
         modalOpen: false,
         searchParameter: '',
         displaySearch: false,
+        isFeatured: true,
     }
     componentDidMount() {
         const { FetchAllCards } = this.props
@@ -68,13 +70,56 @@ class Cards extends Component {
 
     render() {
         const { loading, data } = this.props.cards
-        const { singleCard, searchByName } = this.props
+        const { singleCard, searchByName, featuredPage } = this.props
         return (
             <div>
                 {loading ? (
                     <Loader />
                 ) : (
-                    <div className="allCardsWrapper">
+                    <div >
+                        {featuredPage ? <div className="allFeaturedEventsWrapper">
+                        <div className="featuredEventsWrapper">
+                            {data !== undefined &&
+                                data.map((card) => (
+                                    <>
+                                        <SingleCard
+                                            key={card._id}
+                                            id={card._id}
+                                            name={card.name}
+                                            message={card.message}
+                                            tags={card.tags}
+                                            border={card.border}
+                                            backgroundColor={
+                                                card.backgroundColor
+                                            }
+                                            onClickSingleCard={
+                                                this.onClickSingleCard
+                                            }
+                                            modalOpen={this.state.modalOpen}
+                                            isFeatured={this.state.isFeatured}
+                                        />
+                                    </>
+                                ))}
+                        </div>
+
+                        {/* scroll icons */}
+                        <div className="scrollIcons">
+                            <center>
+                                {data !== undefined &&
+                                    data.map(() => (
+                                        <span className="singleFeaturedIcons">
+                                            <img
+                                                src={Dot}
+                                                alt="dot"
+                                                height="10"
+                                                width="10"
+                                            />
+                                        </span>
+                                    ))}
+                            </center>
+                        </div></div> :
+
+                        <div className="allCardsWrapper">
                         {/* <SearchCards /> */}
                         <SearchCard
                             onChangeHandler={this.onChangeHandler}
@@ -113,6 +158,8 @@ class Cards extends Component {
                                 <br />
                             </div>
                         )}
+
+                        </div>}
 
                         {/* on click single card */}
                         {singleCard.data !== undefined && (

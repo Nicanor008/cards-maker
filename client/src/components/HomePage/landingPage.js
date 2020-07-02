@@ -6,6 +6,7 @@ import SEO from '../SEO'
 import { CreateCardsDescription } from './createCardsDescription'
 import NextVersion from './nextVersion'
 import AskFeedback from './feedback'
+import Cards from '../../containers/Cards/cards'
 
 const LandingPage = () => {
     return (
@@ -13,6 +14,8 @@ const LandingPage = () => {
             <SEO title="Cards Maker" />
             {/* image */}
 
+            {/* <ThreeFeaturedEvents /> */}
+            <Cards featuredPage={true} />
             <div className="bodyWrapper love2Icons">
                 <center>
                     <figure className="is-centered">
@@ -26,7 +29,7 @@ const LandingPage = () => {
                 </center>
             </div>
 
-            {/* about cardsmaker description */}
+            {/* about cards maker description */}
             <div className="container columnDescriptionWrapper">
                 <div className="columns">
                     <div className="column">
@@ -57,7 +60,7 @@ const LandingPage = () => {
                             Share
                         </p>
                         <p className="rowTextContent">
-                            Quickiest way to let your colleagues, Share the link
+                            The Quick way to let your colleagues know the party is going to happen, Share the link
                             privately, on Social Media or invite your friends to
                             view.
                             <strong>Coming Soon</strong>
