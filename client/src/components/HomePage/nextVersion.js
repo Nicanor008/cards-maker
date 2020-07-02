@@ -21,8 +21,8 @@ const NextVersion = () => {
                         <li>Download Cards</li>
                         <li>Share Event Cards</li>
                         <li>Invite Users to view Cards</li>
-                        <li>View Event Date and Author</li>
-                        <li>Feature Event Cards</li>
+                        <li><strike>View Event Date and Author name on card</strike></li>
+                        <li><strike>Feature Event Cards</strike></li>
                         <li>Cards Maker Social Media pages</li>
                         <li>Buy me a coffee option or Pricing Page</li>
                         <li>Oauth Social Login</li>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import { SingleCard } from '../../../components/cards/singleCard'
 import { connect } from 'react-redux'
 import * as Actions from '../../../store/actions/cards'
@@ -10,7 +11,6 @@ import Cards from '../cards'
 import Modal from '../../../components/modal'
 import SetInnerHTML from '../../../utils/setInnerHTML'
 import DecoratedLine from '../../../images/DecoratedLine.svg'
-import { withRouter } from 'react-router'
 
 class HomePage extends Component {
     state = {
@@ -77,6 +77,8 @@ class HomePage extends Component {
                                             this.onClickSingleCard
                                         }
                                         modalOpen={this.state.modalOpen}
+                                        user={card.user.name}
+                                        eventDateTime={card.eventDateTime}
                                     />
                                 ))
                             ) : (
@@ -112,14 +114,27 @@ class HomePage extends Component {
                                         backgroundColor: `${singleCard.data.backgroundColor}`,
                                     }}
                                 >
+                                    <span className="eventDateTimeWrapper">
+                                        <p className="subtitle is-6 dateDisplay">
+                                            {moment(
+                                                singleCard.data.eventDateTime
+                                            ).format('dddd, MMMM Do YYYY')}
+                                        </p>
+                                        <u><b>{moment(singleCard.data.eventDateTime).fromNow()}</b></u>
+                                        <p className="subtitle is-6 dateDisplay">
+                                            {moment(
+                                                singleCard.data.eventDateTime
+                                            ).format('hh:mm a')}
+                                        </p>
+                                    </span>
                                     <center>
                                         {SetInnerHTML(singleCard.data.name)}
                                         <img
                                             src={DecoratedLine}
                                             alt="Horizontal line"
                                         />
-                                        {SetInnerHTML(singleCard.data.message)}
                                     </center>
+                                    {SetInnerHTML(singleCard.data.message)}
                                 </div>
                             </Modal>
                         )}

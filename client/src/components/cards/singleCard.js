@@ -1,6 +1,7 @@
 import React from 'react'
 import SetInnerHTML from '../../utils/setInnerHTML'
 import HR from '../../images/DecoratedLine.svg'
+import moment from 'moment'
 
 export const SingleCard = (props) => {
     return (
@@ -16,6 +17,7 @@ export const SingleCard = (props) => {
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
+                    <p className="subtitle is-6 dateDisplay">{props.user && props.user}</p>
                         <div onClick={props.onViewModal}>
                             {SetInnerHTML(props.name)}
                             {props.message !== null && (
@@ -25,7 +27,7 @@ export const SingleCard = (props) => {
                                 ></i>
                             )}
                         </div>
-                        <p className="subtitle is-6 dateDisplay">@date</p>
+                        <p className="subtitle is-6 dateDisplay">{moment(props.eventDateTime).format('llll')}</p>
                     </div>
                 </div>
                 <div className="content">

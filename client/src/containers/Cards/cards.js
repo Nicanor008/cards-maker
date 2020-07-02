@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import {
     FetchCardsRequest,
     FetchSingleCardRequest,
@@ -76,90 +77,114 @@ class Cards extends Component {
                 {loading ? (
                     <Loader />
                 ) : (
-                    <div >
-                        {featuredPage ? <div className="allFeaturedEventsWrapper">
-                        <div className="featuredEventsWrapper">
-                            {data !== undefined &&
-                                data.map((card) => (
-                                    <>
-                                        <SingleCard
-                                            key={card._id}
-                                            id={card._id}
-                                            name={card.name}
-                                            message={card.message}
-                                            tags={card.tags}
-                                            border={card.border}
-                                            backgroundColor={
-                                                card.backgroundColor
-                                            }
-                                            onClickSingleCard={
-                                                this.onClickSingleCard
-                                            }
-                                            modalOpen={this.state.modalOpen}
-                                            isFeatured={this.state.isFeatured}
-                                        />
-                                    </>
-                                ))}
-                        </div>
+                    <div>
+                        {featuredPage ? (
+                            <div className="allFeaturedEventsWrapper">
+                                <div className="featuredEventsWrapper">
+                                    {data !== undefined &&
+                                        data.map((card) => (
+                                            <>
+                                                <SingleCard
+                                                    key={card._id}
+                                                    id={card._id}
+                                                    name={card.name}
+                                                    message={card.message}
+                                                    tags={card.tags}
+                                                    border={card.border}
+                                                    backgroundColor={
+                                                        card.backgroundColor
+                                                    }
+                                                    onClickSingleCard={
+                                                        this.onClickSingleCard
+                                                    }
+                                                    modalOpen={
+                                                        this.state.modalOpen
+                                                    }
+                                                    isFeatured={
+                                                        this.state.isFeatured
+                                                    }
+                                                    user={
+                                                        card.user &&
+                                                        card.user.name
+                                                    }
+                                                    eventDateTime={
+                                                        card.eventDateTime
+                                                    }
+                                                />
+                                            </>
+                                        ))}
+                                </div>
 
-                        {/* scroll icons */}
-                        <div className="scrollIcons">
-                            <center>
-                                {data !== undefined &&
-                                    data.map(() => (
-                                        <span className="singleFeaturedIcons">
-                                            <img
-                                                src={Dot}
-                                                alt="dot"
-                                                height="10"
-                                                width="10"
+                                {/* scroll icons */}
+                                <div className="scrollIcons">
+                                    <center>
+                                        {data !== undefined &&
+                                            data.map(() => (
+                                                <span className="singleFeaturedIcons">
+                                                    <img
+                                                        src={Dot}
+                                                        alt="dot"
+                                                        height="10"
+                                                        width="10"
+                                                    />
+                                                </span>
+                                            ))}
+                                    </center>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="allCardsWrapper">
+                                {/* <SearchCards /> */}
+                                <SearchCard
+                                    onChangeHandler={this.onChangeHandler}
+                                    onSubmitSearch={this.onSubmitSearch}
+                                    displaySearch={this.state.displaySearch}
+                                    data={searchByName}
+                                    modalOpen={this.state.modalOpen}
+                                    onClickSingleCard={this.onClickSingleCard}
+                                    searchParameter={this.state.searchParameter}
+                                />
+
+                                <div className="cardsWrapper">
+                                    {data !== undefined &&
+                                        data.map((card) => (
+                                            <SingleCard
+                                                key={card._id}
+                                                id={card._id}
+                                                name={card.name}
+                                                message={card.message}
+                                                tags={card.tags}
+                                                border={card.border}
+                                                backgroundColor={
+                                                    card.backgroundColor
+                                                }
+                                                onClickSingleCard={
+                                                    this.onClickSingleCard
+                                                }
+                                                modalOpen={this.state.modalOpen}
+                                                user={
+                                                    card.user && card.user.name
+                                                }
+                                                eventDateTime={
+                                                    card.eventDateTime
+                                                }
                                             />
-                                        </span>
-                                    ))}
-                            </center>
-                        </div></div> :
+                                        ))}
+                                </div>
 
-                        <div className="allCardsWrapper">
-                        {/* <SearchCards /> */}
-                        <SearchCard
-                            onChangeHandler={this.onChangeHandler}
-                            onSubmitSearch={this.onSubmitSearch}
-                            displaySearch={this.state.displaySearch}
-                            data={searchByName}
-                            modalOpen={this.state.modalOpen}
-                            onClickSingleCard={this.onClickSingleCard}
-                            searchParameter={this.state.searchParameter}
-                        />
-
-                        <div className="cardsWrapper">
-                            {data !== undefined &&
-                                data.map((card) => (
-                                    <SingleCard
-                                        key={card._id}
-                                        id={card._id}
-                                        name={card.name}
-                                        message={card.message}
-                                        tags={card.tags}
-                                        border={card.border}
-                                        backgroundColor={card.backgroundColor}
-                                        onClickSingleCard={
-                                            this.onClickSingleCard
-                                        }
-                                        modalOpen={this.state.modalOpen}
-                                    />
-                                ))}
-                        </div>
-
-                        {data === undefined && (
-                            <div>
-                                <center>
-                                    <h2>No Events Available at the moment</h2>
-                                </center>
-                                <br />
+                                {data === undefined && (
+                                    <div>
+                                        <center>
+                                            <h2>
+                                                No Events Available at the
+                                                moment
+                                            </h2>
+                                        </center>
+                                        <br />
+                                    </div>
+                                )}
                             </div>
                         )}
-
-                        </div>}
 
                         {/* on click single card */}
                         {singleCard.data !== undefined && (
@@ -177,14 +202,26 @@ class Cards extends Component {
                                         backgroundColor: `${singleCard.data.backgroundColor}`,
                                     }}
                                 >
+                                    <span className="eventDateTimeWrapper">
+                                        <p className="subtitle is-6 dateDisplay">
+                                            {moment(
+                                                singleCard.data.eventDateTime
+                                            ).format('dddd, MMMM Do YYYY')}
+                                        </p>
+                                        <p className="subtitle is-6 dateDisplay">
+                                            {moment(
+                                                singleCard.data.eventDateTime
+                                            ).format('hh:mm a')}
+                                        </p>
+                                    </span>
                                     <center>
                                         {SetInnerHTML(singleCard.data.name)}
                                         <img
                                             src={DecoratedLine}
                                             alt="Horizontal line"
                                         />
-                                        {SetInnerHTML(singleCard.data.message)}
                                     </center>
+                                    {SetInnerHTML(singleCard.data.message)}
                                 </div>
                             </Modal>
                         )}

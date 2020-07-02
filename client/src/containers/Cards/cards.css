@@ -55,10 +55,13 @@ h6 {
     direction: ltr;
     flex-flow: row nowrap;
 }
+.dateTimeDetails {
+    padding: 1rem 0;
+}
 body ::-webkit-scrollbar {
-    width: 0px;  
+    width: 0px;
     height: 0px;
-    background: transparent; 
+    background: transparent;
 }
 .isFeaturedSingleCard {
     float: left;
@@ -71,6 +74,10 @@ body ::-webkit-scrollbar {
 }
 .singleFeaturedIcons {
     padding: 0.2rem;
+}
+.eventDateTimeWrapper {
+    display: flex;
+    justify-content: space-between;
 }
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {

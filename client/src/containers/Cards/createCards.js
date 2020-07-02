@@ -7,6 +7,7 @@ import {
     DropdownBorderComponent,
     DropdownBorderWidth,
     CheckBoxComponent,
+    InputComponent,
 } from '../../components/common/input'
 import * as Actions from '../../store/actions/cards'
 import './cards.css'
@@ -16,6 +17,8 @@ import { PreviewCards } from '../../components/cards/previewCards'
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
 import { formats, modules } from '../../utils/textAreaFormats'
+import Datetime from 'react-datetime'
+import '../../assets/react-date-time.css'
 
 class CreateCards extends Component {
     state = {
@@ -29,6 +32,7 @@ class CreateCards extends Component {
         useTemplate: false,
         isPublic: false,
         modalOpen: false,
+        eventDateTime: '',
     }
 
     onCheckBoxChange = () => {
@@ -40,6 +44,12 @@ class CreateCards extends Component {
     onInputChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
+        })
+    }
+
+    onDateTimeInputChange = (target) => {
+        this.setState({
+            eventDateTime: target._d,
         })
     }
 
@@ -71,6 +81,7 @@ class CreateCards extends Component {
             borderColor,
             isPublic,
             tags,
+            eventDateTime,
         } = this.state
         const data = {
             name,
@@ -80,6 +91,7 @@ class CreateCards extends Component {
             useTemplate,
             isPublic,
             tags,
+            eventDateTime,
         }
         return AddNewCard(data)
     }
@@ -137,6 +149,7 @@ class CreateCards extends Component {
             tags,
             backgroundColor,
         } = this.state
+        const yesterday = Datetime.moment().subtract(1, 'day')
         return (
             <div className="container columnDescriptionWrapper">
                 <div className="columns">
@@ -162,6 +175,21 @@ class CreateCards extends Component {
                             modules={modules}
                             formats={formats}
                         />
+
+                        {/* date details */}
+                        <div className="dateTimeDetails">
+                            <label className="label">When is this Event happening?</label>
+                            <Datetime
+                                inputProps={{
+                                    placeholder: 'MM/DD/YYYY hh:mm AM',
+                                }}
+                                name="eventDateTime"
+                                onChange={this.onDateTimeInputChange}
+                                isValidDate={function (current) {
+                                    return current.isAfter(yesterday)
+                                }}
+                            />
+                        </div>
 
                         {/* border properties */}
                         <div
