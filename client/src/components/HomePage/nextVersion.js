@@ -14,7 +14,7 @@ const NextVersion = () => {
                 <p className="subtitle">Coming up on August 2020</p>
                 <div className="content">
                     <ul type="1">
-                        <li>Upload image(s) during card while creating/updating</li>
+                        <li><strike>Upload image(s) during card while creating/updating</strike></li>
                         <li>Use Template while creating cards</li>
                         <li>User manage Account</li>
                         <li>Video Tutorial on how to create</li>
@@ -23,6 +23,7 @@ const NextVersion = () => {
                         <li>Invite Users to view Cards</li>
                         <li><strike>View Event Date and Author name on card</strike></li>
                         <li><strike>Feature Event Cards</strike></li>
+                        <li><strike>Archive Past Events</strike></li>
                         <li><strike>Maximum Characters on The Event Title on Creation and Display</strike></li>
                         <li>Cards Maker Social Media pages</li>
                         <li>Buy me a coffee option or Pricing Page</li>

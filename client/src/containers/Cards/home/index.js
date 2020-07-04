@@ -11,6 +11,7 @@ import Cards from '../cards'
 import Modal from '../../../components/modal'
 import SetInnerHTML from '../../../utils/setInnerHTML'
 import DecoratedLine from '../../../images/DecoratedLine.svg'
+import { NavLink } from 'react-router-dom'
 
 class HomePage extends Component {
     state = {
@@ -58,28 +59,62 @@ class HomePage extends Component {
                     <Loader />
                 ) : (
                     <div className="container homePageWrapper">
-                        {/* search your card here */}
+                        {/* <div className="myEventsTopBarWrapper"> */}
+                            {/* <div>
+                                <p className="title cardEventTitle">
+                                    Active Events
+                                </p>
+                            </div>
+
+                            <div className="myCardsMenu">
+                                <NavLink to="/my-events/archive">
+                                    My Archived/Past Events
+                                </NavLink>
+                            </div> */}
+
+                            {/* <SearchCards /> */}
+                            {/* <SearchCard
+                                onChangeHandler={this.onChangeHandler}
+                                onSubmitSearch={this.onSubmitSearch}
+                                displaySearch={this.state.displaySearch}
+                                data={searchByName}
+                                modalOpen={this.state.modalOpen}
+                                onClickSingleCard={this.onClickSingleCard}
+                                searchParameter={this.state.searchParameter}
+                            /> */}
+                        {/* </div> */}
+
                         <div
                             className="column"
                             style={{ display: 'flex', flexWrap: 'wrap' }}
                         >
                             {data !== undefined ? (
                                 data.map((card) => (
-                                    <SingleCard
-                                        key={card._id}
-                                        id={card._id}
-                                        name={card.name}
-                                        message={card.message}
-                                        tags={card.tags}
-                                        border={card.border}
-                                        backgroundColor={card.backgroundColor}
-                                        onClickSingleCard={
-                                            this.onClickSingleCard
-                                        }
-                                        modalOpen={this.state.modalOpen}
-                                        user={card.user.name}
-                                        eventDateTime={card.eventDateTime}
-                                    />
+                                    <div key={card._id}>
+                                        {!moment().isSameOrAfter(
+                                            card.eventDateTime
+                                        ) && (
+                                            <SingleCard
+                                                key={card._id}
+                                                id={card._id}
+                                                name={card.name}
+                                                message={card.message}
+                                                tags={card.tags}
+                                                border={card.border}
+                                                backgroundColor={
+                                                    card.backgroundColor
+                                                }
+                                                onClickSingleCard={
+                                                    this.onClickSingleCard
+                                                }
+                                                modalOpen={this.state.modalOpen}
+                                                user={card.user.name}
+                                                eventDateTime={
+                                                    card.eventDateTime
+                                                }
+                                            />
+                                        )}
+                                    </div>
                                 ))
                             ) : (
                                 <>
@@ -87,6 +122,8 @@ class HomePage extends Component {
                                         description="You Don't have any events Cards yet. You can proceed to view other cards 
                                                     or search a particular events"
                                     />
+
+                                    <hr />
 
                                     {/* other peoples card/all cards in DB  */}
                                     <Cards />
@@ -116,15 +153,28 @@ class HomePage extends Component {
                                 >
                                     <span className="eventDateTimeWrapper">
                                         <p className="subtitle is-6 dateDisplay">
-                                            {singleCard.data.eventDateTime && moment(
-                                                singleCard.data.eventDateTime
-                                            ).format('dddd, MMMM Do YYYY')}
+                                            {singleCard.data.eventDateTime &&
+                                                moment(
+                                                    singleCard.data
+                                                        .eventDateTime
+                                                ).format('dddd, MMMM Do YYYY')}
                                         </p>
-                                        <u><b>{singleCard.data.eventDateTime && moment(singleCard.data.eventDateTime).fromNow()}</b></u>
+                                        <u>
+                                            <b>
+                                                {singleCard.data
+                                                    .eventDateTime &&
+                                                    moment(
+                                                        singleCard.data
+                                                            .eventDateTime
+                                                    ).fromNow()}
+                                            </b>
+                                        </u>
                                         <p className="subtitle is-6 dateDisplay">
-                                            {singleCard.data.eventDateTime && moment(
-                                                singleCard.data.eventDateTime
-                                            ).format('hh:mm a')}
+                                            {singleCard.data.eventDateTime &&
+                                                moment(
+                                                    singleCard.data
+                                                        .eventDateTime
+                                                ).format('hh:mm a')}
                                         </p>
                                     </span>
                                     <center>

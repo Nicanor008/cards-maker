@@ -22,7 +22,7 @@ h6 {
 .searchWrapper {
     display: block;
     justify-content: space-between;
-    padding: 1rem 7rem 1rem 1rem;
+    padding: 1rem 0 0 2rem;
 }
 .searchParameters {
     display: flex;
@@ -89,6 +89,16 @@ body ::-webkit-scrollbar {
 }
 .ql-editor, .ql-container.ql-snow {
     border: 1px solid rgb(253, 234, 234);
+}
+.eventsTopBarWrapper {
+    display: flex;
+}
+.cardsMenu {
+    padding-top: 1.3rem;
+    padding-left: 1rem;
+}
+.cardEventTitle {
+    padding-left: 1rem;
 }
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {

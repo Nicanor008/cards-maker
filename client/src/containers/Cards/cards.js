@@ -14,6 +14,7 @@ import SetInnerHTML from '../../utils/setInnerHTML'
 import DecoratedLine from '../../images/DecoratedLine.svg'
 import SearchCard from '../../components/cards/searchCard'
 import Dot from '../../images/dot.svg'
+import { NavLink } from 'react-router-dom'
 
 class Cards extends Component {
     state = {
@@ -83,32 +84,43 @@ class Cards extends Component {
                                 <div className="featuredEventsWrapper">
                                     {data !== undefined &&
                                         data.map((card) => (
-                                            <SingleCard
-                                                key={card._id}
-                                                id={card._id}
-                                                name={card.name}
-                                                message={card.message}
-                                                tags={card.tags}
-                                                border={card.border}
-                                                backgroundColor={
-                                                    card.backgroundColor
-                                                }
-                                                onClickSingleCard={
-                                                    this.onClickSingleCard
-                                                }
-                                                modalOpen={this.state.modalOpen}
-                                                isFeatured={
-                                                    this.state.isFeatured
-                                                }
-                                                user={
-                                                    card.user && card.user.name
-                                                }
-                                                eventDateTime={
+                                            <div key={card._id}>
+                                                {!moment().isSameOrAfter(
                                                     card.eventDateTime
-                                                        ? card.eventDateTime
-                                                        : ''
-                                                }
-                                            />
+                                                ) && (
+                                                    <SingleCard
+                                                        key={card._id}
+                                                        id={card._id}
+                                                        name={card.name}
+                                                        message={card.message}
+                                                        tags={card.tags}
+                                                        border={card.border}
+                                                        backgroundColor={
+                                                            card.backgroundColor
+                                                        }
+                                                        onClickSingleCard={
+                                                            this
+                                                                .onClickSingleCard
+                                                        }
+                                                        modalOpen={
+                                                            this.state.modalOpen
+                                                        }
+                                                        isFeatured={
+                                                            this.state
+                                                                .isFeatured
+                                                        }
+                                                        user={
+                                                            card.user &&
+                                                            card.user.name
+                                                        }
+                                                        eventDateTime={
+                                                            card.eventDateTime
+                                                                ? card.eventDateTime
+                                                                : ''
+                                                        }
+                                                    />
+                                                )}
+                                            </div>
                                         ))}
                                 </div>
 
@@ -116,58 +128,89 @@ class Cards extends Component {
                                 <div className="scrollIcons">
                                     <center>
                                         {data !== undefined &&
-                                            data.map(() => (
-                                                <span className="singleFeaturedIcons">
-                                                    <img
-                                                        src={Dot}
-                                                        alt="dot"
-                                                        height="10"
-                                                        width="10"
-                                                    />
-                                                </span>
+                                            data.map((card) => (
+                                                <div key={card._id}>
+                                                    {!moment().isSameOrAfter(
+                                                        card.eventDateTime
+                                                    ) && (
+                                                        <span className="singleFeaturedIcons">
+                                                            <img
+                                                                src={Dot}
+                                                                alt="dot"
+                                                                height="10"
+                                                                width="10"
+                                                            />
+                                                        </span>
+                                                    )}
+                                                </div>
                                             ))}
                                     </center>
                                 </div>
                             </div>
                         ) : (
                             <div className="allCardsWrapper">
-                                {/* <SearchCards /> */}
-                                <SearchCard
-                                    onChangeHandler={this.onChangeHandler}
-                                    onSubmitSearch={this.onSubmitSearch}
-                                    displaySearch={this.state.displaySearch}
-                                    data={searchByName}
-                                    modalOpen={this.state.modalOpen}
-                                    onClickSingleCard={this.onClickSingleCard}
-                                    searchParameter={this.state.searchParameter}
-                                />
+                                <div className="eventsTopBarWrapper">
+                                    {/* archived events menu */}
+                                    <div className="cardsMenu">
+                                        <NavLink to="/events/archived">
+                                            Archived/Past Events
+                                        </NavLink>
+                                    </div>
+
+                                    {/* <SearchCards /> */}
+                                    <SearchCard
+                                        onChangeHandler={this.onChangeHandler}
+                                        onSubmitSearch={this.onSubmitSearch}
+                                        displaySearch={this.state.displaySearch}
+                                        data={searchByName}
+                                        modalOpen={this.state.modalOpen}
+                                        onClickSingleCard={
+                                            this.onClickSingleCard
+                                        }
+                                        searchParameter={
+                                            this.state.searchParameter
+                                        }
+                                    />
+                                </div>
+
+                                <p className="title cardEventTitle">Upcoming Events</p>
 
                                 <div className="cardsWrapper">
                                     {data !== undefined &&
                                         data.map((card) => (
-                                            <SingleCard
-                                                key={card._id}
-                                                id={card._id}
-                                                name={card.name}
-                                                message={card.message}
-                                                tags={card.tags}
-                                                border={card.border}
-                                                backgroundColor={
-                                                    card.backgroundColor
-                                                }
-                                                onClickSingleCard={
-                                                    this.onClickSingleCard
-                                                }
-                                                modalOpen={this.state.modalOpen}
-                                                user={
-                                                    card.user && card.user.name
-                                                }
-                                                eventDateTime={
+                                            <div key={card._id}>
+                                                {!moment().isSameOrAfter(
                                                     card.eventDateTime
-                                                        ? card.eventDateTime
-                                                        : ''
-                                                }
-                                            />
+                                                ) && (
+                                                    <SingleCard
+                                                        key={card._id}
+                                                        id={card._id}
+                                                        name={card.name}
+                                                        message={card.message}
+                                                        tags={card.tags}
+                                                        border={card.border}
+                                                        backgroundColor={
+                                                            card.backgroundColor
+                                                        }
+                                                        onClickSingleCard={
+                                                            this
+                                                                .onClickSingleCard
+                                                        }
+                                                        modalOpen={
+                                                            this.state.modalOpen
+                                                        }
+                                                        user={
+                                                            card.user &&
+                                                            card.user.name
+                                                        }
+                                                        eventDateTime={
+                                                            card.eventDateTime
+                                                                ? card.eventDateTime
+                                                                : ''
+                                                        }
+                                                    />
+                                                )}
+                                            </div>
                                         ))}
                                 </div>
 
