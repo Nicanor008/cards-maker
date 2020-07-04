@@ -54,6 +54,7 @@ h6 {
     overflow-x: scroll;
     direction: ltr;
     flex-flow: row nowrap;
+    justify-content: center;
 }
 .dateTimeDetails {
     padding: 1rem 0;

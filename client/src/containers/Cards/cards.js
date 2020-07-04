@@ -83,8 +83,7 @@ class Cards extends Component {
                                 <div className="featuredEventsWrapper">
                                     {data !== undefined &&
                                         data.map((card) => (
-                                            <>
-                                                <SingleCard
+                                            <SingleCard
                                                     key={card._id}
                                                     id={card._id}
                                                     name={card.name}
@@ -111,7 +110,6 @@ class Cards extends Component {
                                                         card.eventDateTime
                                                     }
                                                 />
-                                            </>
                                         ))}
                                 </div>
 
