@@ -106,8 +106,8 @@ class Cards extends Component {
                                                         card.user &&
                                                         card.user.name
                                                     }
-                                                    eventDateTime={
-                                                        card.eventDateTime
+                                                    eventDateTime={card.eventDateTime ?
+                                                        card.eventDateTime : ''
                                                     }
                                                 />
                                         ))}
@@ -163,8 +163,8 @@ class Cards extends Component {
                                                 user={
                                                     card.user && card.user.name
                                                 }
-                                                eventDateTime={
-                                                    card.eventDateTime
+                                                eventDateTime={card.eventDateTime ?
+                                                        card.eventDateTime : ''
                                                 }
                                             />
                                         ))}
@@ -202,12 +202,13 @@ class Cards extends Component {
                                 >
                                     <span className="eventDateTimeWrapper">
                                         <p className="subtitle is-6 dateDisplay">
-                                            {moment(
+                                            {singleCard.data.eventDateTime && moment(
                                                 singleCard.data.eventDateTime
                                             ).format('dddd, MMMM Do YYYY')}
                                         </p>
+                                        <u><b>{singleCard.data.eventDateTime && moment(singleCard.data.eventDateTime).fromNow()}</b></u>
                                         <p className="subtitle is-6 dateDisplay">
-                                            {moment(
+                                            {singleCard.data.eventDateTime && moment(
                                                 singleCard.data.eventDateTime
                                             ).format('hh:mm a')}
                                         </p>

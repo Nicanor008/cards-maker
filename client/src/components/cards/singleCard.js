@@ -6,7 +6,9 @@ import moment from 'moment'
 export const SingleCard = (props) => {
     return (
         <div
-            className={props.isFeatured ? `isFeaturedSingleCard` : `singleCardWrapper`}
+            className={
+                props.isFeatured ? `isFeaturedSingleCard` : `singleCardWrapper`
+            }
             style={{
                 border: props.border,
                 backgroundColor: props.backgroundColor,
@@ -17,7 +19,9 @@ export const SingleCard = (props) => {
             <div className="card-content">
                 <div className="media">
                     <div className="media-content">
-                    <p className="subtitle is-6 dateDisplay">{props.user && props.user}</p>
+                        <p className="subtitle is-6 dateDisplay">
+                            {props.user && props.user}
+                        </p>
                         <div onClick={props.onViewModal}>
                             {SetInnerHTML(props.name)}
                             {props.message !== null && (
@@ -27,7 +31,11 @@ export const SingleCard = (props) => {
                                 ></i>
                             )}
                         </div>
-                        <p className="subtitle is-6 dateDisplay">{moment(props.eventDateTime).format('llll')}</p>
+                        <p className="subtitle is-6 dateDisplay">
+                            {props.eventDateTime
+                                ? moment(props.eventDateTime).format('llll')
+                                : props.eventDateTime}
+                        </p>
                     </div>
                 </div>
                 <div className="content">

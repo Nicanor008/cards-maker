@@ -116,13 +116,13 @@ class HomePage extends Component {
                                 >
                                     <span className="eventDateTimeWrapper">
                                         <p className="subtitle is-6 dateDisplay">
-                                            {moment(
+                                            {singleCard.data.eventDateTime && moment(
                                                 singleCard.data.eventDateTime
                                             ).format('dddd, MMMM Do YYYY')}
                                         </p>
-                                        <u><b>{moment(singleCard.data.eventDateTime).fromNow()}</b></u>
+                                        <u><b>{singleCard.data.eventDateTime && moment(singleCard.data.eventDateTime).fromNow()}</b></u>
                                         <p className="subtitle is-6 dateDisplay">
-                                            {moment(
+                                            {singleCard.data.eventDateTime && moment(
                                                 singleCard.data.eventDateTime
                                             ).format('hh:mm a')}
                                         </p>
