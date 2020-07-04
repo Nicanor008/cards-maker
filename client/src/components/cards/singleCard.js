@@ -23,7 +23,7 @@ export const SingleCard = (props) => {
                             {props.user && props.user}
                         </p>
                         <div onClick={props.onViewModal}>
-                            {SetInnerHTML(props.name)}
+                            {SetInnerHTML(props.name.substr(0, 30))}
                             {props.message !== null && (
                                 <i
                                     className="fas fa-share-alt cardShareIcon"

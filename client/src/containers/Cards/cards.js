@@ -84,32 +84,31 @@ class Cards extends Component {
                                     {data !== undefined &&
                                         data.map((card) => (
                                             <SingleCard
-                                                    key={card._id}
-                                                    id={card._id}
-                                                    name={card.name}
-                                                    message={card.message}
-                                                    tags={card.tags}
-                                                    border={card.border}
-                                                    backgroundColor={
-                                                        card.backgroundColor
-                                                    }
-                                                    onClickSingleCard={
-                                                        this.onClickSingleCard
-                                                    }
-                                                    modalOpen={
-                                                        this.state.modalOpen
-                                                    }
-                                                    isFeatured={
-                                                        this.state.isFeatured
-                                                    }
-                                                    user={
-                                                        card.user &&
-                                                        card.user.name
-                                                    }
-                                                    eventDateTime={card.eventDateTime ?
-                                                        card.eventDateTime : ''
-                                                    }
-                                                />
+                                                key={card._id}
+                                                id={card._id}
+                                                name={card.name}
+                                                message={card.message}
+                                                tags={card.tags}
+                                                border={card.border}
+                                                backgroundColor={
+                                                    card.backgroundColor
+                                                }
+                                                onClickSingleCard={
+                                                    this.onClickSingleCard
+                                                }
+                                                modalOpen={this.state.modalOpen}
+                                                isFeatured={
+                                                    this.state.isFeatured
+                                                }
+                                                user={
+                                                    card.user && card.user.name
+                                                }
+                                                eventDateTime={
+                                                    card.eventDateTime
+                                                        ? card.eventDateTime
+                                                        : ''
+                                                }
+                                            />
                                         ))}
                                 </div>
 
@@ -163,8 +162,10 @@ class Cards extends Component {
                                                 user={
                                                     card.user && card.user.name
                                                 }
-                                                eventDateTime={card.eventDateTime ?
-                                                        card.eventDateTime : ''
+                                                eventDateTime={
+                                                    card.eventDateTime
+                                                        ? card.eventDateTime
+                                                        : ''
                                                 }
                                             />
                                         ))}
@@ -202,15 +203,28 @@ class Cards extends Component {
                                 >
                                     <span className="eventDateTimeWrapper">
                                         <p className="subtitle is-6 dateDisplay">
-                                            {singleCard.data.eventDateTime && moment(
-                                                singleCard.data.eventDateTime
-                                            ).format('dddd, MMMM Do YYYY')}
+                                            {singleCard.data.eventDateTime &&
+                                                moment(
+                                                    singleCard.data
+                                                        .eventDateTime
+                                                ).format('dddd, MMMM Do YYYY')}
                                         </p>
-                                        <u><b>{singleCard.data.eventDateTime && moment(singleCard.data.eventDateTime).fromNow()}</b></u>
+                                        <u>
+                                            <b>
+                                                {singleCard.data
+                                                    .eventDateTime &&
+                                                    moment(
+                                                        singleCard.data
+                                                            .eventDateTime
+                                                    ).fromNow()}
+                                            </b>
+                                        </u>
                                         <p className="subtitle is-6 dateDisplay">
-                                            {singleCard.data.eventDateTime && moment(
-                                                singleCard.data.eventDateTime
-                                            ).format('hh:mm a')}
+                                            {singleCard.data.eventDateTime &&
+                                                moment(
+                                                    singleCard.data
+                                                        .eventDateTime
+                                                ).format('hh:mm a')}
                                         </p>
                                     </span>
                                     <center>

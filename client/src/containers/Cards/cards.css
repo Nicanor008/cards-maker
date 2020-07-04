@@ -80,6 +80,16 @@ body ::-webkit-scrollbar {
     display: flex;
     justify-content: space-between;
 }
+.formatInputTitle > .ql-toolbar.ql-snow + .ql-container.ql-snow {
+    border: 1px solid rgb(219, 22, 22);
+}
+.ql-toolbar.ql-snow {
+    background-color: rgb(255, 231, 231);
+    border: 0;
+}
+.ql-editor, .ql-container.ql-snow {
+    border: 1px solid rgb(253, 234, 234);
+}
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {
         margin-left: 0;

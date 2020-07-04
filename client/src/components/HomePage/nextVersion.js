@@ -23,6 +23,7 @@ const NextVersion = () => {
                         <li>Invite Users to view Cards</li>
                         <li><strike>View Event Date and Author name on card</strike></li>
                         <li><strike>Feature Event Cards</strike></li>
+                        <li><strike>Maximum Characters on The Event Title on Creation and Display</strike></li>
                         <li>Cards Maker Social Media pages</li>
                         <li>Buy me a coffee option or Pricing Page</li>
                         <li>Oauth Social Login</li>

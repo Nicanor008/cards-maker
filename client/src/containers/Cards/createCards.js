@@ -2,12 +2,12 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import toastr from 'toastr'
 import {
     TextAreaInputComponent,
     DropdownBorderComponent,
     DropdownBorderWidth,
-    CheckBoxComponent,
-    InputComponent,
+    CheckBoxComponent
 } from '../../components/common/input'
 import * as Actions from '../../store/actions/cards'
 import './cards.css'
@@ -33,6 +33,7 @@ class CreateCards extends Component {
         isPublic: false,
         modalOpen: false,
         eventDateTime: '',
+        nameError: 0
     }
 
     onCheckBoxChange = () => {
@@ -61,7 +62,7 @@ class CreateCards extends Component {
     }
 
     onTitleNameChange = (html) => {
-        this.setState({ name: html })
+        this.setState({ nameError: html.length,name: html })
     }
 
     onTextAreaChange = (html) => {
@@ -81,7 +82,7 @@ class CreateCards extends Component {
             borderColor,
             isPublic,
             tags,
-            eventDateTime,
+            eventDateTime, nameError
         } = this.state
         const data = {
             name,
@@ -92,6 +93,9 @@ class CreateCards extends Component {
             isPublic,
             tags,
             eventDateTime,
+        }
+        if(nameError > 140) {
+            return toastr.error('Character Maximum Limit is exceeded on the Event title', 'Failed!!')
         }
         return AddNewCard(data)
     }
@@ -148,6 +152,7 @@ class CreateCards extends Component {
             borderColor,
             tags,
             backgroundColor,
+            nameError
         } = this.state
         const yesterday = Datetime.moment().subtract(1, 'day')
         return (
@@ -159,6 +164,7 @@ class CreateCards extends Component {
                         <TextAreaInputComponent
                             onchange={this.onTitleNameChange}
                             error={cards.name === ''}
+                            nameError={nameError}
                             value={name}
                             labelName="Event Card Title"
                             placeholder="Event Card Title"

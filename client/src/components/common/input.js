@@ -36,6 +36,14 @@ export const TextAreaInputComponent = (props) => {
                 {props.error && (
                     <span className="errorLabel"> ::Required field</span>
                 )}
+                {props.nameError > 140 && (
+                    <strong>
+                        <span className="errorLabel">
+                            {'  '}
+                            ::140 Character limit exceeded!!
+                        </span>
+                    </strong>
+                )}
             </label>
             <div className="control">
                 <ReactQuill
@@ -45,6 +53,7 @@ export const TextAreaInputComponent = (props) => {
                     placeholder={props.placeholder}
                     modules={headerModules}
                     formats={formats}
+                    className={props.nameError > 140 && `formatInputTitle`}
                 />
             </div>
         </div>
