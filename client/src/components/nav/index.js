@@ -36,22 +36,35 @@ const NavBar = () => {
 
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-end">
-                        <NavLink
-                            to="/events"
-                            activeClassName="selected"
-                            className="navbar-item textDarkColor"
-                        >
-                            Events
-                        </NavLink>
-                        {localStorage.getItem('token') && (
+                        <div className="dropdown">
                             <NavLink
-                                to="/dashboard"
+                                to={!localStorage.getItem('token') && '/events'}
                                 activeClassName="selected"
-                                className="navbar-item textDarkColor"
+                                className="navbar-item textDarkColor dropdown-button"
                             >
-                                Dashboard
+                                Events
                             </NavLink>
-                        )}
+                            <div className="dropdown-content">
+                                {localStorage.getItem('token') && (
+                                    <>
+                                        <NavLink
+                                            to="/dashboard"
+                                            activeClassName="selected"
+                                            className="navbar-item textDarkColor"
+                                        >
+                                            My Events
+                                        </NavLink>
+                                        <NavLink
+                                            to="/events"
+                                            activeClassName="selected"
+                                            className="navbar-item textDarkColor"
+                                        >
+                                            All Events
+                                        </NavLink>
+                                    </>
+                                )}
+                            </div>
+                        </div>
                         <NavLink
                             to="/create"
                             activeClassName="selected"
@@ -69,11 +82,12 @@ const NavBar = () => {
                                     height="40"
                                 />
                                 <div className="dropdown-content">
-                                    <button
-                                        className="navbar-item logoutBtn"
+                                    <NavLink
+                                        to="/settings"
+                                        className="navbar-item textDarkColor"
                                     >
                                         Settings
-                                    </button>
+                                    </NavLink>
                                     <button
                                         className="navbar-item logoutBtn"
                                         onClick={logoutClickHandler}

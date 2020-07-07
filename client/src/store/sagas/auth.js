@@ -15,8 +15,10 @@ export function* LoginUser(action) {
         const response = yield call(api.auth.login, action.payload)
         yield put(actions.LoginSuccessRequest(response.data))
         toastr.success(response.data.message)
-        const token = response.data.token
-        return localStorage.setItem('token', token)
+        const userToken = response.data.token
+        const anonyId = response.data.data._id
+        localStorage.setItem('token', JSON.stringify(userToken))
+        return localStorage.setItem('anonyId', JSON.stringify(anonyId))
     } catch (e) {
         let newError
         yield put(actions.LoginFailureRequest(e))

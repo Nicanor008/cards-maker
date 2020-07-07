@@ -1,0 +1,23 @@
+.userDetailsSettings {
+    padding-left: 6rem;
+    display: flex;
+}
+.singleUserDetails {
+    padding-right: 4rem;
+}
+.singleUserDetailsLabel {
+    font-weight: bold;
+}
+.singleUserDetailsButton {
+    margin-left: 6rem;
+    margin-top: 0.5rem;
+}
+
+@media only screen and (max-width: 467px) {
+    .userDetailsSettings {
+        padding-left: 1rem;
+    }
+    .singleUserDetailsButton {
+        margin-left: 1rem;
+    }
+}

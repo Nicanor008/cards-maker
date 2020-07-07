@@ -23,6 +23,7 @@ import AllArchivedCards from './containers/Cards/archived'
 import MyArchivedCards from './containers/Cards/home/myArchivedEvents'
 import VerifyAccount from './containers/Auth/verifyAccount'
 import TermsAndConditions from './components/policies/termsAndConditions'
+import Settings from './containers/User.js/settings'
 
 function App() {
     return (
@@ -56,6 +57,12 @@ function App() {
                     <WrappedRoute
                         path="/my-events/archive"
                         component={MyArchivedCards}
+                        requiresAuth
+                        useAppFrame
+                    />
+                    <WrappedRoute
+                        path="/settings"
+                        component={Settings}
                         requiresAuth
                         useAppFrame
                     />

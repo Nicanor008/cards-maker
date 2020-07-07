@@ -17,5 +17,8 @@ export const api = {
         forgotPassword: (email) => server.post(`/auth/password/${email}`),
         resetPassword: (data, email) => server.patch(`/auth/password/${email}`, data),
         verifyAccount: (email) => server.patch(`/auth/verify/${email}`)
+    },
+    user: {
+        getSingleUser: (id) => server.get(`/users/${id}`)
     }
 }
