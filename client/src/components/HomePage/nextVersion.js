@@ -28,6 +28,7 @@ const NextVersion = () => {
                         <li>Cards Maker Social Media pages</li>
                         <li>Buy me a coffee option or Pricing Page</li>
                         <li>Oauth Social Login</li>
+                        <li>Terms and Conditions page</li>
                     </ul>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import './navbar.css'
 import { Link, NavLink } from 'react-router-dom'
 import Logo from '../../images/logo.svg'
+import UserIcon from '../../images/user.svg'
 
 // logout onClick Handler
 function logoutClickHandler(e) {
@@ -24,7 +25,11 @@ const NavBar = () => {
                         className="title is-3  NavBarBrand"
                         style={{ display: 'flex' }}
                     >
-                    <img src={Logo} alt="logo" style={{maxHeight: '70px'}} />
+                        <img
+                            src={Logo}
+                            alt="logo"
+                            style={{ maxHeight: '70px' }}
+                        />
                         <span className="textColor">Cards Maker</span>
                     </Link>
                 </div>
@@ -55,12 +60,28 @@ const NavBar = () => {
                             Create
                         </NavLink>
                         {localStorage.getItem('token') !== null ? (
-                            <button
-                                className="navbar-item logoutBtn"
-                                onClick={logoutClickHandler}
-                            >
-                                Logout
-                            </button>
+                            <div className="dropdown">
+                                <img
+                                    src={UserIcon}
+                                    alt="user logo"
+                                    className="dropdown-button"
+                                    width="40"
+                                    height="40"
+                                />
+                                <div className="dropdown-content">
+                                    <button
+                                        className="navbar-item logoutBtn"
+                                    >
+                                        Settings
+                                    </button>
+                                    <button
+                                        className="navbar-item logoutBtn"
+                                        onClick={logoutClickHandler}
+                                    >
+                                        Logout
+                                    </button>
+                                </div>
+                            </div>
                         ) : (
                             <NavLink
                                 to="/login"
