@@ -15,7 +15,7 @@ import {
     watchVerifyAccount
 } from './auth'
 import { watchSearchByName, watchSearchByTag } from './searchCards'
-import {  watchFetchSingleUser } from './user'
+import {  watchFetchSingleUser, watchDeactivateUser, watchDeleteUser } from './user'
 
 export default function* root() {
     yield all([
@@ -32,6 +32,8 @@ export default function* root() {
         fork(watchVerifyAccount),
         fork(watchUpdateCard),
         fork(watchDeleteCard),
-        fork(watchFetchSingleUser)
+        fork(watchFetchSingleUser),
+        fork(watchDeactivateUser),
+        fork(watchDeleteUser),
     ])
 }

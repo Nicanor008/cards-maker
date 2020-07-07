@@ -12,7 +12,7 @@ const server = axios.create({
     baseURL: serverUrl(),
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token').replace(/['"]+/g, '')
+        'Authorization': localStorage.getItem('token') && localStorage.getItem('token').replace(/['"]+/g, '')
     },
 })
 

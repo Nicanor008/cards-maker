@@ -44,8 +44,8 @@ const NavBar = () => {
                             >
                                 Events
                             </NavLink>
-                            <div className="dropdown-content">
-                                {localStorage.getItem('token') && (
+                            {localStorage.getItem('token') && (
+                                <div className="dropdown-content">
                                     <>
                                         <NavLink
                                             to="/dashboard"
@@ -62,8 +62,8 @@ const NavBar = () => {
                                             All Events
                                         </NavLink>
                                     </>
-                                )}
-                            </div>
+                                </div>
+                            )}
                         </div>
                         <NavLink
                             to="/create"

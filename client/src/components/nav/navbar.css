@@ -16,7 +16,12 @@
     color: black;
 }
 .navbar-end > .selected {
-    background-color: white;
+    background-color: rgb(248, 150, 199);
+}
+a.navbar-item:hover {
+    background-color: rgb(248, 103, 175);
+    color: #3b3b3b;
+    font-weight: bold;
 }
 .logoutBtn {
     background: none;

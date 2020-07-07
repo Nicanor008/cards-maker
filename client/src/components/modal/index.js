@@ -4,6 +4,7 @@ import CloseIcon from '../../images/closeIcon.svg'
 import { Loader } from '../common/loader'
 import { Link } from 'react-router-dom'
 
+
 const Modal = ({
     handleClose,
     show,

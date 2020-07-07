@@ -19,6 +19,8 @@ export const api = {
         verifyAccount: (email) => server.patch(`/auth/verify/${email}`)
     },
     user: {
-        getSingleUser: (id) => server.get(`/users/${id}`)
+        getSingleUser: (id) => server.get(`/users/${id}`),
+        deactivateUser: (id) => server.patch(`/users/deactivate/${id}`),
+        deleteUser: (id) => server.delete(`/users/${id}`),
     }
 }

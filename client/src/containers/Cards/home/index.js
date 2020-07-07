@@ -11,7 +11,6 @@ import Cards from '../cards'
 import Modal from '../../../components/modal'
 import SetInnerHTML from '../../../utils/setInnerHTML'
 import DecoratedLine from '../../../images/DecoratedLine.svg'
-import { NavLink } from 'react-router-dom'
 
 class HomePage extends Component {
     state = {

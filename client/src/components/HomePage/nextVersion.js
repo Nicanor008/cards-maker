@@ -16,7 +16,7 @@ const NextVersion = () => {
                     <ul type="1">
                         <li><strike>Upload image(s) during card while creating/updating</strike></li>
                         <li>Use Template while creating cards</li>
-                        <li>User manage Account</li>
+                        <li><strike>User manage Account</strike></li>
                         <li>Video Tutorial on how to create</li>
                         <li>Download Cards</li>
                         <li>Share Event Cards</li>

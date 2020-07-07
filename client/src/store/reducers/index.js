@@ -13,7 +13,7 @@ import loginReducer, {
     resetPassword,
     verifyAccount,
 } from './auth'
-import { fetchSingleUser } from './user'
+import { fetchSingleUser, deactivateUser, deleteUser } from './user'
 
 const rootReducer = combineReducers({
     cardsReducer,
@@ -30,6 +30,8 @@ const rootReducer = combineReducers({
     updateCard,
     deleteCard,
     fetchSingleUser,
+    deactivateUser,
+    deleteUser
 })
 
 export default rootReducer

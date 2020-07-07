@@ -3,17 +3,37 @@ import { connect } from 'react-redux'
 import './user.css'
 import * as Actions from '../../store/actions/user'
 import { Loader } from '../../components/common/loader'
+import '../../components/modal/modal.css'
 
 class Settings extends Component {
+    state = {
+        id: localStorage.getItem('anonyId').replace(/['"]+/g, ''),
+    }
     componentDidMount() {
-        const id = localStorage.getItem('anonyId').replace(/['"]+/g, '')
         const { FetchSingleUser } = this.props
-        return FetchSingleUser(id)
+        return FetchSingleUser(this.state.id)
+    }
+
+    componentDidUpdate() {
+        const { deactivateUser, deleteUser } = this.props
+        if (
+            deactivateUser.message === 'Account has been deactivated' ||
+            deleteUser.message === 'Account has been deleted'
+        ) {
+            localStorage.removeItem('token')
+            localStorage.removeItem('anonyId')
+            window.location.assign('/')
+        }
+    }
+
+    deleteUser = () => {
+        const { DeleteUser } = this.props
+        return DeleteUser(this.state.id)
     }
 
     render() {
         const { data, loading } = this.props.singleUser
-        console.log('>>>>>>>>>>>>>>>>>>>>>........', data)
+        const { DeactivateUser, DeleteUser } = this.props
         return (
             <div className="container columns">
                 {loading ? (
@@ -44,8 +64,19 @@ class Settings extends Component {
                                         {data.email}
                                     </div>
                                 </div>
-                                <button className="button singleUserDetailsButton">
-                                    Delete
+                                <button
+                                    className="button singleUserDetailsButton"
+                                    onClick={() =>
+                                        DeactivateUser(this.state.id)
+                                    }
+                                >
+                                    De-Activate Account
+                                </button>
+                                <button
+                                    className="button singleUserDetailsButton"
+                                    onClick={() => DeleteUser(this.state.id)}
+                                >
+                                    Delete Account
                                 </button>
                             </div>
 
@@ -60,6 +91,7 @@ class Settings extends Component {
                                     <div className="content">
                                         <ul type="1">
                                             <li>Analytics on your account. </li>
+                                            <li>Update your account. </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -74,10 +106,14 @@ class Settings extends Component {
 
 const mapStateToProps = (state) => ({
     singleUser: state.fetchSingleUser,
+    deactivateUser: state.deactivateUser,
+    deleteUser: state.deleteUser,
 })
 
 const mapDispatchToProps = {
     FetchSingleUser: Actions.FetchSingleUserRequest,
+    DeactivateUser: Actions.DeactivateSingleUserRequest,
+    DeleteUser: Actions.DeleteSingleUserRequest,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings)
