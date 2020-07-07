@@ -7,7 +7,7 @@ import {
     TextAreaInputComponent,
     DropdownBorderComponent,
     DropdownBorderWidth,
-    CheckBoxComponent
+    CheckBoxComponent,
 } from '../../components/common/input'
 import * as Actions from '../../store/actions/cards'
 import './cards.css'
@@ -33,7 +33,7 @@ class CreateCards extends Component {
         isPublic: false,
         modalOpen: false,
         eventDateTime: '',
-        nameError: 0
+        nameError: 0,
     }
 
     onCheckBoxChange = () => {
@@ -62,7 +62,7 @@ class CreateCards extends Component {
     }
 
     onTitleNameChange = (html) => {
-        this.setState({ nameError: html.length,name: html })
+        this.setState({ nameError: html.length, name: html })
     }
 
     onTextAreaChange = (html) => {
@@ -82,7 +82,8 @@ class CreateCards extends Component {
             borderColor,
             isPublic,
             tags,
-            eventDateTime, nameError
+            eventDateTime,
+            nameError,
         } = this.state
         const data = {
             name,
@@ -94,8 +95,11 @@ class CreateCards extends Component {
             tags,
             eventDateTime,
         }
-        if(nameError > 140) {
-            return toastr.error('Character Maximum Limit is exceeded on the Event title', 'Failed!!')
+        if (nameError > 140) {
+            return toastr.error(
+                'Character Maximum Limit is exceeded on the Event title',
+                'Failed!!'
+            )
         }
         return AddNewCard(data)
     }
@@ -152,7 +156,7 @@ class CreateCards extends Component {
             borderColor,
             tags,
             backgroundColor,
-            nameError
+            nameError,
         } = this.state
         const yesterday = Datetime.moment().subtract(1, 'day')
         return (
@@ -160,7 +164,16 @@ class CreateCards extends Component {
                 <div className="columns">
                     <div className="column">
                         {/* title input */}
-                        <h6 className="title">Create Event Card</h6>
+                        <p className="title" style={{ marginBottom: 0 }}>
+                            Create Event Card
+                        </p>
+                        <span
+                            className="subtitle"
+                            style={{ fontSize: 'small' }}
+                        >
+                            You Must Login to Create an Event Card. This is just
+                            a playground
+                        </span>
                         <TextAreaInputComponent
                             onchange={this.onTitleNameChange}
                             error={cards.name === ''}
@@ -184,7 +197,9 @@ class CreateCards extends Component {
 
                         {/* date details */}
                         <div className="dateTimeDetails">
-                            <label className="label">When is this Event happening?</label>
+                            <label className="label">
+                                When is this Event happening?
+                            </label>
                             <Datetime
                                 inputProps={{
                                     placeholder: 'MM/DD/YYYY hh:mm AM',

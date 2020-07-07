@@ -81,29 +81,39 @@ class AllArchivedCards extends Component {
                             <div className="eventsTopBarWrapper">
                                 {/* back to all events menu */}
                                 <div className="cardsMenu">
-                                    <NavLink to="/events">
-                                        Back
-                                    </NavLink>
+                                    <NavLink to="/events">Back</NavLink>
                                 </div>
 
                                 {/* <SearchCards /> */}
-                                <SearchCard
-                                    onChangeHandler={this.onChangeHandler}
-                                    onSubmitSearch={this.onSubmitSearch}
-                                    displaySearch={this.state.displaySearch}
-                                    data={searchByName}
-                                    modalOpen={this.state.modalOpen}
-                                    onClickSingleCard={this.onClickSingleCard}
-                                    searchParameter={this.state.searchParameter}
-                                />
+                                {data !== undefined &&
+                                    data.map(() => (
+                                        <SearchCard
+                                            onChangeHandler={
+                                                this.onChangeHandler
+                                            }
+                                            onSubmitSearch={this.onSubmitSearch}
+                                            displaySearch={
+                                                this.state.displaySearch
+                                            }
+                                            data={searchByName}
+                                            modalOpen={this.state.modalOpen}
+                                            onClickSingleCard={
+                                                this.onClickSingleCard
+                                            }
+                                            searchParameter={
+                                                this.state.searchParameter
+                                            }
+                                        />
+                                    ))}
                             </div>
-
-                            <p className="title cardEventTitle">Archived Events</p>
 
                             <div className="cardsWrapper">
                                 {data !== undefined &&
                                     data.map((card) => (
                                         <div key={card._id}>
+                                            <p className="title cardEventTitle">
+                                                Archived Events
+                                            </p>
                                             {moment().isSameOrAfter(
                                                 card.eventDateTime
                                             ) && (
@@ -141,8 +151,8 @@ class AllArchivedCards extends Component {
                             {data === undefined && (
                                 <div>
                                     <center>
-                                        <h2>
-                                            No Events Available at the moment
+                                        <h2 className="title">
+                                            No Past Events Available
                                         </h2>
                                     </center>
                                     <br />

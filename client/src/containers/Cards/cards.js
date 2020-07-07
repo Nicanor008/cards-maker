@@ -158,27 +158,37 @@ class Cards extends Component {
                                     </div>
 
                                     {/* <SearchCards /> */}
-                                    <SearchCard
-                                        onChangeHandler={this.onChangeHandler}
-                                        onSubmitSearch={this.onSubmitSearch}
-                                        displaySearch={this.state.displaySearch}
-                                        data={searchByName}
-                                        modalOpen={this.state.modalOpen}
-                                        onClickSingleCard={
-                                            this.onClickSingleCard
-                                        }
-                                        searchParameter={
-                                            this.state.searchParameter
-                                        }
-                                    />
+                                    {data !== undefined &&
+                                        data.map(() => (
+                                            <SearchCard
+                                                onChangeHandler={
+                                                    this.onChangeHandler
+                                                }
+                                                onSubmitSearch={
+                                                    this.onSubmitSearch
+                                                }
+                                                displaySearch={
+                                                    this.state.displaySearch
+                                                }
+                                                data={searchByName}
+                                                modalOpen={this.state.modalOpen}
+                                                onClickSingleCard={
+                                                    this.onClickSingleCard
+                                                }
+                                                searchParameter={
+                                                    this.state.searchParameter
+                                                }
+                                            />
+                                        ))}
                                 </div>
-
-                                <p className="title cardEventTitle">Upcoming Events</p>
 
                                 <div className="cardsWrapper">
                                     {data !== undefined &&
                                         data.map((card) => (
                                             <div key={card._id}>
+                                                <p className="title cardEventTitle">
+                                                    Upcoming Events
+                                                </p>
                                                 {!moment().isSameOrAfter(
                                                     card.eventDateTime
                                                 ) && (
@@ -217,9 +227,8 @@ class Cards extends Component {
                                 {data === undefined && (
                                     <div>
                                         <center>
-                                            <h2>
-                                                No Events Available at the
-                                                moment
+                                            <h2 className="title">
+                                                No Upcoming Events
                                             </h2>
                                         </center>
                                         <br />
