@@ -3,6 +3,7 @@ import TodoListPicture from '../../images/todoList.svg'
 import Modal from '../modal'
 import DecoratedLine from '../../images/DecoratedLine.svg'
 import SetInnerHTML from '../../utils/setInnerHTML'
+import moment from 'moment'
 
 export const PreviewCards = (props) => {
     return (
@@ -28,6 +29,7 @@ export const PreviewCards = (props) => {
                             src={DecoratedLine}
                             alt="Horizontal line"
                             className="is-5by3"
+                            style={{width:'100%'}}
                         />
                         {SetInnerHTML(props.message, '0.5rem')}
                     </>
@@ -71,8 +73,30 @@ export const PreviewCards = (props) => {
                                 backgroundColor: `${props.backgroundColor}`,
                             }}
                         >
+                            <span className="eventDateTimeWrapper">
+                                <p className="subtitle is-6 dateDisplay">
+                                    {props.eventDateTime &&
+                                        moment(
+                                            props.eventDateTime
+                                        ).format('dddd, MMMM Do YYYY')}
+                                </p>
+                                <u>
+                                    <b>
+                                        {props.eventDateTime &&
+                                            moment(
+                                                props.eventDateTime
+                                            ).fromNow()}
+                                    </b>
+                                </u>
+                                <p className="subtitle is-6 dateDisplay">
+                                    {props.eventDateTime &&
+                                        moment(
+                                            props.eventDateTime
+                                        ).format('hh:mm a')}
+                                </p>
+                            </span>
                             {SetInnerHTML(props.name)}
-                            <img src={DecoratedLine} alt="Horizontal line" />
+                            <img src={DecoratedLine} alt="Horizontal line" style={{width:'100%'}} />
                             {SetInnerHTML(props.message)}
                         </div>
                     </Modal>

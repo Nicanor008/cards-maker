@@ -19,7 +19,7 @@ const NextVersion = () => {
                         <li><strike>User manage Account</strike></li>
                         <li>Video Tutorial on how to create</li>
                         <li>Download Cards</li>
-                        <li>Share Event Cards</li>
+                        <li><strike>Share Event Cards</strike></li>
                         <li>Invite Users to view Cards</li>
                         <li><strike>View Event Date and Author name on card</strike></li>
                         <li><strike>Feature Event Cards</strike></li>

@@ -284,6 +284,7 @@ class Cards extends Component {
                                         <img
                                             src={DecoratedLine}
                                             alt="Horizontal line"
+                                            style={{width:'100%'}}
                                         />
                                     </center>
                                     {SetInnerHTML(singleCard.data.message)}

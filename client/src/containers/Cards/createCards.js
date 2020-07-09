@@ -160,6 +160,7 @@ class CreateCards extends Component {
             tags,
             backgroundColor,
             nameError,
+            eventDateTime
         } = this.state
         const yesterday = Datetime.moment().subtract(1, 'day')
         return (
@@ -298,6 +299,7 @@ class CreateCards extends Component {
                             modalOpen={this.state.modalOpen}
                             onCloseModal={this.hideModal}
                             backgroundColor={backgroundColor}
+                            eventDateTime={eventDateTime}
                         />
                     </div>
                 </div>
