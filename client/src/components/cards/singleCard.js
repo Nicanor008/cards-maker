@@ -2,6 +2,7 @@ import React from 'react'
 import SetInnerHTML from '../../utils/setInnerHTML'
 import HR from '../../images/DecoratedLine.svg'
 import moment from 'moment'
+import ShareButton from './shareButton'
 
 export const SingleCard = (props) => {
     return (
@@ -14,7 +15,6 @@ export const SingleCard = (props) => {
                 backgroundColor: props.backgroundColor,
                 cursor: 'pointer',
             }}
-            onClick={() => props.onClickSingleCard(props.id)}
         >
             <div className="card-content">
                 <div className="media">
@@ -23,15 +23,19 @@ export const SingleCard = (props) => {
                             {props.user && props.user}
                         </p>
                         <div onClick={props.onViewModal}>
-                            {SetInnerHTML(props.name.substr(0, 30))}
-                            {props.message !== null && (
-                                <i
-                                    className="fas fa-share-alt cardShareIcon"
-                                    aria-hidden="true"
-                                ></i>
-                            )}
+                            <div
+                                onClick={() =>
+                                    props.onClickSingleCard(props.id)
+                                }
+                            >
+                                {SetInnerHTML(props.name.substr(0, 30))}
+                            </div>
+                            {props.message !== null && <ShareButton id={props.id}/>}
                         </div>
-                        <p className="subtitle is-6 dateDisplay">
+                        <p
+                            className="subtitle is-6 dateDisplay"
+                            onClick={() => props.onClickSingleCard(props.id)}
+                        >
                             {props.eventDateTime
                                 ? moment(props.eventDateTime).format('llll')
                                 : props.eventDateTime}
@@ -40,7 +44,9 @@ export const SingleCard = (props) => {
                 </div>
                 <div className="content">
                     <br />
-                    {SetInnerHTML(props.message.substr(0, 90))}
+                    <div onClick={() => props.onClickSingleCard(props.id)}>
+                        {SetInnerHTML(props.message.substr(0, 90))}
+                    </div>
                     <img src={HR} alt="hr" />
                     <div className="cardTags">
                         {props.tags !== undefined &&

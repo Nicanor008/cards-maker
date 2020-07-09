@@ -14,7 +14,7 @@ export const PreviewCards = (props) => {
                     margin: '1rem',
                     borderRadius: '2px',
                     backgroundColor: `${props.backgroundColor}`,
-                    padding: '1rem'
+                    padding: '1rem',
                 }}
                 id="preview"
             >
@@ -24,7 +24,11 @@ export const PreviewCards = (props) => {
                 ) : (
                     <>
                         {SetInnerHTML(props.name, '0.5rem')}
-                        <img src={DecoratedLine} alt="Horizontal line" className="is-5by3" />
+                        <img
+                            src={DecoratedLine}
+                            alt="Horizontal line"
+                            className="is-5by3"
+                        />
                         {SetInnerHTML(props.message, '0.5rem')}
                     </>
                 )}
@@ -33,8 +37,8 @@ export const PreviewCards = (props) => {
 
             {props.message && (
                 <>
-                    {/* <button className="button is-info is-pulled-right previewButtons">
-                        Share
+                    {/* <button className="button is-pulled-right previewButtons">
+                        <ShareButton />
                     </button>
                     <button className="button is-primary is-pulled-right previewButtons">
                         Download

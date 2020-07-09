@@ -72,6 +72,9 @@ class CreateCards extends Component {
     onSubmitCard = () => {
         const { AddNewCard } = this.props
 
+        if(!localStorage.getItem('token')){
+            return toastr.warning('Login to Create An Event Card', 'Failed')
+        }
         let {
             name,
             message,
@@ -167,13 +170,14 @@ class CreateCards extends Component {
                         <p className="title" style={{ marginBottom: 0 }}>
                             Create Event Card
                         </p>
+                        {!localStorage.getItem('token') && 
                         <span
                             className="subtitle"
                             style={{ fontSize: 'small' }}
                         >
                             You Must Login to Create an Event Card. This is just
                             a playground
-                        </span>
+                        </span>}
                         <TextAreaInputComponent
                             onchange={this.onTitleNameChange}
                             error={cards.name === ''}

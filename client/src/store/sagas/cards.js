@@ -55,6 +55,7 @@ export function* fetchAllCards(action) {
 // get a single card
 export function* fetchSingleCard(action) {
     try {
+        console.log(">>>>>>>>>>>.......getting here to do awesome stuff.........>>>>>>>.", action)
         const response = yield call(api.cards.singleCard, action.payload)
         const { data } = response
         yield put(actions.FetchSingleCardSuccess(data))

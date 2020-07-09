@@ -19,6 +19,7 @@ import LandingPage from './components/HomePage/landingPage'
 import HomePage from './containers/Cards/home'
 import UpdateCardPage from './containers/Cards/home/updateCard'
 import Cards from './containers/Cards/cards'
+import SingleCard from './containers/Cards/singleCard'
 import AllArchivedCards from './containers/Cards/archived'
 import MyArchivedCards from './containers/Cards/home/myArchivedEvents'
 import VerifyAccount from './containers/Auth/verifyAccount'
@@ -41,6 +42,7 @@ function App() {
                     <Route exact path="/verify-account/:email" component={VerifyAccount} />
                     <Route exact path="/events" component={Cards} />
                     <Route exact path="/events/archived" component={AllArchivedCards} />
+                    <Route exact path="/event/:id" component={SingleCard} />
                     <Route exact path="/terms-and-conditions" component={TermsAndConditions} />
                     <WrappedRoute
                         path="/dashboard"

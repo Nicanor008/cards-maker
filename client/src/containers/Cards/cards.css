@@ -100,6 +100,9 @@ body ::-webkit-scrollbar {
 .cardEventTitle {
     padding-left: 1rem;
 }
+.singleCardPageWrapper {
+    padding: 1rem 10rem;
+}
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {
         margin-left: 0;
@@ -111,6 +114,9 @@ body ::-webkit-scrollbar {
     }
     .allFeaturedEventsWrapper {
         margin: 0;
+    }
+    .singleCardPageWrapper {
+        padding: 0.0021rem;
     }
 }
 .bg-tile {

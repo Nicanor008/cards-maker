@@ -1,0 +1,39 @@
+.cardShareIcon {
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 2px;
+}
+.cardShareIcon:hover,
+.cardShareIcon:focus {
+    background-color: #f09dcd;
+}
+.shareWrapper {
+    position: relative;
+    float: right;
+}
+.shareDropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 60px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    border-radius: 3px;
+    margin-top: 1.4rem;
+}
+.shareDropdownContent a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    
+}
+.shareDropdownContent a:hover {
+    background-color: rgb(248, 103, 175);
+    color: white;
+    padding: 10px 16px;
+}
+.show {
+    display: block;
+}
