@@ -32,13 +32,13 @@ const ShareButton = ({ id }) => {
                     href={`https://twitter.com/intent/tweet?url=${pageUrl}&text=I've Created an awesome Event Card on Cards Maker. Check it Out`}
                     target="_blank"
                 >
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i className="fa fa-twitter" aria-hidden="true"></i>
                 </a>
                 <a
                     href={`https://www.facebook.com/sharer/sharer.php?url=#${pageUrl}&[title]=I've Created an awesome Event Card on Cards Maker. Check it Out`}
                     target="_blank"
                 >
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i className="fa fa-facebook" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

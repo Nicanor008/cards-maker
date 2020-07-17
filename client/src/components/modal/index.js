@@ -3,7 +3,7 @@ import './modal.css'
 import CloseIcon from '../../images/closeIcon.svg'
 import { Loader } from '../common/loader'
 import { Link } from 'react-router-dom'
-
+// // import ShareButton from '../cards/shareButton'
 
 const Modal = ({
     handleClose,
@@ -23,7 +23,10 @@ const Modal = ({
                     <div className="modalHeader">
                         {isAuth ? (
                             <div className="ModifyIcons">
-                                <Link to={`/update-card/${id}`} className="button">
+                                <Link
+                                    to={`/update-card/${id}`}
+                                    className="button"
+                                >
                                     <span className="icon">
                                         <i
                                             className="fa fa-pencil viewCardIcons"
@@ -31,7 +34,7 @@ const Modal = ({
                                         ></i>
                                     </span>
                                     <span>Edit</span>
-                                    </Link>
+                                </Link>
 
                                 <button
                                     className="button"
@@ -51,12 +54,15 @@ const Modal = ({
                                 <b>View Event Card</b>
                             </p>
                         )}
-                        <img
-                            src={CloseIcon}
-                            alt="Close Icon"
-                            className="closeModalBtn"
-                            onClick={handleClose}
-                        />
+                        <div>
+                            <img
+                                src={CloseIcon}
+                                alt="Close Icon"
+                                className="closeModalBtn"
+                                onClick={handleClose}
+                            />
+                            
+                        </div>
                     </div>
                     {children}
                 </section>
