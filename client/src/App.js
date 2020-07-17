@@ -25,6 +25,7 @@ import MyArchivedCards from './containers/Cards/home/myArchivedEvents'
 import VerifyAccount from './containers/Auth/verifyAccount'
 import TermsAndConditions from './components/policies/termsAndConditions'
 import Settings from './containers/User.js/settings'
+import RedirectOnGoogleLogin from './components/HomePage/redirectOnGoogleLogin'
 
 function App() {
     return (
@@ -44,6 +45,7 @@ function App() {
                     <Route exact path="/events/archived" component={AllArchivedCards} />
                     <Route exact path="/event/:id" component={SingleCard} />
                     <Route exact path="/terms-and-conditions" component={TermsAndConditions} />
+                    <Route exact path="/auth/redirect/:token/:id" component={RedirectOnGoogleLogin} />
                     <WrappedRoute
                         path="/dashboard"
                         component={HomePage}

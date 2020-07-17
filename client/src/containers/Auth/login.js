@@ -7,6 +7,7 @@ import { InputComponent } from '../../components/common/input'
 import { NavLink } from 'react-router-dom'
 import './Auth.css'
 import Wedding from '../../images/Wedding.svg'
+const dotenv = require('dotenv').config()
 
 class Login extends Component {
     state = {
@@ -50,9 +51,7 @@ class Login extends Component {
                         </div>
 
                         {/* login inputs */}
-                        <div
-                            className="column"
-                        >
+                        <div className="column">
                             <InputComponent
                                 labelName="Email"
                                 placeholderText="johndoe@example.com"
@@ -74,7 +73,10 @@ class Login extends Component {
 
                             {/* forgot password & sign up account */}
                             <div className="AdditionalLoginLinks authInput">
-                                <NavLink to="/forgot-password" className="authLink">
+                                <NavLink
+                                    to="/forgot-password"
+                                    className="authLink"
+                                >
                                     Forgot Password
                                 </NavLink>
                                 <NavLink to="/signup" className="authLink">
@@ -93,6 +95,22 @@ class Login extends Component {
                             >
                                 Login
                             </button>
+
+                            {/* google sign up */}
+                            <a
+                                href={`${process.env.BACKEND_STAGING_URL}/auth/google`}
+                                style={{ marginTop: '10rem' }}
+                            >
+                                <button
+                                    className={`button is-info authInput ${
+                                        login.loading && `is-loading`
+                                    }`}
+                                    type="button"
+                                    style={{ marginTop: '3.5rem' }}
+                                >
+                                    Login Via Google
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -101,10 +119,14 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({ login: state.loginReducer })
+const mapStateToProps = (state) => ({
+    login: state.loginReducer,
+    google: state.google,
+})
 
 const mapDispatchToProps = {
     loginUser: Actions.LoginRequest,
+    googleLogin: Actions.GoogleLoginRequest,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -13,7 +13,7 @@ import {
     RESET_PASSWORD_FAILURE,
     VERIFY_ACCOUNT,
     VERIFY_ACCOUNT_SUCCESS,
-    VERIFY_ACCOUNT_FAILURE
+    VERIFY_ACCOUNT_FAILURE,
 } from '../constants'
 
 export const LoginRequest = (data) => ({
@@ -30,6 +30,22 @@ export const LoginFailureRequest = (data) => ({
     type: LOGIN_FAILURE,
     data,
 })
+
+// // google - login 
+// export const GoogleLoginRequest = (data) => ({
+//     type: GOOGLE_LOGIN,
+//     payload: data,
+// })
+
+// export const GoogleLoginSuccessRequest = (data) => ({
+//     type: GOOGLE_LOGIN_SUCCESS,
+//     payload: data,
+// })
+
+// export const GoogleLoginFailureRequest = (data) => ({
+//     type: GOOGLE_LOGIN_FAILURE,
+//     data,
+// })
 
 
 // signup

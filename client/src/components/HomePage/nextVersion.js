@@ -28,7 +28,7 @@ const NextVersion = () => {
                         <li>Cards Maker Social Media pages</li>
                         <li>Buy me a coffee option or Pricing Page</li>
                         <li>Oauth Social Login</li>
-                        <li>Terms and Conditions page</li>
+                        <li><strike>Terms and Conditions page</strike></li>
                     </ul>
                 </div>
             </div>

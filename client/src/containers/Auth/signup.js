@@ -93,6 +93,21 @@ class SignupPage extends Component {
                             >
                                 Create Account
                             </button>
+
+                            {/* google sign up */}
+                            <a
+                                href="http://localhost:4000/auth/google"
+                            >
+                                <button
+                                    className={`button is-info authInput ${
+                                        signup.loading && `is-loading`
+                                    }`}
+                                    type="button"
+                                    style={{ marginTop: '3.5rem' }}
+                                >
+                                    Sign Up Via Google
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

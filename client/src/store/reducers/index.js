@@ -31,7 +31,7 @@ const rootReducer = combineReducers({
     deleteCard,
     fetchSingleUser,
     deactivateUser,
-    deleteUser
+    deleteUser,
 })
 
 export default rootReducer

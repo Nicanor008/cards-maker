@@ -2,7 +2,7 @@ import { put, call, takeEvery } from 'redux-saga/effects'
 import toastr from 'toastr'
 import * as actions from '../actions/auth'
 import { api } from '../api/api'
-import { LOGIN, SIGNUP, FORGOT_PASSWORD, RESET_PASSWORD, VERIFY_ACCOUNT } from '../constants'
+import { LOGIN, SIGNUP, FORGOT_PASSWORD, RESET_PASSWORD, VERIFY_ACCOUNT, GOOGLE_LOGIN } from '../constants'
 
 toastr.options = {
     positionClass: 'toast-top-right',

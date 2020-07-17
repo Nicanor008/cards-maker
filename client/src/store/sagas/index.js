@@ -12,7 +12,7 @@ import {
     watchAddSignupUser,
     watchForgotPassword,
     watchResetPassword,
-    watchVerifyAccount
+    watchVerifyAccount,
 } from './auth'
 import { watchSearchByName, watchSearchByTag } from './searchCards'
 import {  watchFetchSingleUser, watchDeactivateUser, watchDeleteUser } from './user'
