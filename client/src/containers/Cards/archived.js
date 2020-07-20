@@ -81,12 +81,15 @@ class AllArchivedCards extends Component {
                             <div className="eventsTopBarWrapper">
                                 {/* back to all events menu */}
                                 <div className="cardsMenu">
-                                    <NavLink to="/events">Back</NavLink>
+                                    <NavLink to="/events">Go Back</NavLink>
                                 </div>
 
                                 {/* <SearchCards /> */}
-                                {data !== undefined &&
-                                    data.map(() => (
+                                <div className="titleWithSearchEvents">
+                                    <p className="title cardEventTitle">
+                                        Archived Events
+                                    </p>
+                                    {data !== undefined && (
                                         <SearchCard
                                             onChangeHandler={
                                                 this.onChangeHandler
@@ -104,16 +107,14 @@ class AllArchivedCards extends Component {
                                                 this.state.searchParameter
                                             }
                                         />
-                                    ))}
+                                    )}
+                                </div>
                             </div>
 
                             <div className="cardsWrapper">
                                 {data !== undefined &&
                                     data.map((card) => (
                                         <div key={card._id}>
-                                            <p className="title cardEventTitle">
-                                                Archived Events
-                                            </p>
                                             {moment().isSameOrAfter(
                                                 card.eventDateTime
                                             ) && (

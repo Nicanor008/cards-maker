@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Version from '../../images/unboxing.svg'
 import { Loader } from '../common/loader'
 
 class RedirectOnGoogleLogin extends Component {
@@ -8,8 +7,8 @@ class RedirectOnGoogleLogin extends Component {
     }
     componentDidMount() {
         const { token, id } = this.props.match.params
-        localStorage.setItem('token', token)
-        localStorage.setItem('anonyId', id)
+        localStorage.setItem('token', JSON.stringify(`Bearer ${token}`))
+        localStorage.setItem('anonyId', JSON.stringify(id))
         location.href = '/dashboard'
     }
     render() {

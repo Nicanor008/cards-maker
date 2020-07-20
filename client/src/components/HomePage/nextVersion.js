@@ -27,7 +27,7 @@ const NextVersion = () => {
                         <li><strike>Maximum Characters on The Event Title on Creation and Display</strike></li>
                         <li>Cards Maker Social Media pages</li>
                         <li>Buy me a coffee option or Pricing Page</li>
-                        <li>Oauth Social Login</li>
+                        <li><strike>Oauth Social Login - Google</strike></li>
                         <li><strike>Terms and Conditions page</strike></li>
                     </ul>
                 </div>

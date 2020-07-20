@@ -11,6 +11,7 @@ import Cards from '../cards'
 import Modal from '../../../components/modal'
 import SetInnerHTML from '../../../utils/setInnerHTML'
 import DecoratedLine from '../../../images/DecoratedLine.svg'
+import { NavLink } from 'react-router-dom'
 
 class HomePage extends Component {
     state = {
@@ -58,18 +59,17 @@ class HomePage extends Component {
                     <Loader />
                 ) : (
                     <div className="container homePageWrapper">
-                        {/* <div className="myEventsTopBarWrapper"> */}
-                            {/* <div>
+                        <div className="myEventsTopBarWrapper">
+                             <div>
                                 <p className="title cardEventTitle">
                                     Active Events
                                 </p>
                             </div>
-
                             <div className="myCardsMenu">
                                 <NavLink to="/my-events/archive">
                                     My Archived/Past Events
                                 </NavLink>
-                            </div> */}
+                            </div> 
 
                             {/* <SearchCards /> */}
                             {/* <SearchCard
@@ -81,7 +81,7 @@ class HomePage extends Component {
                                 onClickSingleCard={this.onClickSingleCard}
                                 searchParameter={this.state.searchParameter}
                             /> */}
-                        {/* </div> */}
+                        </div>
 
                         <div
                             className="column"

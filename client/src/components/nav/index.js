@@ -37,13 +37,15 @@ const NavBar = () => {
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-end">
                         <div className="dropdown">
-                            <NavLink
-                                to={!localStorage.getItem('token') && '/events'}
-                                activeClassName="selected"
-                                className="navbar-item textDarkColor dropdown-button"
-                            >
-                                Events
-                            </NavLink>
+                            {!localStorage.getItem('token') && (
+                                <NavLink
+                                    to={'/events'}
+                                    activeClassName="selected"
+                                    className="navbar-item textDarkColor dropdown-button"
+                                >
+                                    Events
+                                </NavLink>
+                            )}
                             {localStorage.getItem('token') && (
                                 <div className="dropdown-content">
                                     <>

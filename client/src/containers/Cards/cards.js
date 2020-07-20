@@ -126,40 +126,34 @@ class Cards extends Component {
 
                                 {/* scroll icons */}
                                 <div className="scrollIcons">
-                                    <center>
-                                        {data !== undefined &&
-                                            data.map((card) => (
-                                                <div key={card._id}>
-                                                    {!moment().isSameOrAfter(
-                                                        card.eventDateTime
-                                                    ) && (
-                                                        <span className="singleFeaturedIcons">
-                                                            <img
-                                                                src={Dot}
-                                                                alt="dot"
-                                                                height="10"
-                                                                width="10"
-                                                            />
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            ))}
-                                    </center>
+                                    {data !== undefined &&
+                                        data.map((card) => (
+                                            <div key={card._id}>
+                                                {!moment().isSameOrAfter(
+                                                    card.eventDateTime
+                                                ) && (
+                                                    <span className="singleFeaturedIcons">
+                                                        <img
+                                                            src={Dot}
+                                                            alt="dot"
+                                                            height="10"
+                                                            width="10"
+                                                        />
+                                                    </span>
+                                                )}
+                                            </div>
+                                        ))}
                                 </div>
                             </div>
                         ) : (
                             <div className="allCardsWrapper">
-                                <div className="eventsTopBarWrapper">
-                                    {/* archived events menu */}
-                                    <div className="cardsMenu">
-                                        <NavLink to="/events/archived">
-                                            Archived/Past Events
-                                        </NavLink>
-                                    </div>
-
-                                    {/* <SearchCards /> */}
-                                    {data !== undefined &&
-                                        data.map(() => (
+                                <div className="myEventsTopBarWrapper">
+                                    <div className="titleWithSearchEvents">
+                                        <p className="title cardEventTitle">
+                                            Upcoming Events
+                                        </p>
+                                        {/* <SearchCards /> */}
+                                        {data !== undefined && (
                                             <SearchCard
                                                 onChangeHandler={
                                                     this.onChangeHandler
@@ -179,16 +173,21 @@ class Cards extends Component {
                                                     this.state.searchParameter
                                                 }
                                             />
-                                        ))}
+                                        )}
+                                    </div>
+
+                                    {/* archived events menu */}
+                                    <div className="cardsMenu archivedMenu">
+                                        <NavLink to="/events/archived">
+                                            Archived/Past Events
+                                        </NavLink>
+                                    </div>
                                 </div>
 
                                 <div className="cardsWrapper">
                                     {data !== undefined &&
                                         data.map((card) => (
                                             <div key={card._id}>
-                                                <p className="title cardEventTitle">
-                                                    Upcoming Events
-                                                </p>
                                                 {!moment().isSameOrAfter(
                                                     card.eventDateTime
                                                 ) && (
@@ -284,7 +283,7 @@ class Cards extends Component {
                                         <img
                                             src={DecoratedLine}
                                             alt="Horizontal line"
-                                            style={{width:'100%'}}
+                                            style={{ width: '100%' }}
                                         />
                                     </center>
                                     {SetInnerHTML(singleCard.data.message)}

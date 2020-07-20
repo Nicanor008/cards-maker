@@ -87,7 +87,8 @@ body ::-webkit-scrollbar {
     background-color: rgb(255, 231, 231);
     border: 0;
 }
-.ql-editor, .ql-container.ql-snow {
+.ql-editor,
+.ql-container.ql-snow {
     border: 1px solid rgb(253, 234, 234);
 }
 .eventsTopBarWrapper {
@@ -99,9 +100,22 @@ body ::-webkit-scrollbar {
 }
 .cardEventTitle {
     padding-left: 1rem;
+    padding-top: 1.3rem;
+    font-size: large;
+    font-weight: normal;
 }
 .singleCardPageWrapper {
     padding: 1rem 10rem;
+}
+.archivedMenu {
+    padding-right: 9rem;
+}
+.titleWithSearchEvents {
+    display: flex;
+}
+.scrollIcons {
+    display: flex;
+    justify-content: center;
 }
 @media only screen and (max-width: 367px) {
     .allCardsWrapper {
@@ -117,6 +131,12 @@ body ::-webkit-scrollbar {
     }
     .singleCardPageWrapper {
         padding: 0.0021rem;
+    }
+    .archivedMenu {
+        padding-right: 2rem;
+    }
+    .titleWithSearchEvents {
+        display: block;
     }
 }
 .bg-tile {

@@ -1,7 +1,7 @@
 # The following redirect is intended for use with most SPAs that handle routing internally.
 [[redirects]]
-  from = "http://cardsmaker.herokuapp.com/auth/google/redirect/*"
+  from = "http://cardsmaker.herokuapp.com/*"
   to = "https://cards-maker.netlify.app/auth/redirect/token/user._id"
   status = 301
   force = true
-  query = {token = ":token", id = ":user._id"}
+  query = {token = ":token", id = ":id"}

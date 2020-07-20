@@ -98,7 +98,7 @@ class Login extends Component {
 
                             {/* google sign up */}
                             <a
-                                href={`${process.env.BACKEND_STAGING_URL}/auth/google`}
+                                href={`https://cardsmaker.herokuapp.com/auth/google`}
                                 style={{ marginTop: '10rem' }}
                             >
                                 <button
