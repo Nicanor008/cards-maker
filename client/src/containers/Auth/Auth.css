@@ -6,14 +6,35 @@
     background-color: rgb(253, 94, 174);
 }
 .authColumnsWrapper {
-    padding: 5.6rem 0;
+    padding: 0.2rem 0;
 }
 .authInput {
-    width: 70%;
-    float: right;
+    width: 100%;
+}
+.oauthButton {
+    margin-bottom: 1.5rem;
+    background: rgb(253, 94, 174);
+    font-weight: bolder;
+    background-color: rgb(243, 105, 174);
+    border: none;
+    color:white;
+    width: 100%;
+}
+.oauthButton:hover {
+    cursor: default;
+    color: white;
 }
 .authLink {
     font-size: small;
+}
+.authInputWrapper {
+    -webkit-box-shadow: 5px 5px 4px 4px rgb(248, 158, 226);
+    -moz-box-shadow: 5px 5px 4px 4px rgb(248, 158, 226);
+    box-shadow: 5px 5px 4px 4px rgb(248, 158, 226);
+    padding: 4rem 8rem;
+    background-color: rgb(243, 105, 174);
+    border-radius: 3px;
+    justify-content: center;
 }
 @media only screen and (max-width: 487px) {
     .AdditionalLoginLinks {
@@ -23,9 +44,15 @@
         display: none;
     }
     .authColumnsWrapper {
-        padding: 16.6rem 0;
+        padding: 1.6rem 0;
     }
     .authInput {
-        width: 98%;
+        width: 100%;
+    }
+    .authInputWrapper {
+        padding: 1rem 2rem;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
     }
 }

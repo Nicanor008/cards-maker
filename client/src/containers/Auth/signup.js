@@ -2,17 +2,24 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import toastr from 'toastr'
 import * as Actions from '../../store/actions/auth'
 import { InputComponent } from '../../components/common/input'
 import { NavLink } from 'react-router-dom'
 import './Auth.css'
 import Wedding from '../../images/Wedding.svg'
 
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
 class SignupPage extends Component {
     state = {
         email: '',
         password: '',
         name: '',
+        required: true,
     }
 
     onInputChange = (e) => {
@@ -23,12 +30,23 @@ class SignupPage extends Component {
 
     onClickSignup = () => {
         const { signupUser } = this.props
-        const data = {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
+        const { name, email, password } = this.state
+        if (name === '') {
+            return toastr.warning('Name is required')
+        } else if (email === '') {
+            return toastr.warning('Email is required')
+        } else if (password === '') {
+            return toastr.warning('Password is required')
+        } else if(!validateEmail(email)) {
+            return toastr.warning('Invalid Email Format')
+        } else {
+            const data = {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password,
+            }
+            return signupUser(data)
         }
-        return signupUser(data)
     }
 
     render() {
@@ -43,15 +61,33 @@ class SignupPage extends Component {
                         </div>
 
                         {/* login inputs */}
-                        <div className="column">
+                        <div className="column authInputWrapper">
+                            {/* google sign up */}
+                            <a href="https://cardsmaker.herokuapp.com/auth/google">
+                                <button
+                                    className={`button is-info authInput`}
+                                    type="button"
+                                    style={{ marginBottom: '1.5rem' }}
+                                >
+                                    Sign Up Via Google
+                                </button>
+                            </a>
+
+                            <button
+                                className={`button oauthButton`}
+                                type="button"
+                            >
+                                OR
+                            </button>
+
                             <InputComponent
                                 labelName="Name"
                                 placeholderText="John Doe"
                                 inputName="name"
                                 textInputType="text"
                                 onchange={this.onInputChange}
-                                error={this.state.name === ''}
                                 class="authInput"
+                                required={this.state.required}
                             />
                             <InputComponent
                                 labelName="Email"
@@ -59,7 +95,6 @@ class SignupPage extends Component {
                                 textInputType="email"
                                 inputName="email"
                                 onchange={this.onInputChange}
-                                error={this.state.email === ''}
                                 class="authInput"
                             />
                             <InputComponent
@@ -68,14 +103,17 @@ class SignupPage extends Component {
                                 inputName="password"
                                 textInputType="password"
                                 onchange={this.onInputChange}
-                                error={this.state.password === ''}
                                 class="authInput"
                             />
 
                             {/* forgot password & sign up account */}
                             <div className="AdditionalLoginLinks authInput">
-                                <NavLink to="/terms-and-conditions" className="authLink">
-                                    Agree to the terms and Conditions
+                                <NavLink
+                                    to="/terms-and-conditions"
+                                    className="authLink"
+                                >
+                                    By continuing, you Agree to the terms and
+                                    Conditions
                                 </NavLink>
                                 <NavLink to="/login" className="authLink">
                                     Got Account, Login
@@ -93,21 +131,6 @@ class SignupPage extends Component {
                             >
                                 Create Account
                             </button>
-
-                            {/* google sign up */}
-                            <a
-                                href="http://localhost:4000/auth/google"
-                            >
-                                <button
-                                    className={`button is-info authInput ${
-                                        signup.loading && `is-loading`
-                                    }`}
-                                    type="button"
-                                    style={{ marginTop: '3.5rem' }}
-                                >
-                                    Sign Up Via Google
-                                </button>
-                            </a>
                         </div>
                     </div>
                 </div>

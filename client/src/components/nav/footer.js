@@ -3,7 +3,7 @@ import "./navbar.css";
 
 const Footer = () => {
   return (
-    <div className="navBarWrapper">
+    <div className="navBarWrapper" style={{zIndex: '-1'}}>
       <nav
         className="navbar container"
       >

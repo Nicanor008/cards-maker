@@ -59,7 +59,8 @@ class HomePage extends Component {
                     <Loader />
                 ) : (
                     <div className="container homePageWrapper">
-                        <div className="myEventsTopBarWrapper">
+                    {console.log(">>>>>>.........>>>>>......", data)}
+                        {data !== undefined && <div className="myEventsTopBarWrapper">
                              <div>
                                 <p className="title cardEventTitle">
                                     Active Events
@@ -81,7 +82,7 @@ class HomePage extends Component {
                                 onClickSingleCard={this.onClickSingleCard}
                                 searchParameter={this.state.searchParameter}
                             /> */}
-                        </div>
+                        </div>}
 
                         <div
                             className="column"
@@ -123,6 +124,7 @@ class HomePage extends Component {
                                     />
 
                                     <hr />
+                                    <hr style={{ width:'100%', backgroundColor:'pink'}} />
 
                                     {/* other peoples card/all cards in DB  */}
                                     <Cards />

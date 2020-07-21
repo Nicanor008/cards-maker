@@ -21,6 +21,7 @@ export const InputComponent = (props) => {
                     name={props.inputName}
                     onKeyPress={props.onkeypress}
                     size="20"
+                    required={props.required}
                 />
             </div>
         </div>

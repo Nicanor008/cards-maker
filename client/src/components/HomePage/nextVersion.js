@@ -20,7 +20,6 @@ const NextVersion = () => {
                         <li>Video Tutorial on how to create</li>
                         <li>Download Cards</li>
                         <li><strike>Share Event Cards</strike></li>
-                        <li>Invite Users to view Cards</li>
                         <li><strike>View Event Date and Author name on card</strike></li>
                         <li><strike>Feature Event Cards</strike></li>
                         <li><strike>Archive Past Events</strike></li>

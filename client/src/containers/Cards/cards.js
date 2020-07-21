@@ -147,8 +147,8 @@ class Cards extends Component {
                             </div>
                         ) : (
                             <div className="allCardsWrapper">
-                                <div className="myEventsTopBarWrapper">
-                                    <div className="titleWithSearchEvents">
+                            {data !== undefined && <div className="myEventsTopBarWrapper">
+                                <div className="titleWithSearchEvents">
                                         <p className="title cardEventTitle">
                                             Upcoming Events
                                         </p>
@@ -182,7 +182,7 @@ class Cards extends Component {
                                             Archived/Past Events
                                         </NavLink>
                                     </div>
-                                </div>
+                                </div>}
 
                                 <div className="cardsWrapper">
                                     {data !== undefined &&

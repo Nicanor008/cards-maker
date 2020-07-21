@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import toastr from 'toastr'
 import * as Actions from '../../store/actions/auth'
 import { InputComponent } from '../../components/common/input'
 import { NavLink } from 'react-router-dom'
@@ -9,10 +10,16 @@ import './Auth.css'
 import Wedding from '../../images/Wedding.svg'
 const dotenv = require('dotenv').config()
 
+function validateEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
 class Login extends Component {
     state = {
         email: '',
         password: '',
+        required: true,
     }
 
     componentDidUpdate() {
@@ -32,11 +39,20 @@ class Login extends Component {
 
     onClickLogin = () => {
         const { loginUser } = this.props
-        const data = {
-            email: this.state.email,
-            password: this.state.password,
+        const { email, password } = this.state
+        if (email === '') {
+            return toastr.warning('Email is required')
+        } else if (password === '') {
+            return toastr.warning('Password is required')
+        } else if(!validateEmail(email)) {
+            return toastr.warning('Invalid Email Format')
+        } else {
+            const data = {
+                email: this.state.email,
+                password: this.state.password,
+            }
+            return loginUser(data)
         }
-        return loginUser(data)
     }
 
     render() {
@@ -51,7 +67,28 @@ class Login extends Component {
                         </div>
 
                         {/* login inputs */}
-                        <div className="column">
+                        <div className="column authInputWrapper">
+                            {/* google sign up */}
+                            <a href="https://cardsmaker.herokuapp.com/auth/google">
+                                <button
+                                    className={`button is-info authInput`}
+                                    type="button"
+                                    style={{
+                                        marginTop: '1.5rem',
+                                        marginBottom: '0.8rem',
+                                    }}
+                                >
+                                    Login Via Google
+                                </button>
+                            </a>
+
+                            <button
+                                className={`button oauthButton`}
+                                type="button"
+                            >
+                                OR
+                            </button>
+
                             <InputComponent
                                 labelName="Email"
                                 placeholderText="johndoe@example.com"
@@ -95,22 +132,6 @@ class Login extends Component {
                             >
                                 Login
                             </button>
-
-                            {/* google sign up */}
-                            <a
-                                href={`https://cardsmaker.herokuapp.com/auth/google`}
-                                style={{ marginTop: '10rem' }}
-                            >
-                                <button
-                                    className={`button is-info authInput ${
-                                        login.loading && `is-loading`
-                                    }`}
-                                    type="button"
-                                    style={{ marginTop: '3.5rem' }}
-                                >
-                                    Login Via Google
-                                </button>
-                            </a>
                         </div>
                     </div>
                 </div>
