@@ -37,7 +37,6 @@ const NavBar = () => {
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-end">
                         <div className="dropdown">
-                            {!localStorage.getItem('token') && (
                                 <NavLink
                                     to={'/events'}
                                     activeClassName="selected"
@@ -45,7 +44,6 @@ const NavBar = () => {
                                 >
                                     Events
                                 </NavLink>
-                            )}
                             {localStorage.getItem('token') && (
                                 <div className="dropdown-content">
                                     <>

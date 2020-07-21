@@ -242,6 +242,7 @@ class Cards extends Component {
                                 show={this.state.modalOpen}
                                 handleClose={this.hideModal}
                                 loading={singleCard.loading}
+                                downloadCardDetails={singleCard}
                             >
                                 <div
                                     style={{

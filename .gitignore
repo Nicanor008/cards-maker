@@ -36,3 +36,6 @@ yarn-error.log*
 .cache/
 
 yarn-error.log
+
+dist-client.zip
+
