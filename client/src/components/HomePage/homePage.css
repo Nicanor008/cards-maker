@@ -17,7 +17,6 @@
   padding: 4% 6%;
 }
 .rowHeader {
-  font-family: "Kalam";
   font-weight: bold;
   font-size: x-large;
 }
@@ -85,4 +84,10 @@
 }
 .love2Icons {
   padding: 6% 0;
+}
+.youTubeVideo {
+  margin-top: 4rem;
+}
+iframe {
+  height: 500px
 }

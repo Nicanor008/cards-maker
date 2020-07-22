@@ -7,27 +7,24 @@ const NextVersion = () => {
             <div className="column imageVersion">
                 <img src={Version} alt="Image Versioning" />
             </div>
-            <div className="column textDescWrapper">
+            <div className="column textDescWrapper" style={{marginTop:'5rem'}}>
                 <p className="title is-5" style={{ color: 'white' }}>
                     Features in Development
                 </p>
-                <p className="subtitle">Coming up on August 2020</p>
+                <p className="subtitle">Coming up soon</p>
                 <div className="content">
                     <ul type="1">
-                        <li><strike>Upload image(s) during card while creating/updating</strike></li>
-                        <li>Use Template while creating cards</li>
-                        <li><strike>User manage Account</strike></li>
-                        <li>Video Tutorial on how to create</li>
-                        <li>Download Cards</li>
-                        <li><strike>Share Event Cards</strike></li>
-                        <li><strike>View Event Date and Author name on card</strike></li>
-                        <li><strike>Feature Event Cards</strike></li>
-                        <li><strike>Archive Past Events</strike></li>
-                        <li><strike>Maximum Characters on The Event Title on Creation and Display</strike></li>
+                        <li>Use Template of choice to creating cards</li>
+                        <li>Download Event Cards</li>
                         <li>Cards Maker Social Media pages</li>
                         <li>Buy me a coffee option or Pricing Page</li>
-                        <li><strike>Oauth Social Login - Google</strike></li>
-                        <li><strike>Terms and Conditions page</strike></li>
+                        <li>Invite users to private events</li>
+                        <li>Change the Landing Page</li>
+                        <li>Acquire a Cards Maker domain</li>
+                        <li>Product advertising and marketing</li>
+                        <li>User and Event Card Analytics</li>
+                        <li>Calendar sync</li>
+                        <li>Event Reminder</li>
                     </ul>
                 </div>
             </div>

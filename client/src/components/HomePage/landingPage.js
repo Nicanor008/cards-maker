@@ -15,7 +15,7 @@ const LandingPage = () => {
             {/* image */}
 
             {/* <ThreeFeaturedEvents /> */}
-            <Cards featuredPage={true} />
+            {/* <Cards featuredPage={true} /> */}
             <div className="bodyWrapper love2Icons">
                 <center>
                     <figure className="is-centered">
@@ -26,6 +26,18 @@ const LandingPage = () => {
                             width="800"
                         />
                     </figure>
+                </center>
+            </div>
+
+            <div className="container youTubeVideo">
+                <center>
+                    <iframe
+                        width="860"
+                        height="515"
+                        src="https://www.youtube.com/embed/GYcoQRYeojI"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;fullscreen"
+                    ></iframe>
                 </center>
             </div>
 
@@ -46,13 +58,13 @@ const LandingPage = () => {
                     </div>
                     <div className="column">
                         <p className="bd-notification is-primary rowHeader">
-                            Collaborate
+                            View Events
                         </p>
                         <p className="rowTextContent">
-                            <strong>Coming out on the new Version 2</strong>,
-                            soon, we bring your Event's buddies to you,
-                            collaborate to write/edit a single card and share it
-                            with the world. We believe, Two are better than One
+                            All and single events are displayed in an organized
+                            logical manner. Plus you can search for an event. A
+                            good way to view all and individual events. See the
+                            important stuff for the event.
                         </p>
                     </div>
                     <div className="column">
@@ -60,10 +72,9 @@ const LandingPage = () => {
                             Share
                         </p>
                         <p className="rowTextContent">
-                            The Quick way to let your colleagues know the party is going to happen, Share the link
-                            privately, on Social Media or invite your friends to
-                            view.
-                            <strong>Coming Soon</strong>
+                            The Quick way to let your colleagues know the party
+                            is going to happen, Share the link privately, on
+                            Social Media or invite your friends to view.
                         </p>
                     </div>
                 </div>
@@ -71,11 +82,7 @@ const LandingPage = () => {
                 <br />
                 <br />
 
-                <CreateCardsDescription
-                    description="You got an event coming, Create a card, and share with your colleagues."
-                />
-
-                
+                <CreateCardsDescription description="Rely on the Cards Maker Playground to create beautiful Event Cards through Real time Output on What You See is What You Get technique." />
             </div>
             {/* feedback */}
             <AskFeedback />
