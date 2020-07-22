@@ -95,7 +95,6 @@ class Login extends Component {
                                 textInputType="email"
                                 inputName="email"
                                 onchange={this.onInputChange}
-                                error={this.state.email === ''}
                                 class="authInput"
                             />
                             <InputComponent
@@ -104,7 +103,6 @@ class Login extends Component {
                                 inputName="password"
                                 textInputType="password"
                                 onchange={this.onInputChange}
-                                error={this.state.password === ''}
                                 class="authInput"
                             />
 

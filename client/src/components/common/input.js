@@ -8,9 +8,7 @@ export const InputComponent = (props) => {
         <div className={`field ${props.class}`}>
             <label className={`label`}>
                 {props.labelName}
-                {props.error && (
-                    <span className="errorLabel">::Required field</span>
-                )}
+                {props.error ? <span className="errorLabel">::Required field</span> : ''}
             </label>
             <div className="control">
                 <input

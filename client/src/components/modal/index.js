@@ -4,24 +4,24 @@ import CloseIcon from '../../images/closeIcon.svg'
 import { Loader } from '../common/loader'
 import { Link } from 'react-router-dom'
 // // import ShareButton from '../cards/shareButton'
-import jsPDF from 'jspdf'
-import { DownloadCard } from '../../containers/Cards/downloadCard'
+// import jsPDF from 'jspdf'
+// import { DownloadCard } from '../../containers/Cards/downloadCard'
 
 const onClickDownload = (props) => {
-    var doc = new jsPDF({
-        orientation: 'portrait',
-      })
+    // var doc = new jsPDF({
+    //     orientation: 'portrait',
+    //   })
 
     //   doc.setFont('courier')
        
-      doc.text('Hello world!', 10, 10)
-      doc.text('2nd Hello world!', 10, 20)
-      doc.text('Third Hello world!', 10, 30)
-      doc.text('Forth Hello world!', 10, 40)
-      doc.text('Test On Second', 10, 50)
-      doc.text('Test On 3rd', 10, 60)
-      doc.save('two-by-four.pdf')
-    return console.log(">>>>>>>>>>>........>>>>>>>>>>....got it..............>>>......")
+    //   doc.text(props.name, 10, 10)
+    //   doc.text(props.message, 10, 20)
+    //   doc.text('Third Hello world!', 10, 30)
+    //   doc.text('Forth Hello world!', 10, 40)
+    //   doc.text('Test On Second', 10, 50)
+    //   doc.text('Test On 3rd', 10, 60)
+    // //   doc.save('two-by-four.pdf')
+    // return console.log(">>>>>>>>>>>........>>>>>>>>>>....got it..............>>>......", props)
 }
 
 const Modal = ({
@@ -40,7 +40,6 @@ const Modal = ({
                 <Loader />
             ) : (
                 <section className="modal-main">
-                {console.log(loading, ">>>>>>>....>>>>>>......web........>>>>>>>>>>.", downloadCardDetails)}
                     <div className="modalHeader">
                         {isAuth ? (
                             <div className="ModifyIcons">
@@ -70,9 +69,9 @@ const Modal = ({
                                     <span>Delete</span>
                                 </button>
 
-                                <button
+                                {/* <button
                                     className="button"
-                                    onClick={() =>  DownloadCard(downloadCardDetails)}
+                                    onClick={() =>  onClickDownload(downloadCardDetails)}
                                 >
                                     <span className="icon">
                                         <i
@@ -81,7 +80,7 @@ const Modal = ({
                                         ></i>
                                     </span>
                                     <span>Download</span>
-                                </button>
+                                </button> */}
                             </div>
                         ) : (
                             <p>

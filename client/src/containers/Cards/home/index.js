@@ -59,7 +59,6 @@ class HomePage extends Component {
                     <Loader />
                 ) : (
                     <div className="container homePageWrapper">
-                    {console.log(">>>>>>.........>>>>>......", data)}
                         {data !== undefined && <div className="myEventsTopBarWrapper">
                              <div>
                                 <p className="title cardEventTitle">
@@ -142,6 +141,7 @@ class HomePage extends Component {
                                 onClickDelete={DeleteCardAction}
                                 card={singleCard.data}
                                 id={singleCard.data._id}
+                                downloadCardDetails={singleCard.data}
                             >
                                 <div
                                     style={{
