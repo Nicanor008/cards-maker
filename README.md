@@ -1,4 +1,4 @@
-**# Cards Maker Tutorial
+# Cards Maker Tutorial
 ## 🌱 Idea Background
 We were sitting down with my friends on a chilly Saturday waiting for a game. 
 > "Why don't we have a simple and easy app that the bride and groom can use to invite users without using the printed cards and paper", One of my friends suggested.
@@ -12,11 +12,11 @@ I thought for a second, that's an awesome idea.
 I even had no idea if there was such an app. I took out my phone and started googling. Yeah there were some solutions but not the way were thinking of. 
 > You IT guys should think of this stuff man, or what are you even doing.
 
-It was funny the way he said but it was true.
-> Let's discuss over that next week bro. 
+It was funny the way he said but it was true. On the next few weeks, I spent my free time researching on the relevant solutions. Even though we never had time to catch up and discuss on the idea, I started doing the development of the API using NodeJS.
 
-On the next few weeks, I spent my free time researching on the relevant solutions. Even though we never had time to catch up and discuss on the idea, I started doing the development of the API using NodeJS.
-
+## Tools
+- Node JS - API development
+- React JS - Frontend library
 > **Why NodeJS?** - I've been using NodeJS for a while on Restful API development. And since I was a sole developer then I had no option. Also, real time communication. [Cards Maker API documentation](https://cardsmaker.herokuapp.com/docs/)
 
 After I had good grasp of how the API was and ready for use on frontend, I started the frontend development using React library.
@@ -42,6 +42,9 @@ After I had good grasp of how the API was and ready for use on frontend, I start
 - Copy the `.env-example` file to `.env`
 - On terminal, run the development environment, `yarn client`
 - Open your favorite browser, and run `http://localhost:1234`
+
+## Live Playground
+[Frontend](https://cards-maker.netlify.app/create)
 
 ## 📛 Why the name `Cards Maker`
 No special reason. Just what came into my mind. The aim of the solution is the make cards just the same any user will create a printed event car. Hence **Cards Maker**
@@ -69,8 +72,8 @@ Generally any event invitation. This include but not limited to:
 - Celebrations - birthdays, graduation, baby shower, job promotion etc
 - Anniversaries
 
-## Unique Features(Value)
-What you see is What you get technique
+## Code Tutorial
+A simple tutorial of how I created an event card using What you see 
 
 
 ## Hosting
