@@ -10,37 +10,35 @@ I thought for a second, that's an awesome idea.
 > "Which one then?" He asked convincing
 
 I even had no idea if there was such an app. I took out my phone and started googling. Yeah there were some solutions but not the way were thinking of. 
-> You IT guys should think of this stuff man, or what are you even doing.
+> You IT guys should think of this stuff man, or what are you even doing." He murmured frustratingly
 
-It was funny the way he said but it was true. On the next few weeks, I spent my free time researching on the relevant solutions. Even though we never had time to catch up and discuss on the idea, I started doing the development of the API using NodeJS.
+It was funny the way he said but it was true. On the next few weeks, I spent my free time researching on the relevant solutions. Even though we never had time to catch up and discuss on the idea, I started doing research, design and development.
 
 ## Tools
 - Node JS - API development
 - React JS - Frontend library
 > **Why NodeJS?** - I've been using NodeJS for a while on Restful API development. And since I was a sole developer then I had no option. Also, real time communication. [Cards Maker API documentation](https://cardsmaker.herokuapp.com/docs/)
 
-After I had good grasp of how the API was and ready for use on frontend, I started the frontend development using React library.
-
-**Why did I choose ReactJS?**
-- Fast rendering. This was important consideration as the solution was to use WYSWYG technique.
+**Why ReactJS?**
+- Fast rendering on virtual DOM. This was important consideration as the solution was to use [What You See Is What You Get - WYSIWYG](https://en.wikipedia.org/wiki/WYSIWYG) technique.
 - Previous experience working on React projects
 - Scalability especially to transform to mobile app, I would use React Native.
 - Community support.
 
 ## Other Development tools
-- Redux - State management
-- Redux-saga
-- Bulma
-- Parcel
-- Netlify
-- Heroku
+- Redux - open-source JavaScript library for managing application state.
+- Redux-saga - Easily make asynchronous calls things like data fetching
+- Bulma - CSS framework based on flexbox and sass
+- Parcel - Frontend React bundler
+- Netlify - Hosting frontend React JS solution
+- Heroku - Hosting Backend Node JS solution
 
-## SourceCode: How to Get Started
-- Clone this repo
-- Open this project folder
-- Install dependencies, `yarn` or `npm install`
+## Source Code: How to Get Started
+- You must have Node installed, Check out on https://nodejs.org/en/download/
+- Clone [this Cards Maker](https://github.com/Nicanor008/cards-maker.git) repo and open the project folder on your favorite IDE or editor.
+- Install dependencies, `yarn` or `npm install` on terminal.
 - Copy the `.env-example` file to `.env`
-- On terminal, run the development environment, `yarn client`
+- On terminal, run the development environment, `yarn client` or `yarn start`.
 - Open your favorite browser, and run `http://localhost:1234`
 
 ## Live Playground
@@ -74,19 +72,3 @@ Generally any event invitation. This include but not limited to:
 
 ## Code Tutorial
 A simple tutorial of how I created an event card using What you see 
-
-
-## Hosting
-- [API Heruku](https://cards-maker-api.herokuapp.com/docs/)
-- [Frontend Netlify Hosting](https://cards-maker.netlify.app/)
-
-
-## Tools
-- ReactJS
-- Bulma
-
-## Getting Started
-- **yarn client** - run frontend on development
-
-## Designs
-[Figma](https://www.figma.com/file/KUOg3pxuNrVW1yStfgK8uN/Cards-Maker?node-id=1%3A2)
