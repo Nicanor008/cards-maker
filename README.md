@@ -14,7 +14,7 @@ I even had no idea if there was such an app. I took out my phone and started goo
 
 It was funny the way he said but it was true. On the next few weeks, I spent my free time researching on the relevant solutions. Even though we never had time to catch up and discuss on the idea, I started doing research, design and development.
 
-## Tools
+## 🧰 Tools
 - Node JS - API development
 - React JS - Frontend library
 > **Why NodeJS?** - I've been using NodeJS for a while on Restful API development. And since I was a sole developer then I had no option. Also, real time communication. [Cards Maker API documentation](https://cardsmaker.herokuapp.com/docs/)
@@ -25,7 +25,7 @@ It was funny the way he said but it was true. On the next few weeks, I spent my 
 - Scalability especially to transform to mobile app, I would use React Native.
 - Community support.
 
-## Other Development tools
+## ⚙️ Other Development tools
 - Redux - open-source JavaScript library for managing application state.
 - Redux-saga - Easily make asynchronous calls things like data fetching
 - Bulma - CSS framework based on flexbox and sass
@@ -33,7 +33,7 @@ It was funny the way he said but it was true. On the next few weeks, I spent my 
 - Netlify - Hosting frontend React JS solution
 - Heroku - Hosting Backend Node JS solution
 
-## Source Code: How to Get Started
+## 📟 Source Code: How to Get Started
 - You must have Node installed, Check out on https://nodejs.org/en/download/
 - Clone [this Cards Maker](https://github.com/Nicanor008/cards-maker.git) repo and open the project folder on your favorite IDE or editor.
 - Install dependencies, `yarn` or `npm install` on terminal.
@@ -41,7 +41,7 @@ It was funny the way he said but it was true. On the next few weeks, I spent my 
 - On terminal, run the development environment, `yarn client` or `yarn start`.
 - Open your favorite browser, and run `http://localhost:1234`
 
-## Live Playground
+## 👨🏻‍🚀 Live Playground
 [Frontend](https://cards-maker.netlify.app/create)
 
 ## 📛 Why the name `Cards Maker`
@@ -70,5 +70,13 @@ Generally any event invitation. This include but not limited to:
 - Celebrations - birthdays, graduation, baby shower, job promotion etc
 - Anniversaries
 
-## Code Tutorial
-A simple tutorial of how I created an event card using What you see 
+## 👨🏽‍🏫 👨‍💻 Code Tutorial
+A simple tutorial of how I created an event card:
+- [Project and folder structure Setup](./tutorials/projectSetup.md) - Getting started with React
+- Parcel Bundler Configuration
+- [Product analysis](./tutorials/productAnalysis.,d) Product design, User flow and logic complexity
+- User Authentication
+- Creating event cards
+- View Cards publicly
+- Managing User cards and user details
+- Cards Maker Security

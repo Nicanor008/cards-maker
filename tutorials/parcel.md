@@ -1,0 +1,2 @@
+## Parcel Bunder Configuration
+Parcel is an open [source](https://parceljs.org/) web application bundler. I always choose parcel because of it's speed **Blazing fast bundle times**, that's why i changed the file structure and the scripts.
