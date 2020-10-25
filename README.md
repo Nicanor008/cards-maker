@@ -76,11 +76,13 @@ A simple tutorial of how I created an event card:
 - [Parcel Bundler Configuration](./tutorials/parcel.md)
 - [User Flow](./tutorials/productAnalysis.md)
 - [User Authentication](./tutorials/userAuthentication.md)
-- [Creating event cards]
+- [Creating event cards](./tutorials/cards/createCards.md)
 - [View Cards publicly](./client/src/containers/Cards/cards.js)
 - [Managing User cards and user details](./client/src/containers/Cards/home/index.js)
 - [Search Event Cards]((./client/src/containers/Cards/../../../../../client/src/components/cards/searchCard.js))
 - [Share Event Cards in social media](./client/src/components/cards/shareButton.js)
 
-## Cards Maker Overview Video
+## 💫 Cards Maker Overview Video
 [![Cards Maker Intro](./client/src/images/landingPage.png)](https://youtu.be/GYcoQRYeojI "Cards Maker Intro")
+
+## License
