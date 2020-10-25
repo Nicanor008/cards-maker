@@ -85,4 +85,5 @@ A simple tutorial of how I created an event card:
 ## 💫 Cards Maker Overview Video
 [![Cards Maker Intro](./client/src/images/landingPage.png)](https://youtu.be/GYcoQRYeojI "Cards Maker Intro")
 
-## License
+## ✔️ License
+[MIT license](./LICENSE)
