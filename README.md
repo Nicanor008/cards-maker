@@ -1,4 +1,4 @@
-# Cards Maker Tutorial
+# Cards Maker
 
 ## 🌱 Idea Background
 
@@ -22,7 +22,6 @@ It was funny the way he said but it was true. On the next few weeks, I spent my 
 
 - Node JS - API development
 - React JS - Frontend library
-  > **Why NodeJS?** - I've been using NodeJS for a while on Restful API development. And since I was a sole developer then I had no option. Also, real time communication. [Cards Maker API documentation](https://cardsmaker.herokuapp.com/docs/)
 
 **Why ReactJS?**
 
@@ -40,53 +39,7 @@ It was funny the way he said but it was true. On the next few weeks, I spent my 
 - Netlify - Hosting frontend React JS solution
 - Heroku - Hosting Backend Node JS solution
 
-## 📟 Source Code: How to Get Started
-
-- You must have Node installed, Check out on https://nodejs.org/en/download/
-- Clone [this Cards Maker](https://github.com/Nicanor008/cards-maker.git) repo and open the project folder on your favorite IDE or editor.
-- Install dependencies, `yarn` or `npm install` on terminal.
-- Copy the `.env-example` file to `.env`
-- On terminal, run the development environment, `yarn client` or `yarn start`.
-- Open your favorite browser, and run `http://localhost:1234`
-
-## 👨🏻‍🚀 Live Playground
-
-[Frontend](https://cards-maker.netlify.app/create)
-
-## 📛 Why the name `Cards Maker`
-
-No special reason. Just what came into my mind. The aim of the solution is the make cards just the same any user will create a printed event car. Hence **Cards Maker**
-
-## ⛏️ Problem Statement
-
-Where I've grown, Eldoret, Kenya, whenever there's is an event, we print event card and send one person to go to every individual and give them the card. The long distance relaties can be called via a phone or still a letter has to be sent. Anything can happen, letters get lost or rained on. (Eldoret is highland place, so it's rainy mostly).Some people even forget they were invited to an event because there was no reminder.
-
-## 🛣️ Roadmap
-
-I work on this solution part time, hence the slow releases.
-[Here](https://mm.tt/1476175414?t=P60NyMDd2G) is a list of complete and ongoing features and enhancements. Here is an overview.
-![alt text](./frontend/client/src/images/roadmap.png)
-
-## 🌀 Purpose
-
-You can use Cards Makers to:
-
-- Create and view Event Cards
-- Invite users to read/edit event
-- Share Event cards on social media
-- Download Event cards as image(png/jpg) or pdf
-- Use Template to create event cards
-
-## 🎯 Target Audience
-
-Generally any event invitation. This include but not limited to:
-
-- Pre-Wedding & weddings
-- Celebrations - birthdays, graduation, baby shower, job promotion etc
-- Anniversaries
-
-## 👨🏽‍🏫 👨‍💻 Code Tutorial
-
+## 👨🏽‍🏫 👨‍💻 Documentation
 A simple tutorial of how I created an event card:
 
 - [Project and folder structure Setup](./frontend/tutorials/projectSetup.md) - Getting started with React
@@ -98,6 +51,52 @@ A simple tutorial of how I created an event card:
 - [Managing User cards and user details](./frontend/client/src/containers/Cards/home/index.js)
 - [Search Event Cards](<(./frontend/client/src/containers/Cards/../../../../../client/src/components/cards/searchCard.js)>)
 - [Share Event Cards in social media](./frontend/client/src/components/cards/shareButton.js)
+
+## 📟 Source Code: How to Get Started
+
+- You must have Node installed, at least version 14 onwards, Check out on https://nodejs.org/en/download/
+- Clone [this Cards Maker](https://github.com/Nicanor008/cards-maker.git) repo and open the project folder on your favorite IDE or editor.
+- Install dependencies, `yarn` on terminal.
+- open the frontend and backend in different terminals
+- Copy the `frontend/.env-example` file to `frontend/.env`
+- On frontend terminal, run the development environment, `yarn client` or `yarn start`.
+- Open your favorite browser, and run `http://localhost:1234`
+- on backend terminal, run `yarn dev`
+
+## 👨🏻‍🚀 Live Playground
+
+[Frontend Demo](https://cards-maker.netlify.app/create)
+
+## 📛 Why the name `Cards Maker`
+
+No special reason. Just what came into my mind. The aim of the solution is the make cards just the same any user will create a printed event card. Hence **Cards Maker**
+
+## ⛏️ Problem Statement
+
+Where I grew up, Eldoret, Kenya, whenever there's an event, we print event cards and send one person to go to every individual and give them the card. Long-distance relatives can be called via phone or a letter must be sent. Anything can happen, letters get lost or rained on. (Eldoret is a highland place, so it's mostly rainy). Some people even forget they were invited to an event without a reminder.
+
+## 🛣️ Roadmap
+[Here](https://mm.tt/1476175414?t=P60NyMDd2G) is a list of complete and ongoing features and enhancements. Here is an overview.
+![alt text](./frontend/client/src/images/roadmap.png)
+
+## 🌀 Purpose
+
+You can use Cards Makers to:
+
+- Create and view Event Cards
+- Invite users to read/edit the event
+- Share Event cards on social media
+- Download Event cards as image(png/jpg) or pdf
+- Use a Template to create event cards
+
+## 🎯 Target Audience
+
+Generally any event invitation. This includes but not limited to:
+
+- Pre-wedding & weddings
+- Celebrations - birthdays, graduation, baby shower, job promotion etc
+- Anniversaries
+
 
 ## 💫 Cards Maker Overview Video
 
